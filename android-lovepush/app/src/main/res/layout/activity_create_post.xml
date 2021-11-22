@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/tool_back_login" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_12dp">
+
+            <LinearLayout style="@style/edit_layout">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/titleTV"
+                    style="@style/edit_text"
+                    android:hint="@string/title"
+                    android:maxLength="100"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+
+            <LinearLayout style="@style/edit_layout">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/descriptionTV"
+                    style="@style/edit_text_multi"
+                    android:hint="@string/description" />
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/imageLL"
+                style="@style/edit_layout"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dimen_12dp"
+                    android:src="@drawable/attach" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/edit_text"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/imageTV"
+                    android:hint="@string/add_image"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imageIV"
+                    android:layout_width="@dimen/dimen_45dp"
+                    android:layout_height="@dimen/dimen_45dp"
+                    android:layout_marginRight="@dimen/dimen_12dp"
+                    android:padding="@dimen/dimen_4dp"
+                    android:src="@drawable/image" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/edit_layout"
+                android:visibility="gone"
+                android:background="@null">
+
+                <LinearLayout
+                    android:id="@+id/postAnonyLL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/dimen_8dp"
+                    android:paddingBottom="@dimen/dimen_8dp">
+
+                    <ImageView
+                        android:id="@+id/postAnonyIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/toogle_unactive" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimen_8dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:singleLine="true"
+                        android:text="@string/post_anony"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_16pixels" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/postTV"
+                style="@style/bg_button"
+                android:layout_marginTop="@dimen/dimen_30dp"
+                android:layout_marginBottom="@dimen/dimen_100dp"
+                android:text="@string/post" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

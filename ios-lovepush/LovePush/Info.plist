@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>LovePush</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.5</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb335123460506490</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.78223436660-cc2510uiok186a9s7qtho2b5bp0n2u10</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleVersion</key>
+	<string>3.5</string>
+	<key>FacebookAppID</key>
+	<string>335123460506490</string>
+	<key>FacebookDisplayName</key>
+	<string>Love Push</string>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
+	<key>Instagram</key>
+	<string>We needs to access instagram user information to login in app.</string>
+	<key>InstagramAppClientId</key>
+	<string>a7a17573890441b4bd47def27abfe6e2</string>
+	<key>InstagramAppRedirectURL</key>
+	<string>https://www.love-push.com/</string>
+	<key>LSApplicationCategoryType</key>
+	<array>
+		<string></string>
+	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fbapi20130214</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+		<string>instagram</string>
+		<string>googlechromes</string>
+		<string>comgooglemaps</string>
+		<string>com.googleusercontent.apps.78892879787-5skh2344ru67djc9ufc7thirov0fgirb</string>
+	</array>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>App needs to access the camera to capture the photo for posts, ads and many other features.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>App needs to access location for showing nearby users and post.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>App needs to access location for showing nearby users and post.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>App needs to access location for showing nearby users and post.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>App needs to access microphone for audio and video call.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>App needs to access the photo library to take the photo for posts, ads and many other features.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Roboto-Bold.ttf</string>
+		<string>Roboto-Medium.ttf</string>
+		<string>Roboto-Regular.ttf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+		<string>fetch</string>
+		<string>remote-notification</string>
+		<string>voip</string>
+	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UIRequiresFullScreen</key>
+	<true/>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+</dict>
+</plist>

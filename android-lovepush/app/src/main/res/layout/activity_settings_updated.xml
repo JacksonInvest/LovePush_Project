@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/tool_back_login" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <LinearLayout style="@style/menuLL">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/menu_TV"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/set_language" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/menu_TV"
+                        android:id="@+id/change_languageTV"
+                        android:layout_gravity="center|right"
+                        android:paddingRight="@dimen/dimen_8dp"
+                        android:text="@string/english"
+                        android:textColor="@color/blue" />
+
+                    <ImageView
+                        style="@style/menu_IV"
+                        android:layout_gravity="center|right"
+                        android:src="@drawable/arrow_next" />
+                </LinearLayout>
+
+                <View style="@style/cus_view" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/membershiptLL"
+                style="@style/menuLL">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/menu_TV"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/membership" />
+
+                <ImageView
+                    style="@style/menu_IV"
+                    android:layout_gravity="center|right"
+                    android:src="@drawable/arrow_next" />
+            </LinearLayout>
+
+            <View style="@style/cus_view" />
+
+
+            <LinearLayout style="@style/menuLL">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/menu_TV"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/notification" />
+
+                <ImageView
+                    android:id="@+id/notification_toggleIV"
+                    style="@style/menu_IV"
+                    android:layout_gravity="center|right"
+                    android:src="@drawable/toogle_unactive" />
+            </LinearLayout>
+
+            <View style="@style/cus_view" />
+
+            <LinearLayout
+                android:visibility="gone"
+                style="@style/menuLL">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/menu_TV"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/receive_chat_request" />
+
+                <ImageView
+                    android:id="@+id/receove_chat_req_ll_toggleIV"
+                    style="@style/menu_IV"
+                    android:layout_gravity="center|right"
+                    android:src="@drawable/toogle_unactive" />
+            </LinearLayout>
+
+
+            <View style="@style/cus_view" />
+
+            <LinearLayout style="@style/menuLL">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/menu_TV"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/receive_love_request" />
+
+                <ImageView
+                    android:id="@+id/receive_love_req_tog_IV"
+                    style="@style/menu_IV"
+                    android:layout_gravity="center|right"
+                    android:src="@drawable/toogle_unactive" />
+            </LinearLayout>
+
+            <View style="@style/cus_view" />
+
+            <LinearLayout style="@style/menuLL">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/menu_TV"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/hide_me_from_search" />
+
+                <ImageView
+                    android:id="@+id/hidehome_toggleIV"
+                    style="@style/menu_IV"
+                    android:layout_gravity="center|right"
+                    android:src="@drawable/toogle_unactive" />
+            </LinearLayout>
+
+
+            <View
+                style="@style/cus_view"
+                android:visibility="gone" />
+
+
+            <LinearLayout
+                android:id="@+id/filterLL"
+                style="@style/menuLL"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/menu_TV"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/filter" />
+
+                <ImageView
+                    style="@style/menu_IV"
+                    android:layout_gravity="center|right"
+                    android:src="@drawable/arrow_next" />
+            </LinearLayout>
+
+            <View style="@style/cus_view" />
+
+            <LinearLayout
+                android:id="@+id/changePassLL"
+                style="@style/menuLL">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/menu_TV"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/change_pass" />
+
+                <ImageView
+                    style="@style/menu_IV"
+                    android:layout_gravity="center|right"
+                    android:src="@drawable/arrow_next" />
+            </LinearLayout>
+
+            <View
+                style="@style/cus_view"
+                android:visibility="gone" />
+
+            <LinearLayout
+                style="@style/menuLL"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/menu_TV"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/partner_preferences" />
+
+                <ImageView
+                    style="@style/menu_IV"
+                    android:layout_gravity="center|right"
+                    android:src="@drawable/arrow_next" />
+            </LinearLayout>
+
+            <View
+                style="@style/cus_view"
+                android:visibility="gone" />
+
+            <LinearLayout
+                style="@style/menuLL"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/menu_TV"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/current_sub_plan" />
+
+                <ImageView
+                    style="@style/menu_IV"
+                    android:layout_gravity="center|right"
+                    android:src="@drawable/arrow_next" />
+            </LinearLayout>
+
+            <View style="@style/cus_view" />
+
+            <LinearLayout
+                android:id="@+id/lovePushGuideLL"
+                style="@style/menuLL">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/menu_TV"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/community_guide" />
+
+                <ImageView
+                    style="@style/menu_IV"
+                    android:layout_gravity="center|right"
+                    android:src="@drawable/arrow_next" />
+            </LinearLayout>
+
+            <View style="@style/cus_view" />
+
+            <LinearLayout
+                android:id="@+id/privacyPolicyLL"
+                style="@style/menuLL">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/menu_TV"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/privacy_setting" />
+
+                <ImageView
+                    style="@style/menu_IV"
+                    android:layout_gravity="center|right"
+                    android:src="@drawable/arrow_next" />
+            </LinearLayout>
+
+
+            <View style="@style/cus_view" />
+
+
+            <LinearLayout
+                android:id="@+id/helpSupportLL"
+                style="@style/menuLL">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/menu_TV"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/support" />
+
+                <ImageView
+                    style="@style/menu_IV"
+                    android:layout_gravity="center|right"
+                    android:src="@drawable/arrow_next" />
+            </LinearLayout>
+
+            <View style="@style/cus_view" />
+
+
+            <LinearLayout
+                android:id="@+id/deleteAccountLL"
+                style="@style/menuLL">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/menu_TV"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/deleteAccount" />
+
+                <ImageView
+                    style="@style/menu_IV"
+                    android:layout_gravity="center|right"
+                    android:src="@drawable/arrow_next" />
+            </LinearLayout>
+
+            <View style="@style/cus_view" />
+
+
+            <LinearLayout
+                style="@style/menuLL"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/menu_TV"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/rest_face" />
+
+                <ImageView
+                    style="@style/menu_IV"
+                    android:layout_gravity="center|right"
+                    android:src="@drawable/toogle_active" />
+            </LinearLayout>
+
+
+            <View style="@style/cus_view" />
+
+
+            <LinearLayout
+                style="@style/menuLL"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/menu_TV"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/stop_private_message" />
+
+                <ImageView
+                    style="@style/menu_IV"
+                    android:layout_gravity="center|right"
+                    android:src="@drawable/toogle_active" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

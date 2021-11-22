@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/edit_root"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <include layout="@layout/tool_back_without_login" />
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/dimen_4dp"
+            android:orientation="vertical">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileIV"
+                android:layout_width="@dimen/dimen_120dp"
+                android:layout_height="@dimen/dimen_120dp"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/dimen_8dp"
+                app:civ_border_width="1.5dp"
+                app:civ_border_color="@color/grey"
+                android:src="@drawable/placeholder_male_square" />
+
+
+            <LinearLayout
+                android:id="@+id/addImagesLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:padding="@dimen/dimen_8dp"
+                    android:text="@string/images2"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/text_16pixels"
+                    app:textAllCaps="true" />
+
+                <ImageView
+                    android:layout_width="@dimen/dimen_50dp"
+                    android:layout_height="@dimen/dimen_50dp"
+                    android:padding="@dimen/dimen_6dp"
+                    android:rotation="45"
+                    android:src="@drawable/remove_circle" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:nestedScrollingEnabled="false"
+                    android:id="@+id/profileimages_RV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/imagesRV"
+                    android:nestedScrollingEnabled="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:scrollbars="none"
+                android:layout_width="wrap_content"
+                android:nestedScrollingEnabled="true"
+                android:layout_height="wrap_content">
+
+
+
+
+            </HorizontalScrollView>
+
+
+            <LinearLayout style="@style/edit_layout">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/usernameET"
+                    style="@style/edit_text"
+                    android:editable="false"
+                    android:hint="@string/username"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/edit_layout">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/nameET"
+                    style="@style/edit_text"
+                    android:hint="@string/name"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+            </LinearLayout>
+            <LinearLayout style="@style/edit_layout">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/ageET"
+                    style="@style/edit_text"
+                    android:drawableRight="@drawable/ic_calendar"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="@string/select_dob"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/edit_layout">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/lovePushET"
+                    android:drawableRight="@drawable/arrow_down"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    style="@style/edit_text"
+                    android:hint="@string/select_love_push_intension"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/edit_layout">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/relationShipET"
+                    style="@style/edit_text"
+                    android:drawableRight="@drawable/arrow_down"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="@string/select_relationship"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                style="@style/edit_layout"
+                android:background="@null"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/edit_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dimen_16dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:text="@string/sexual_orientation" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/heteroSexualLL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="@dimen/dimen_16dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/heteroSexualIV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/radio_unfilled" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+
+                            style="@style/edit_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/heterosexual" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/biSexualLL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/biSexualIV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/radio_unfilled" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+
+                            style="@style/edit_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/bisexual" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/homeSexualLL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="@dimen/dimen_16dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/homeSexualIV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/radio_unfilled" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/edit_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/homosexual" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout style="@style/edit_layout">
+
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:visibility="visible"
+                    android:id="@+id/languageET"
+                    style="@style/edit_text"
+                    android:hint="@string/languages"
+                  android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:visibility="gone"
+                style="@style/edit_layout">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/sizeET"
+                    style="@style/edit_text"
+                    android:hint="@string/size"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                style="@style/edit_layout">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/physiqueET"
+                    style="@style/edit_text"
+                    android:drawableRight="@drawable/arrow_down"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="@string/physique"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/edit_layout"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/addressET"
+                    style="@style/edit_text"
+                    android:drawableEnd="@drawable/gps"
+                    android:gravity="center_vertical"
+                    android:hint="@string/address"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:drawableRight="@drawable/gps" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    style="@style/edit_layout"
+                    android:layout_width="0dp"
+                    android:layout_weight="1">
+
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/eyeColorET"
+                        style="@style/edit_text"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:hint="@string/eye_color"
+                        android:imeOptions="actionNext"
+                        android:inputType="text" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/edit_layout"
+                    android:layout_width="0dp"
+                    android:layout_weight="1">
+
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/hairColorET"
+                        style="@style/edit_text"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:hint="@string/hair_color"
+                        android:imeOptions="actionNext"
+                        android:inputType="text" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/edit_layout">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/educationET"
+                    style="@style/edit_text"
+                    android:hint="@string/fvrt"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/edit_layout">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/jobEmployerET"
+                    style="@style/edit_text"
+                    android:hint="@string/job_emp"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/edit_layout">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/hobbiesET"
+                    style="@style/edit_text"
+                    android:hint="@string/hobbies"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+            </LinearLayout>
+            <LinearLayout
+                style="@style/edit_layout"
+                android:background="@null"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/edit_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dimen_16dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:text="@string/gender" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/maleLL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="@dimen/dimen_16dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/maleIV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/radio_unfilled" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+
+                            style="@style/edit_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/male" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/femaleLL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/femaleIV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/radio_unfilled" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+
+                            style="@style/edit_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/female" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/transGenderLL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="@dimen/dimen_16dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/transGenderIV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/radio_unfilled" />
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+
+                            style="@style/edit_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/transgender" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+
+
+
+            <LinearLayout style="@style/edit_layout">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/aboutUsET"
+                    style="@style/edit_text_multi"
+
+                    android:hint="@string/about_me" />
+
+            </LinearLayout>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/submitTV"
+                style="@style/bg_button"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:layout_marginBottom="@dimen/dimen_100dp"
+                android:text="@string/submit" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+
+    <!--
+    <?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="170dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/black_light" />
+
+                    <RelativeLayout
+                        android:id="@+id/tool"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/backIV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:padding="@dimen/dimen_15dp"
+                            android:src="@drawable/back_arrow" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/screenTitleTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center"
+                            android:drawableStart="@drawable/logo_sm"
+                            android:drawablePadding="@dimen/dimen_5dp"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:padding="@dimen/dimen_5dp"
+                            android:text="@string/profile"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_20pixels" />
+
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/infoLL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/profileIV"
+                            android:layout_width="@dimen/dimen_100dp"
+                            android:layout_height="@dimen/dimen_120dp"
+                            android:layout_gravity="center"
+                            android:paddingLeft="@dimen/dimen_8dp"
+                            android:paddingTop="@dimen/dimen_8dp"
+
+                            android:src="@drawable/profile_bg" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical"
+                            android:padding="@dimen/dimen_8dp">
+
+                            <android.support.v7.widget.AppCompatEditText
+                                android:id="@+id/nameTV"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@null"
+                                android:hint="@string/app_name"
+                                android:singleLine="true"
+                                android:textColor="@color/white"
+                                android:textColorHint="@color/white"
+                                android:textSize="@dimen/text_16pixels"
+                                app:fontFamily="@font/roboto_light" />
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/emailTV"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true"
+                                android:text="@string/dummy_short"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_14pixels"
+                                app:fontFamily="@font/roboto_light" />
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/phoneTV"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true"
+                                android:text="@string/dummy_short"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_14pixels"
+                                app:fontFamily="@font/roboto_light" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/addImagesLL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:padding="@dimen/dimen_8dp"
+                        android:text="@string/images"
+                        android:textColor="@color/text_black"
+                        android:textSize="@dimen/text_16pixels"
+                        app:textAllCaps="true" />
+
+                    <ImageView
+                        android:layout_width="@dimen/dimen_50dp"
+                        android:layout_height="@dimen/dimen_50dp"
+                        android:padding="@dimen/dimen_10dp"
+                        android:rotation="45"
+                        android:src="@drawable/remove_circle" />
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/imagesRV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:padding="@dimen/dimen_8dp"
+                    android:text="@string/bio"
+                    android:textColor="@color/text_black"
+                    android:textSize="@dimen/text_16pixels"
+                    app:textAllCaps="true" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/bioTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/write_here"
+                    android:paddingLeft="@dimen/dimen_8dp"
+                    android:paddingRight="@dimen/dimen_8dp"
+                    android:textColor="@color/black_light"
+                    android:textSize="@dimen/text_16pixels" />
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>-->

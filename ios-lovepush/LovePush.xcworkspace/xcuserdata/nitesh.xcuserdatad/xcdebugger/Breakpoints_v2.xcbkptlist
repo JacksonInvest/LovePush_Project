@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "270E45F0-E1BB-401D-98E6-517426832DC0"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "05BCF562-FC04-4EDC-B766-0FF241962297"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LovePush/Controller/Login/Login+API.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
+            landmarkName = "completeSocialProfilePopup(_:userData:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E6F28633-E0FE-44A9-807D-954B71DD341F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LovePush/Controller/CreateProfile/CreateProfileVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "578"
+            endingLineNumber = "578"
+            landmarkName = "imagePickerController(_:didFinishPickingMediaWithInfo:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E6F28633-E0FE-44A9-807D-954B71DD341F - a1eeb528bbdbc7d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LovePush.CreateProfileVC.imagePickerController(_: __C.UIImagePickerController, didFinishPickingMediaWithInfo: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
+                  moduleName = "LovePush"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nitesh/Desktop/Xicom%20Projects/Love%20Push/lovepush/LovePush/Controller/CreateProfile/CreateProfileVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "576"
+                  endingLineNumber = "576"
+                  offsetFromSymbolStart = "623">
+               </Location>
+               <Location
+                  uuid = "E6F28633-E0FE-44A9-807D-954B71DD341F - 2f40e21691231a1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in LovePush.CreateProfileVC.imagePickerController(_: __C.UIImagePickerController, didFinishPickingMediaWithInfo: Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; ()"
+                  moduleName = "LovePush"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nitesh/Desktop/Xicom%20Projects/Love%20Push/lovepush/LovePush/Controller/CreateProfile/CreateProfileVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "576"
+                  endingLineNumber = "576"
+                  offsetFromSymbolStart = "773">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0780558C-075E-435F-897B-E0B04E158F38"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LovePush/Controller/CreateProfile/CreateProfileVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "535"
+            endingLineNumber = "535"
+            landmarkName = "photoLibrary()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "19EC7F56-D425-4E76-A373-6480C5569EA5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LovePush/Controller/CreateProfile/CreateProfileVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "547"
+            endingLineNumber = "547"
+            landmarkName = "photoLibrary()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B4428A2D-6E0A-457A-A4FD-3E09509F2BBB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LovePush/Controller/CreateProfile/CreateProfileVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "421"
+            endingLineNumber = "421"
+            landmarkName = "createProfileRequest()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0F610C34-9DAA-4B14-98BC-F99739130942"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LovePush/Controller/CreateProfile/CreateProfileVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "420"
+            endingLineNumber = "420"
+            landmarkName = "createProfileRequest()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

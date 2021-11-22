@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/tool_back_edit_delete" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/root_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/dimen_4dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_12dp"
+                    android:layout_marginTop="@dimen/dimen_4dp"
+                    android:layout_marginRight="@dimen/dimen_12dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/dimen_12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/postedByImg"
+                                android:layout_width="@dimen/dimen_80dp"
+                                android:layout_height="@dimen/dimen_80dp"
+                                android:paddingLeft="@dimen/dimen_8dp"
+                                android:paddingTop="@dimen/dimen_8dp"
+                                android:paddingBottom="@dimen/dimen_8dp"
+                                android:src="@drawable/profile_pic"
+                                app:civ_border_color="@color/grey"
+                                app:civ_border_width="1.5dp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:orientation="vertical"
+                                android:padding="@dimen/dimen_8dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/postedByName"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/roboto_light"
+                                        android:singleLine="true"
+                                        android:text="@string/app_name"
+                                        android:textColor="@color/text_black"
+                                        android:textSize="@dimen/text_16pixels" />
+
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/postedTimeTV"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/roboto_light"
+                                        android:singleLine="true"
+                                        android:text="@string/dummy_date"
+                                        android:textColor="@color/black_light"
+                                        android:textSize="@dimen/text_12pixels" />
+                                </LinearLayout>
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/postLocationTV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto_light"
+                                    android:singleLine="false"
+                                    android:text="@string/dummy"
+                                    android:textColor="@color/black_light"
+                                    android:textSize="@dimen/text_14pixels" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/postIV"
+                                android:layout_width="match_parent"
+                                android:layout_height="380dp"
+                                android:background="@drawable/post_bg"
+                                android:scaleType="fitXY" />
+
+
+                            <ImageView
+                                android:id="@+id/chatIV"
+                                android:padding="@dimen/dimen_10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginBottom="@dimen/dimen_10dp"
+                                android:src="@drawable/chat_home" />
+
+
+                        </RelativeLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dimen_16dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/dimen_6dp"
+                            android:paddingRight="@dimen/dimen_6dp">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/postTitleTV"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/dimen_4dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/roboto_light"
+                                android:maxLines="2"
+                                android:singleLine="false"
+                                android:text="@string/app_name"
+                                android:textColor="@color/text_black"
+                                android:textSize="@dimen/text_16pixels"
+                                android:textStyle="bold" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/postTypeTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_button_small"
+                                android:fontFamily="@font/roboto_light"
+                                android:padding="@dimen/dimen_4dp"
+                                android:singleLine="true"
+                                android:text="@string/connect_ad"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_12pixels" />
+                        </LinearLayout>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/postedDesTV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_light"
+                            android:padding="@dimen/dimen_4dp"
+                            android:text="@string/dummy_mid"
+                            android:textColor="@color/black_light"
+                            android:textSize="@dimen/text_14pixels" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

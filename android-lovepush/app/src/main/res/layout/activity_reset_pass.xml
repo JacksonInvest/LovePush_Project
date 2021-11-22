@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/tool_back_without_login" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/dimen_50dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/dimen_8dp"
+                android:src="@drawable/logo_img" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/roboto_regular"
+                android:padding="@dimen/dimen_8dp"
+                android:text="@string/reset_pass"
+                android:textColor="@color/text_black" />
+
+
+            <LinearLayout style="@style/edit_layout">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/passwordET"
+                    style="@style/edit_text"
+                    android:drawableStart="@drawable/password"
+                    android:hint="@string/password"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/edit_layout">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/confirmPassET"
+                    style="@style/edit_text"
+                    android:drawableStart="@drawable/password"
+                    android:hint="@string/conf_pass"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword" />
+
+            </LinearLayout>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/submitBTN"
+                style="@style/bg_button"
+                android:layout_marginTop="@dimen/dimen_16dp"
+
+                android:text="@string/submit" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

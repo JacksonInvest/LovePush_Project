@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.lovepushapp">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="com.vehiMain.permission.C2D_MESSAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- <uses-permission android:name="android.permission.WRITE_SETTINGS" /> -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="com.quickblox.sample.messages.permission.C2D_MESSAGE" />
+    <application
+        android:name="com.lovepushapp.core.MyApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name="com.lovepushapp.activities.DeleteAccount"></activity>
+        <activity android:name="com.lovepushapp.activities.TermsCondition" />
+        <activity android:name="com.lovepushapp.activities.memberShipActivity" />
+        <activity android:name="com.lovepushapp.activities.commisionsActivity" />
+        <activity android:name="com.lovepushapp.activities.withdrawalActivity" />
+        <activity android:name="com.lovepushapp.activities.tipsMediaActivity" />
+        <activity android:name="com.lovepushapp.activities.SupportActivity" />
+        <activity android:name="com.lovepushapp.activities.PreviewActivity" />
+        <activity android:name="com.lovepushapp.referral.myTeamActivity" />
+        <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity android:name="com.lovepushapp.activities.ExploreFilterActivity" />
+        <activity android:name="com.lovepushapp.activities.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.lovepushapp.fragments.ProfileActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.PersonalityTestActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.FilterSettingsActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.quickBloxTest.ui.activity.AttachmentImageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Dark" />
+        <activity
+            android:name="com.lovepushapp.activities.ProfileOtherActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.ProfileEditActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.PostAdsActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.LoginActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.qbLoginActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.videoTestJava.activities.PermissionsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.lovepushapp.activities.RegisterActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.ForgotPassActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.OtpVerifyActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.ResetPassActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.SettingsActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.ChangePassActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.DashboardActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.CreateProfileActivity"
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.AddFeedListingActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.RecommendedProfileActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.singleHomePostView"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.singleUserPostView"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.singlePostAdView"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.myAddFeedListingActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.createPostActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.faqActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.referral.referralCodeActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.matchList.myMatchRequests"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.matchList.myMatchListActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.searchUsersActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.updatePostAdsActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.updateHomePostActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.FullImage"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.userTipsPdfFullPreview"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.lovepushapp.activities.FilterPstAdActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDKaLb2A7e2vLj_Et2ygrssRVuGwRHxKSA" />
+
+        <!-- <meta-data
+                    android:name="com.google.android.geo.API_KEY"
+                    android:value="AIzaSyCaE4oK0Vx4BjA5hdd31GjlYp5EB9httjs" />-->
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="cdaa8a3504cadf6ac598198ce8b9b3f384e66988" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/logo_img"
+            android:value="@color/red" />
+
+        <activity
+            android:name="com.lovepushapp.quickBloxTest.ui.activity.ChatActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ChatActivityTheme"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="com.lovepushapp.activities.matchedSuccessActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
+
+        <!--
+ <service
+             android:name=".gcm.GcmPushListenerService"
+             android:exported="false">
+             <intent-filter>
+                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+             </intent-filter>
+         </service>
+        -->
+        <!-- <service
+             android:name=".gcm.GcmPushListenerService"
+             android:exported="false">
+             <intent-filter>
+                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+             </intent-filter>
+         </service>-->
+
+        <service
+            android:name="com.quickblox.messages.services.gcm.QBGcmPushInstanceIDService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.lovepush" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <service android:name="com.lovepushapp.quickBloxTest.fcm.PushListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name="com.quickblox.messages.services.fcm.QBFcmPushInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!--  <service android:name=".quickBloxTest.fcm.NotificationClassChecker">
+              <intent-filter>
+                  <action android:name="com.google.firebase.MESSAGING_EVENT" />
+              </intent-filter>
+          </service>-->
+
+
+        <meta-data
+            android:name="com.quickblox.messages.TYPE"
+            android:value="FCM" />
+        <meta-data
+            android:name="com.quickblox.messages.SENDER_ID"
+            android:value="@string/sender_id" />
+        <meta-data
+            android:name="com.quickblox.messages.QB_ENVIRONMENT"
+            android:value="PRODUCTION"/>
+            <!--android:value="DEVELOPMENT"-->
+
+
+
+
+        <service android:name="com.quickblox.messages.services.fcm.QBFcmPushListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <service android:name="com.quickblox.messages.services.fcm.QBFcmPushInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="com.lovepushapp.videoTestJava.activities.CallActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/BaseAppTheme" />
+        <!--
+ <activity
+            android:name=".quickBloxKotinCall.activities.OpponentsActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        -->
+        <service android:name="com.lovepushapp.videoTestJava.services.LoginService" />
+        <service android:name="com.lovepushapp.videoTestJava.services.CallService" />
+    </application>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+</manifest>

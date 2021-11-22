@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/match_bg"
+    android:orientation="vertical"
+    android:gravity="center">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="@dimen/dimen_30dp"
+        >
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="It's a Match"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            app:fontFamily="@font/roboto_regular"
+            android:textSize="@dimen/text_26pixels" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+           android:layout_marginTop="@dimen/dimen_35dp">
+
+            <ImageView
+                android:layout_width="@dimen/dimen_50dp"
+                android:layout_height="@dimen/dimen_50dp"
+                android:layout_marginLeft="@dimen/dimen_4dp"
+                android:layout_gravity="center"
+                android:padding="@dimen/dimen_5dp"
+                android:src="@drawable/logo_img" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_light"
+                    android:singleLine="true"
+                    android:text="Date"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_18pixels" />
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_light"
+            android:singleLine="true"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:text="You both like each other"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_20pixels" />
+        <View android:layout_height="1dp"
+            android:layout_width="250dp"
+            android:layout_marginTop="@dimen/dimen_16dp"
+            android:background="@color/dark_gray"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/dimen_30dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="@dimen/dimen_110dp"
+                android:layout_height="@dimen/dimen_110dp"
+                android:layout_marginLeft="@dimen/dimen_4dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:id="@+id/userIV1"
+                android:padding="@dimen/dimen_5dp"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="1.5dp"
+                android:src="@drawable/placeholder_male_square" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/userIV2"
+                android:layout_width="@dimen/dimen_110dp"
+                android:layout_height="@dimen/dimen_110dp"
+                android:layout_marginLeft="@dimen/dimen_4dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+
+                android:padding="@dimen/dimen_5dp"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="1.5dp"
+                android:src="@drawable/placeholder_male_square" />
+
+
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_light"
+            android:singleLine="true"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:text="You can start chat now"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16pixels" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/chatNowBtn"
+            style="@style/bg_button"
+            android:text="@string/chat_now" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/dimen_26dp"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0.5dp"
+                android:layout_marginStart="22dp"
+                android:layout_weight="1"
+                android:background="@color/dark_gray"
+                android:layout_marginLeft="22dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_15dp"
+                android:layout_marginRight="@dimen/dimen_15dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/dark_gray"
+                android:text="OR"
+                android:textAllCaps="true" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0.5dp"
+                android:layout_marginEnd="22dp"
+                android:layout_weight="1"
+                android:background="@color/dark_gray"
+                android:layout_marginRight="22dp" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/bg_button_later"
+            android:id="@+id/laterBtn"
+            android:text="@string/later" />
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

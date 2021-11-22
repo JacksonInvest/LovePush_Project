@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@android:color/white"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rootLAyout"
+        android:orientation="vertical">
+
+        <include layout="@layout/tool_back_login" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/dimen_8dp"
+            android:paddingRight="@dimen/dimen_8dp"
+            android:paddingLeft="@dimen/dimen_8dp"
+            android:singleLine="true"
+            android:text="@string/freq_asked_qus"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/text_16pixels"
+            app:fontFamily="@font/roboto_light" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View style="@style/cus_view"
+            android:layout_gravity="bottom"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_8dp"
+            android:singleLine="true"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:gravity="center"
+            android:id="@+id/noDataFoundTV"
+            android:layout_gravity="center"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/text_14pixels"
+            app:fontFamily="@font/roboto_light" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

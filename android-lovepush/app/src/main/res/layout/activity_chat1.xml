@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_view"
+    xmlns:emojicon="http://schemas.android.com/apk/res-auto"
+    style="@style/MatchParent"
+    tools:ignore="RtlHardcoded">
+
+    <include
+        android:visibility="visible"
+        layout="@layout/tool_back_login_chat" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_chat_messages"
+        style="@style/MatchParent"
+        android:layout_marginTop="@dimen/dimen_55dp"
+        android:layout_above="@+id/layout_attachment_preview_container"
+        android:listSelector="@android:color/transparent" />
+
+    <ProgressBar
+        android:id="@+id/progress_chat"
+        style="@style/CenterProgressBarStyle" />
+
+    <LinearLayout
+        android:id="@+id/layout_attachment_preview_container"
+        style="@style/MatchWidth"
+        android:layout_height="96dp"
+        android:layout_above="@+id/layout_chat_send_container"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <View style="@style/HorizontalDividerStyle" />
+
+        <com.lovepushapp.quickBloxTest.ui.widget.AttachmentPreviewAdapterView
+            android:id="@+id/adapter_view_attachment_preview"
+            style="@style/MatchWidth" />
+    </LinearLayout>
+
+    <View
+        style="@style/HorizontalDividerStyle"
+        android:layout_above="@+id/layout_chat_send_container" />
+
+    <LinearLayout
+        android:id="@+id/layout_chat_send_container"
+        style="@style/MatchWidth"
+        android:layout_alignParentBottom="true"
+        android:background="@color/cardview_light_background"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="This user has blocked you!"
+            android:textAlignment="center"
+            android:textColor="@color/red"
+            android:id="@+id/txtBlocked"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/emoji_btn"
+            android:layout_width="@dimen/dimen_40dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:paddingTop="@dimen/dimen_15dp"
+            android:paddingBottom="@dimen/dimen_10dp"
+            android:layout_marginBottom="@dimen/dimen_2dp"
+            android:src="@drawable/smile" />
+
+        <ImageButton
+            style="@style/BorderlessImageButtonStyle"
+            android:layout_gravity="center_vertical"
+            android:onClick="onAttachmentsClick"
+            android:src="@drawable/ic_action_attachment" />
+
+        <hani.momanii.supernova_emoji_library.Helper.EmojiconEditText
+            android:id="@+id/edit_chat_message"
+            style="@style/WeightWidth"
+            android:layout_height="match_parent"
+            android:hint="@string/chat_edit_text_hint"
+            android:background="@null"
+            android:paddingLeft="@dimen/dimen_6dp"
+            android:imeOptions="actionSend"
+            android:inputType="text"
+            emojicon:emojiconSize="28sp"
+            android:maxLength="1024" />
+
+        <com.lovepushapp.quickBloxTest.utils.recorder.view.QBRecordAudioButton
+            android:id="@+id/button_chat_record_audio"
+            style="@style/BorderlessImageButtonStyle"
+            android:layout_gravity="center_vertical"
+            android:src="@android:drawable/ic_btn_speak_now"
+            android:text="@string/chat_send" />
+        <ImageButton
+            style="@style/BorderlessImageButtonStyle"
+            android:layout_gravity="center_vertical"
+            android:onClick="onSendChatClick"
+            android:src="@drawable/ic_send"
+            android:text="@string/chat_send" />
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout_chat_audio_container"
+        style="@style/MatchWidth"
+        android:layout_alignParentBottom="true"
+        android:background="@color/text_color_white"
+        android:orientation="horizontal"
+        android:visibility="invisible">
+
+        <ImageView
+            android:id="@+id/chat_audio_record_bucket_imageview"
+            style="@style/BorderlessImageButtonStyle"
+            android:layout_gravity="center_vertical"
+            android:src="@android:drawable/ic_menu_delete" />
+
+        <Chronometer
+            android:id="@+id/chat_audio_record_chronometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/chat_audio_record_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingLeft="@dimen/padding_big"
+            android:text="Slide to cancel"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!--<domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">www.love-push.com</domain>
+    </domain-config>-->
+<!--    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">14.141.175.109</domain>
+    </domain-config>-->
+
+    <domain-config cleartextTrafficPermitted="true">
+
+        <domain includeSubdomains="true">lovepush.alcax.com</domain>
+    </domain-config>
+</network-security-config>

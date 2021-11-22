@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="KolodaViewCustom" customModule="LovePush" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O3R-oe-bR1" customClass="UIViewCustomClass" customModule="LovePush" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testPlaceholder4" translatesAutoresizingMaskIntoConstraints="NO" id="SY2-KT-1lv">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="577"/>
+                        </imageView>
+                        <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1hB-hS-T2L">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="577"/>
+                        </scrollView>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="tRr-os-UDw">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="577"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="ZFu-Eu-LfB">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EkW-Dp-HHr">
+                            <rect key="frame" x="18" y="25" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="eJz-Jj-1W0"/>
+                                <constraint firstAttribute="height" constant="30" id="zfK-6b-Ue4"/>
+                            </constraints>
+                            <state key="normal" image="left-arrow"/>
+                            <connections>
+                                <action selector="leftScrollButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="YmJ-7P-JPB"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YqQ-OV-h00">
+                            <rect key="frame" x="327" y="25" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="F7y-ML-WlD"/>
+                                <constraint firstAttribute="width" constant="30" id="TQP-gd-cby"/>
+                            </constraints>
+                            <state key="normal" image="right-arrow"/>
+                            <connections>
+                                <action selector="rightScrollButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ign-L6-St6"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kyle, 21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZY-p9-sVI">
+                            <rect key="frame" x="12" y="592" width="351" height="20"/>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Office Manager @Hinge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qg-4V-I1E">
+                            <rect key="frame" x="12" y="616" width="351" height="15.5"/>
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="13"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="1hB-hS-T2L" firstAttribute="top" secondItem="O3R-oe-bR1" secondAttribute="top" id="51E-ZN-FGL"/>
+                        <constraint firstItem="tRr-os-UDw" firstAttribute="leading" secondItem="SY2-KT-1lv" secondAttribute="leading" id="7WA-YL-YRW"/>
+                        <constraint firstAttribute="bottom" secondItem="SY2-KT-1lv" secondAttribute="bottom" constant="70" id="8Va-ju-D4Y"/>
+                        <constraint firstItem="0qg-4V-I1E" firstAttribute="leading" secondItem="oZY-p9-sVI" secondAttribute="leading" id="8ts-91-mHK"/>
+                        <constraint firstItem="oZY-p9-sVI" firstAttribute="top" secondItem="1hB-hS-T2L" secondAttribute="bottom" constant="15" id="BNQ-WP-54O"/>
+                        <constraint firstAttribute="trailing" secondItem="SY2-KT-1lv" secondAttribute="trailing" id="Djh-os-RPu"/>
+                        <constraint firstAttribute="trailing" secondItem="oZY-p9-sVI" secondAttribute="trailing" constant="12" id="Enu-Rd-N2F"/>
+                        <constraint firstItem="EkW-Dp-HHr" firstAttribute="top" secondItem="O3R-oe-bR1" secondAttribute="top" constant="25" id="FaX-iS-KQq"/>
+                        <constraint firstItem="tRr-os-UDw" firstAttribute="trailing" secondItem="SY2-KT-1lv" secondAttribute="trailing" id="FmM-id-IrE"/>
+                        <constraint firstAttribute="trailing" secondItem="0qg-4V-I1E" secondAttribute="trailing" constant="12" id="IGC-Xi-8g2"/>
+                        <constraint firstItem="EkW-Dp-HHr" firstAttribute="leading" secondItem="O3R-oe-bR1" secondAttribute="leading" constant="18" id="TnO-px-fM7"/>
+                        <constraint firstItem="oZY-p9-sVI" firstAttribute="leading" secondItem="O3R-oe-bR1" secondAttribute="leading" constant="12" id="UgJ-5B-rPj"/>
+                        <constraint firstItem="YqQ-OV-h00" firstAttribute="top" secondItem="O3R-oe-bR1" secondAttribute="top" constant="25" id="Y5M-VI-NBX"/>
+                        <constraint firstItem="SY2-KT-1lv" firstAttribute="top" secondItem="O3R-oe-bR1" secondAttribute="top" id="YNC-Jf-UOx"/>
+                        <constraint firstItem="0qg-4V-I1E" firstAttribute="top" secondItem="oZY-p9-sVI" secondAttribute="bottom" constant="4" id="dxe-Zg-Q6I"/>
+                        <constraint firstItem="tRr-os-UDw" firstAttribute="bottom" secondItem="SY2-KT-1lv" secondAttribute="bottom" id="jWA-8H-yLD"/>
+                        <constraint firstItem="1hB-hS-T2L" firstAttribute="leading" secondItem="O3R-oe-bR1" secondAttribute="leading" id="k7n-S4-V4L"/>
+                        <constraint firstItem="oZY-p9-sVI" firstAttribute="top" secondItem="SY2-KT-1lv" secondAttribute="bottom" constant="15" id="na6-cj-ck1"/>
+                        <constraint firstItem="tRr-os-UDw" firstAttribute="top" secondItem="SY2-KT-1lv" secondAttribute="top" id="rhw-cF-mWQ"/>
+                        <constraint firstAttribute="trailing" secondItem="YqQ-OV-h00" secondAttribute="trailing" constant="18" id="xD9-tv-1OD"/>
+                        <constraint firstItem="SY2-KT-1lv" firstAttribute="leading" secondItem="O3R-oe-bR1" secondAttribute="leading" id="xPE-3b-rDe"/>
+                        <constraint firstAttribute="trailing" secondItem="1hB-hS-T2L" secondAttribute="trailing" id="zpg-Fg-VUu"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="O3R-oe-bR1" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="0RX-Ki-i3T"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="O3R-oe-bR1" secondAttribute="trailing" id="0XS-UG-QZH"/>
+                <constraint firstItem="O3R-oe-bR1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="q4x-5A-W0v"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="O3R-oe-bR1" secondAttribute="bottom" id="t9m-Qb-7Na"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="ageLabel" destination="0qg-4V-I1E" id="31B-N2-ewI"/>
+                <outlet property="backImgView" destination="SY2-KT-1lv" id="Vg7-yB-24j"/>
+                <outlet property="backgroundVew" destination="O3R-oe-bR1" id="3ZC-Nx-7FZ"/>
+                <outlet property="imageCollectionView" destination="tRr-os-UDw" id="iQg-ar-uIp"/>
+                <outlet property="leftArrowButton" destination="EkW-Dp-HHr" id="Ts1-5W-vVO"/>
+                <outlet property="nameLbl" destination="oZY-p9-sVI" id="tRL-VF-MoW"/>
+                <outlet property="rightArrorButton" destination="YqQ-OV-h00" id="7ZD-uz-07X"/>
+                <outlet property="scrollView" destination="1hB-hS-T2L" id="Xjr-II-6qY"/>
+            </connections>
+            <point key="canvasLocation" x="24.800000000000001" y="50.824587706146929"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="left-arrow" width="30" height="30"/>
+        <image name="right-arrow" width="30" height="30"/>
+        <image name="testPlaceholder4" width="342" height="417.5"/>
+    </resources>
+</document>

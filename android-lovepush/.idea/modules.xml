@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lovepushnew.iml" filepath="$PROJECT_DIR$/.idea/modules/lovepushnew.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/lovepushnew.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/lovepushnew.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cardstackview/lovepushnew.cardstackview.iml" filepath="$PROJECT_DIR$/.idea/modules/cardstackview/lovepushnew.cardstackview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/chat-message-adapter/lovepushnew.chat-message-adapter.iml" filepath="$PROJECT_DIR$/.idea/modules/chat-message-adapter/lovepushnew.chat-message-adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sample-core/lovepushnew.sample-core.iml" filepath="$PROJECT_DIR$/.idea/modules/sample-core/lovepushnew.sample-core.iml" />
+    </modules>
+  </component>
+</project>

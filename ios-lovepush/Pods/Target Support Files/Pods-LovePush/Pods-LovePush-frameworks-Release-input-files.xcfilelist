@@ -1,0 +1,27 @@
+${PODS_ROOT}/Target Support Files/Pods-LovePush/Pods-LovePush-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
+${BUILT_PRODUCTS_DIR}/AGEmojiKeyboard/AGEmojiKeyboard.framework
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework
+${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework
+${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework
+${BUILT_PRODUCTS_DIR}/FFCircularProgressView/FFCircularProgressView.framework
+${BUILT_PRODUCTS_DIR}/FRStretchImageView/FRStretchImageView.framework
+${BUILT_PRODUCTS_DIR}/FTPopOverMenu_Swift/FTPopOverMenu_Swift.framework
+${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework
+${BUILT_PRODUCTS_DIR}/GooglePlacesSearchController/GooglePlacesSearchController.framework
+${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework
+${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework
+${BUILT_PRODUCTS_DIR}/InstagramKit/InstagramKit.framework
+${BUILT_PRODUCTS_DIR}/Koloda/Koloda.framework
+${BUILT_PRODUCTS_DIR}/LocationPicker/LocationPicker.framework
+${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework
+${BUILT_PRODUCTS_DIR}/QMChatViewController/QMChatViewController.framework
+${BUILT_PRODUCTS_DIR}/QMServices/QMServices.framework
+${PODS_ROOT}/QuickBlox/Quickblox.framework
+${PODS_ROOT}/Quickblox-WebRTC/QuickbloxWebRTC.framework
+${BUILT_PRODUCTS_DIR}/RangeSeekSlider/RangeSeekSlider.framework
+${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/TTTAttributedLabel/TTTAttributedLabel.framework
+${BUILT_PRODUCTS_DIR}/UICKeyChainStore/UICKeyChainStore.framework
+${BUILT_PRODUCTS_DIR}/pop/pop.framework

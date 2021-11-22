@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".activities.PreviewActivity">
+    <include layout="@layout/tool_back_login" />
+
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:id="@+id/pager"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+
+    </androidx.viewpager.widget.ViewPager>
+<TextView
+    android:layout_width="wrap_content"
+    android:text="Coming Soon"
+    android:textSize="@dimen/dimen_20dp"
+    android:layout_centerInParent="true"
+    android:textColor="@color/colorAccent"
+    android:layout_height="wrap_content"/>
+</RelativeLayout>

@@ -1,0 +1,653 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="ChatActivityTheme" parent="AppTheme">
+        <item name="android:windowBackground">@color/background_chat_color</item>
+    </style>
+
+
+    <style name="TransparentProgressDialog" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="ListItem" parent="MatchWidth">
+        <item name="android:layout_height">?android:attr/listPreferredItemHeight</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="AppTheme.Dark" parent="AppTheme">
+        <item name="android:background">@color/black</item>
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="actionBarTheme">@style/DarkActionBarTheme</item>
+    </style>
+    <style name="DarkActionBarTheme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <!--<style name="AudioViewAttach">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="controller_layout_id">@layout/widget_exo_playback_audio_control_view</item>
+    </style>
+
+    <style name="AudioViewAttach.Right">
+        <item name="android:layout_marginRight">@dimen/padding_common</item>
+    </style>
+
+    <style name="AudioViewAttach.Left">
+        <item name="android:layout_marginLeft">@dimen/padding_common</item>
+    </style>-->
+
+    <style name="WeightWidth">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+
+
+    <style name="MaterialDialogSheet" parent="@android:style/Theme.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowAnimationStyle">@style/MaterialDialogSheetAnimation</item>
+    </style>
+
+    <style name="MaterialDialogSheetAnimation">
+        <item name="android:windowEnterAnimation">@anim/bottom_up</item>
+        <item name="android:windowExitAnimation">@anim/bottom_down</item>
+    </style>
+
+    <style name="Custom_Dialog" parent="ThemeOverlay.AppCompat.Light" >
+        <item name="windowMinWidthMajor">100%</item>
+        <item name="windowMinWidthMinor">65%</item>
+    </style>
+
+    <style name="ListItemNotification">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="edit_layout">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginLeft">@dimen/dimen_16dp</item>
+        <item name="android:layout_marginTop">@dimen/dimen_16dp</item>
+        <item name="android:layout_marginRight">@dimen/dimen_16dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:padding">4sp</item>
+        <item name="android:background">@drawable/bg_round_et</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+
+    <!--<style name="viewImage">
+        <item name="android:padding">@dimen/_7sdp</item>
+        <item name="android:layout_width">@dimen/_35sdp</item>
+        <item name="android:layout_height">@dimen/_35sdp</item>
+    </style>-->
+
+    <style name="bg_button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/dimen_16dp</item>
+        <item name="android:layout_marginRight">@dimen/dimen_16dp</item>
+        <item name="android:background">@drawable/bg_button</item>
+        <item name="android:textSize">@dimen/text_18pixels</item>
+        <item name="android:padding">@dimen/dimen_12dp</item>
+        <item name="android:layout_marginTop">@dimen/dimen_26dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+    </style>
+
+    <style name="bg_button_later">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/dimen_16dp</item>
+        <item name="android:layout_marginRight">@dimen/dimen_16dp</item>
+        <item name="android:background">@drawable/bg_button_later</item>
+        <item name="android:textSize">@dimen/text_18pixels</item>
+        <item name="android:padding">@dimen/dimen_12dp</item>
+        <item name="android:layout_marginTop">@dimen/dimen_26dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+    </style>
+
+    <style name="edit_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@null</item>
+        <item name="android:drawablePadding">@dimen/dimen_8dp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+        <item name="android:padding">@dimen/dimen_8dp</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textColorHint">@color/black_light</item>
+        <item name="android:textSize">@dimen/text_16pixels</item>
+    </style>
+
+
+
+    <style name="edit_text_multi">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">130dp</item>
+        <item name="android:background">@null</item>
+        <item name="android:drawablePadding">@dimen/dimen_8dp</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+        <item name="android:padding">@dimen/dimen_8dp</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:scrollbarStyle">insideInset</item>
+        <item name="android:overScrollMode">always</item>
+        <item name="android:textColorHint">@color/black_light</item>
+        <item name="android:textSize">@dimen/text_16pixels</item>
+        <item name="android:layout_gravity">start</item>
+        <item name="android:gravity">start</item>
+        <item name="android:nestedScrollingEnabled" tools:targetApi="lollipop">false</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:singleLine">false</item>
+    </style>
+
+    <style name="text_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@null</item>
+        <item name="android:drawablePadding">@dimen/dimen_5dp</item>
+        <item name="android:inputType">textEmailAddress</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+        <item name="android:padding">@dimen/dimen_8dp</item>
+        <item name="android:textColor">@color/black_light</item>
+        <item name="android:textColorHint">@color/black_light</item>
+        <item name="android:textSize">@dimen/text_16pixels</item>
+    </style>
+
+    <style name="menuLL">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/dimen_12dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+
+    <style name="menu_TV">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/dimen_12dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textSize">@dimen/text_16pixels</item>
+    </style>
+
+
+    <style name="cus_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dimen_1dp</item>
+        <item name="android:layout_marginRight">@dimen/dimen_8dp</item>
+        <item name="android:layout_marginLeft">@dimen/dimen_8dp</item>
+
+        <item name="android:background">@color/grey</item>
+    </style>
+
+
+
+    <style name="menu_IV">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="menu_new_IV">
+
+
+        <item name="android:layout_width">@dimen/dimen_26dp</item>
+        <item name="android:layout_height">@dimen/dimen_26dp</item>
+        <item name="android:layout_marginLeft">@dimen/dimen_16dp</item>
+        <item name="android:padding">2dp</item>
+        <!--<item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>-->
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+
+
+    <style name="bottom_menu_IV">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:padding">@dimen/dimen_8dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
+    <style name="ANS_TV">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+        <item name="android:padding">@dimen/dimen_8dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textSize">@dimen/text_16pixels</item>
+        <item name="android:background">@drawable/bg_round_et</item>
+    </style>
+
+
+    <style name="ListDateHeaderStyle" parent="WrapContent">
+        <item name="android:background">@drawable/chat_date_bubble</item>
+        <item name="android:paddingRight">@dimen/dimen_10dp</item>
+        <item name="android:paddingLeft">@dimen/dimen_10dp</item>
+        <item name="android:paddingTop">@dimen/dimen_5dp</item>
+        <item name="android:paddingBottom">@dimen/dimen_5dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/grey</item>
+    </style>
+
+
+
+
+    <style name="MatchWidth">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="BorderlessImageButtonStyle" parent="WrapContent">
+        <item name="android:background">@null</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+
+
+    <style name="CenterProgressBarStyle" parent="@style/Widget.AppCompat.ProgressBar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+
+
+    <style name="HorizontalDividerStyle" parent="MatchWidth">
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/ef_grey</item>
+    </style>
+
+
+    <style name="MessageAuthorStyle" parent="WrapContent">
+        <item name="android:layout_marginLeft">@dimen/chat_message_username_margin</item>
+        <item name="android:layout_marginRight">@dimen/chat_message_username_margin</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textColor">@color/text_color_dark_grey</item>
+        <item name="android:textSize">@dimen/chat_author_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="robotoTypeface">roboto_bold</item>
+    </style>
+
+
+
+    <!--quickblox style-->
+
+
+    <style name="LinearAttachWidgetFrame.Right" />
+
+    <style name="LinearAttachWidgetFrame.Left" />
+
+    <style name="LinearAttachWidgetFrame">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_marginRight">@dimen/dimen_8dp</item>
+        <item name="android:layout_marginTop">@dimen/dimen_6dp</item>
+        <item name="android:alpha">0.5</item>
+        <item name="android:background">@drawable/badge_attach_message_time</item>
+        <item name="android:orientation">horizontal</item>
+
+    </style>
+
+
+    <style name="TextViewAttach.Right" />
+
+    <style name="TextViewAttach">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:alpha">0.5</item>
+        <item name="android:padding">@dimen/dimen_2dp</item>
+        <item name="android:textSize">9dp</item>
+    </style>
+
+
+    <style name="ImageViewAttachWidget.Right" />
+
+    <style name="ImageViewAttachWidget">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">right</item>
+        <item name="android:paddingRight">@dimen/padding_small</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+
+    <style name="AvatarImageViewStyle.Right" />
+
+    <style name="AvatarImageViewStyle.Left" />
+
+    <style name="AvatarImageViewStyle">
+        <item name="android:layout_width">@dimen/image_view_small_avatar_layout_width</item>
+        <item name="android:layout_height">@dimen/image_view_small_avatar_layout_width</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:src">@drawable/placeholder_male_square</item>
+        <item name="civ_border_width">@dimen/avatar_border_width</item>
+        <item name="civ_border_color">@color/dark_gray</item>
+    </style>
+
+
+    <style name="WidgetTextMessage.Right" />
+
+    <style name="WidgetTextMessage.Left" />
+
+    <style name="WidgetTextMessage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
+    <style name="BubbleTextFrame.Right">
+        <item name="android:background">@drawable/message_right_bg</item>
+        <item name="android:paddingRight">@dimen/dimen_6dp</item>
+        <item name="android:paddingLeft">@dimen/dimen_12dp</item>
+
+    </style>
+
+    <style name="BubbleTextFrame.Left">
+        <item name="android:background">@drawable/message_left_bg</item>
+        <item name="android:paddingRight">@dimen/dimen_6dp</item>
+        <item name="android:paddingLeft">@dimen/dimen_6dp</item></style>
+
+    <style name="BubbleTextFrame">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginLeft">@dimen/chat_babble_margin</item>
+        <item name="android:padding">@dimen/padding_small</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="BubbleAttachFrame.Right">
+        <item name="android:background">@drawable/message_right_bg</item>
+    </style>
+
+    <style name="BubbleAttachFrame.Left">
+        <item name="android:background">@drawable/message_left_bg</item>
+    </style>
+
+    <style name="BubbleAttachFrame">
+        <item name="android:layout_width">@dimen/chat_attach_width</item>
+        <item name="android:layout_height">@dimen/chat_attach_height</item>
+
+    </style>
+
+
+    <style name="LinearWidgetTextMsg.Right">
+        <item name="android:paddingRight">@dimen/dimen_10dp</item>
+        <item name="android:paddingLeft">@dimen/dimen_10dp</item>
+        <item name="android:paddingBottom">@dimen/dimen_4dp</item>
+        <item name="android:paddingTop">@dimen/dimen_4dp</item>
+
+        <item name="android:minWidth">130dp</item>
+
+
+    </style>
+
+    <style name="LinearWidgetTextMsg.Left">
+        <item name="android:minWidth">130dp</item>
+        <item name="android:paddingRight">@dimen/dimen_10dp</item>
+        <item name="android:paddingLeft">@dimen/dimen_10dp</item>
+        <item name="android:paddingBottom">@dimen/dimen_4dp</item>
+        <item name="android:paddingTop">@dimen/dimen_4dp</item>
+    </style>
+
+    <style name="LinearWidgetTextMsg">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="TextViewTimeMsg">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+
+    </style>
+
+
+    <style name="TextViewTimeMsg.Right">
+        <item name="android:layout_gravity">right</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">11sp</item>
+
+    </style>
+
+    <style name="TextViewTimeMsg.Left" >
+        <item name="android:layout_gravity">right</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="TextViewTimeMsg.Center">
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+
+    <style name="TextViewTextMsg.Right" >
+        <item name="android:textColor">@color/white</item>
+
+    </style>
+
+
+    <style name="TextViewTextMsg.Left" />
+
+    <style name="TextViewTextMsg">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:paddingRight">@dimen/padding_small</item>
+        <item name="android:autoLink">all</item>
+        <item name="android:textColorLink">@color/text_color_link</item>
+        <item name="android:textIsSelectable">true</item>
+    </style>
+
+
+    <style name="CustomWidgetFrame.Right">
+        <item name="android:layout_gravity">right</item>
+    </style>
+
+    <style name="CustomWidgetFrame.Left" />
+
+    <style name="CustomWidgetFrame.Center">
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <style name="CustomWidgetFrame">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="LinkPreviewFrame">
+        <item name="android:layout_width">@dimen/link_preview_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="LinkPreviewFrame.Right"/>
+
+    <style name="LinkPreviewFrame.Left" />
+
+    <style name="LinkPreviewVerticalLine">
+        <item name="android:layout_width">2dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/grey</item>
+    </style>
+
+    <style name="LinkPreviewTitle" parent="MatchParent">
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/text_size_link_preview_title</item>
+        <item name="android:textColor">@color/text_color_link_preview_title</item>
+    </style>
+
+    <style name="LinkPreviewImage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:minHeight">@dimen/link_preview_imaga_min_height</item>
+        <item name="android:minWidth">@dimen/link_preview_width</item>
+        <item name="android:maxHeight">@dimen/chat_attach_height</item>
+    </style>
+
+    <style name="LinkPreviewDescription" parent="MatchParent">
+        <item name="android:layout_gravity">left|bottom</item>
+        <item name="android:maxLines">3</item>
+        <item name="android:textSize">@dimen/text_size_link_preview_description</item>
+        <item name="android:textColor">@color/text_color_link_preview_description</item>
+    </style>
+
+    <style name="HostView" parent="MatchWidth">
+        <item name="android:layout_gravity">left</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingTop">@dimen/padding_small</item>
+    </style>
+
+    <style name="HostViewIcon">
+        <item name="android:layout_width">@dimen/host_icon_width</item>
+        <item name="android:layout_height">@dimen/host_icon_height</item>
+    </style>
+
+    <style name="HostViewUrl" parent="WrapContent">
+        <item name="android:textSize">@dimen/text_size_link_preview_host</item>
+        <item name="android:layout_marginLeft">@dimen/padding_small</item>
+    </style>
+
+    <style name="WrapContent">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="MatchParent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+
+    <style name="CallerAvatar">
+        <item name="android:layout_width">@dimen/call_avatar_diameter</item>
+        <item name="android:layout_height">@dimen/call_avatar_diameter</item>
+        <item name="android:padding">24dp</item>
+        <item name="android:src">@drawable/placeholder_male_square</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--<item name="android:windowActionBar">false</item>-->
+        <!-- Customize your theme here. -->
+
+        <item name="colorPrimary">@color/text_color_white</item>
+        <item name="colorPrimaryDark">@color/grey_transparent_50</item>
+
+        <item name="android:windowBackground">@color/text_color_white</item>
+    </style>
+    <style name="RoundedImageButton">
+        <item name="android:layout_width">@dimen/call_buttons_diameter</item>
+        <item name="android:layout_height">@dimen/call_buttons_diameter</item>
+        <item name="android:padding">@dimen/call_buttons_padding</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="EndCallImageButton" parent="RoundedImageButton">
+        <item name="android:background">@drawable/selector_call_end</item>
+        <item name="android:src">@drawable/ic_phone_hangup</item>
+    </style>
+
+    <style name="TakeCallImageButton" parent="RoundedImageButton">
+        <item name="android:background">@drawable/selector_call_take</item>
+    </style>
+
+    <style name="ToolbarStyleCall" parent="Widget.AppCompat.Toolbar">
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat</item>
+        <item name="theme">@style/ThemeOverlay.AppCompat.ActionBar</item>
+    </style>
+
+    <style name="SeekBarPreferenceTitle" parent="WrapContent">
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="ListItemAttachMessage.Right">
+        <item name="android:gravity">right</item>
+    </style>
+
+    <style name="ListItemAttachMessage.Left" />
+
+    <style name="ListItemAttachMessage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/padding_medium</item>
+    </style>
+
+
+    <style name="ListItemTextMessage.Right" />
+
+    <style name="ListItemTextMessage.Left" />
+
+    <style name="ListItemTextMessage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="NotificationMessage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginLeft">@dimen/chat_babble_margin</item>
+        <!-- <item name="android:padding">@dimen/padding_small</item>
+         <item name="android:orientation">vertical</item>
+         <item name="android:background">@color/background_chat_color</item>-->
+    </style>
+
+    <style name="WidgetTextMsgFrame">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/padding_medium</item>
+    </style>
+
+    <style name="LinearTextMsgFrame">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="ViewStubTextMsgFrame">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+</resources>

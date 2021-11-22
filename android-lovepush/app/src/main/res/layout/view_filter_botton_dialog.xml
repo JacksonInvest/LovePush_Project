@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/dimen_12dp"
+    android:paddingTop="@dimen/dimen_20dp"
+    android:paddingRight="@dimen/dimen_12dp">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
+        android:singleLine="true"
+        android:text="@string/filter_by_ad"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/text_20pixels" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/noneLL"
+            android:paddingTop="@dimen/dimen_8dp"
+            android:paddingBottom="@dimen/dimen_8dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/noneIV"
+                android:src="@drawable/radio_filled" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:singleLine="true"
+                android:text="Both"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_16pixels" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/loveLL"
+
+            android:paddingTop="@dimen/dimen_8dp"
+            android:paddingBottom="@dimen/dimen_8dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:id="@+id/loveIV"
+                android:layout_height="wrap_content"
+                android:src="@drawable/radio_unfilled" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:singleLine="true"
+                android:text="Love"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_16pixels" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_30dp"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/dimen_8dp"
+            android:id="@+id/connectLL"
+            android:paddingBottom="@dimen/dimen_8dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/connectIV"
+                android:src="@drawable/radio_unfilled" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:singleLine="true"
+                android:text="Connect"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_16pixels" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        android:layout_marginBottom="@dimen/dimen_20dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dimen_8dp"
+            android:layout_weight="1"
+            android:id="@+id/btnCancel"
+            android:background="@drawable/bg_button_mid_grey"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/cancel"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16pixels" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_8dp"
+            android:layout_weight="1"
+            android:id="@+id/btnSubmit"
+
+            android:background="@drawable/bg_button_mid_primary"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/submit"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16pixels" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

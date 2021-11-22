@@ -1,0 +1,259 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'io.fabric'
+//apply plugin: 'kotlin-kapt'
+
+
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+    mavenCentral()
+}
+
+
+android {
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    useLibrary 'org.apache.http.legacy'
+
+    compileSdkVersion rootProject.ext.targetSdkVersion
+    flavorDimensions rootProject.dimensionDefault
+
+    defaultConfig {
+        applicationId "com.lovepushapp"
+        minSdkVersion 19
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 10
+        versionName "10.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+//        multidex true
+
+        multiDexEnabled true
+
+    }
+    buildTypes {
+        /* release {
+             minifyEnabled false
+             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+
+         }*/
+       /* debug {
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            shrinkResources false
+            proguardFile 'proguard-rules.pro'
+            zipAlignEnabled false
+        }
+
+        release {
+            signingConfig signingConfigs.debug
+        }*/
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //   signingConfig signingConfigs.config
+        }
+        debug {
+        }
+    }
+
+    configurations.all {
+
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == 'com.android.support') {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion rootProject.ext.buildToolsVersion
+                }
+            }
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+
+    aaptOptions {
+
+        cruncherEnabled = false
+    }
+
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+
+    implementation 'com.jakewharton:butterknife:10.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+
+
+//    annotationProcessor 'com.github.bumptech.glide:compiler:3.6.0'
+
+
+//    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
+
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+
+/*    implementation "com.google.dagger:dagger:$rootProject.dagger2Version"
+    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"*/
+
+//    implementation 'com.google.dagger:dagger-android:2.20'
+//    annotationProcessor 'com.google.dagger:dagger-android-processor:2.20'
+//    annotationProcessor 'com.google.dagger:dagger-compiler:2.20'
+
+//    implementation 'com.google.dagger:dagger:2.16'
+//    kapt 'com.google.dagger:dagger-compiler:2.24'
+
+
+    implementation 'com.google.dagger:dagger:2.24'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.24'
+
+
+    implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retroVersin"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retroVersin"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.retroLoginterceptor"
+    implementation 'com.mikhaellopez:circularprogressbar:3.0.3'
+    // View
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation 'com.github.warkiz.widget:indicatorseekbar:2.1.2'
+    implementation 'com.github.alahammad:android-OTP-View:1.0.2'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'com.hbb20:ccp:2.2.3'
+//    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation 'com.wang.avi:library:2.1.3'
+    implementation('com.crashlytics.sdk.android:crashlytics:2.9.6@aar') {
+        transitive = true;
+    }
+    implementation 'com.github.esafirm.android-image-picker:imagepicker:2.2.0'
+
+
+    implementation 'com.google.android.gms:play-services-places:17.0.0'
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+    implementation 'com.google.android.gms:play-services-identity:17.0.0'
+    implementation 'com.google.android.gms:play-services-plus:17.0.0'
+
+    implementation 'com.google.android.gms:play-services:12.0.1'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation 'com.github.feeeei:CircleSeekbar:v1.1.2'
+    implementation "de.hdodenhof:circleimageview:$rootProject.circleImageVersion"
+
+    implementation 'com.daprlabs.aaron:cardstack:0.3.1-beta0'
+
+    implementation 'com.crystal:crystalrangeseekbar:1.1.3'
+
+    //implementation 'com.facebook.android:facebook-login:[4,5)'
+    implementation 'com.facebook.android:facebook-android-sdk:5.8.0'
+    //    implementation 'com.facebook.android:facebook-android-sdk:4.38.1'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.5.1'
+    
+    implementation 'com.soundcloud.android:android-crop:1.0.1@aar'
+
+//    for country picker
+    implementation 'com.github.mukeshsolanki:country-picker-android:1.1.9'
+
+    implementation 'com.github.delight-im:Android-Languages:v1.0.1'
+
+//    progress
+    implementation 'com.akexorcist:RoundCornerProgressBar:2.0.3'
+    implementation 'com.google.firebase:firebase-auth:11.6.2'
+    implementation "com.google.android.gms:play-services-gcm:17.0.0"
+    implementation "com.google.firebase:firebase-messaging:17.0.0"
+    implementation "com.google.firebase:firebase-core:17.0.0"
+
+
+    implementation 'hari.bounceview:bounceview:0.1.0'
+
+    implementation 'com.nabinbhandari.android:permissions:3.8'
+
+    implementation project(':cardstackview')
+
+
+//    implementation 'com.google.android.material:material:1.0.0'
+
+//    Range seek bar
+    implementation 'com.crystal:crystalrangeseekbar:1.1.3'
+
+    implementation "com.quickblox:quickblox-android-sdk-customobjects:3.8.1"
+//    quick blox
+    implementation "com.quickblox:quickblox-android-sdk-core:3.9.1@aar"
+    implementation("com.quickblox:quickblox-android-sdk-chat:2.5.1@aar") {
+        transitive = true
+    }
+    implementation "com.quickblox:quickblox-android-sdk-chat:$rootProject.quickBloxSdk"
+    implementation "com.quickblox:quickblox-android-sdk-messages:$rootProject.quickBloxSdk"
+    implementation "com.quickblox:quickblox-android-sdk-content:$rootProject.quickBloxSdk"
+
+
+    implementation "com.quickblox:quickblox-android-sdk-chat-extensions:3.2.0"
+    implementation('io.socket:socket.io-client:1.0.0') {
+        // excluding org.json which is provided by Android
+        exclude group: 'org.json', module: 'json'
+    }
+
+    implementation "com.timehop.stickyheadersrecyclerview:library:$rootProject.stickylistheadersVersion@aar"
+    implementation 'com.github.hani-momanii:SuperNova-Emoji:1.1'
+    implementation 'com.github.johnkil.android-robototextview:robototextview:4.0.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation("com.crashlytics.sdk.android:crashlytics:${rootProject.crashlyticsVersion}@aar") {
+        transitive = true
+    }
+
+    implementation "com.github.orangegangsters:swipy:$rootProject.swipyVersion@aar"
+
+
+// quickblox audio video
+
+
+    implementation "com.quickblox:quickblox-android-sdk-videochat-webrtc:$rootProject.qbSdkVersion"
+
+    implementation "com.navercorp.pulltorefresh:library:${rootProject.pullToRefreshVersion}@aar"
+
+
+    api "androidx.fragment:fragment:${rootProject.fragmentAndroidXVersion}"
+    api "com.github.johnkil.android-robototextview:robototextview:${rootProject.robotoTextViewVersion}"
+
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.9.2'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.9.2'
+//    implementation project(path: ':chat-message-adapter')
+
+    implementation 'com.daimajia.swipelayout:library:1.2.0@aar'
+    implementation "com.google.android.exoplayer:exoplayer:$rootProject.exoPlayerVersion"
+    implementation "androidx.core:core-ktx:1.5.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+
+}
+// ADD THIS AT THE BOTTOM
+apply plugin: 'com.google.gms.google-services'
+//apply from: "../artifacts.gradle"
+
+
+//apply plugin: 'com.android.application'
+

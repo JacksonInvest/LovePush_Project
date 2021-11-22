@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:swipedeck="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/tool_back_login_filter_menu" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.1"
+                android:gravity="center"
+                android:id="@+id/tabLLSwipe"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:singleLine="true"
+                        android:id="@+id/swipeTv"
+                        android:padding="10dp"
+                        android:text="@string/swipe"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimary"
+                        android:textIsSelectable="false"
+                        android:textSize="16sp"
+                        android:typeface="sans" />
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="2dp"
+                        android:id="@+id/viewLineSwipe"
+                        android:layout_gravity="center"
+                        android:background="@color/colorPrimary"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/color_grey"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/tabLLRadar"
+
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:singleLine="true"
+                        android:padding="10dp"
+                        android:id="@+id/radarTv"
+                        android:text="@string/radar"
+                        android:textAllCaps="true"
+                        android:textColor="@color/chat_grey"
+                        android:textIsSelectable="false"
+                        android:textSize="16sp"
+                        android:typeface="sans" />
+                    <View
+                        android:layout_width="30dp"
+                        android:layout_height="2dp"
+                        android:id="@+id/viewLineRadar"
+                        android:layout_gravity="center"
+                        android:visibility="gone"
+                        android:background="@color/colorPrimary"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_gravity="center"
+            android:background="@color/color_grey"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/no_user_foundTV"
+        android:textSize="@dimen/dimen_15dp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="No User Found"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:id="@+id/swipeLL"
+        >
+       <!-- make in gone after changes-->
+        <com.daprlabs.cardstack.SwipeFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.yuyakaido.android.cardstackview.CardStackView
+                    android:id="@+id/cardStack"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:backgroundTint="@color/black"
+                    android:paddingRight="@dimen/dimen_8dp"
+                    android:paddingLeft="@dimen/dimen_8dp"
+                    android:paddingTop="@dimen/dimen_8dp"
+                    android:paddingBottom="@dimen/dimen_100dp"
+                    >
+                </com.yuyakaido.android.cardstackview.CardStackView>
+
+                <LinearLayout
+                    android:layout_marginTop="-100dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dimen_8dp">
+
+                    <ImageView
+                        android:id="@+id/dislikeIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dimen_8dp"
+                        android:src="@drawable/dislike" />
+                    <ImageView
+                        android:id="@+id/drivkIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dimen_8dp"
+                        android:src="@drawable/drink_icon" />
+                    <ImageView
+                        android:id="@+id/chat_RequestIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dimen_8dp"
+                        android:visibility="gone"
+                        android:src="@drawable/message_request" />
+
+                    <ImageView
+                        android:id="@+id/likeIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dimen_8dp"
+                        android:src="@drawable/like_icon" />
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </com.daprlabs.cardstack.SwipeFrameLayout>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:maxLines="4"
+        android:id="@+id/noDataFoundTV"
+        android:gravity="center"
+        android:background="@null"
+        android:visibility="visible"
+        android:fontFamily="@font/roboto_light"
+        android:padding="@dimen/dimen_8dp"
+        android:textSize="@dimen/text_16pixels"
+        android:text="@string/noDataFound"
+        android:textStyle="bold"
+        android:layout_marginBottom="@dimen/dimen_60dp"
+        android:textColor="@color/text_black" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/radarLL"
+        android:visibility="gone">
+
+
+        <include
+            layout="@layout/item_radar_explore"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

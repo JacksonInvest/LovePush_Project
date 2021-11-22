@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:id="@+id/LinearL"
+    android:orientation="horizontal"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_margin="@dimen/dimen_6dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/userIV"
+                android:layout_width="@dimen/dimen_70dp"
+                android:layout_height="@dimen/dimen_70dp"
+                android:padding="@dimen/dimen_5dp"
+                android:src="@drawable/placeholder_male_square" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/messageTV"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="2"
+                    android:padding="@dimen/dimen_8dp"
+                    android:text="@string/dummy_noti"
+                    android:textColor="@color/text_black"
+                    android:textSize="15dp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:id="@+id/llButton"
+                    android:layout_marginRight="@dimen/padd_10">
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="26dp"
+                        android:text="@string/accept"
+                        android:id="@+id/acceptBtn"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/dimen_12dp"
+                        android:textColor="@color/white"
+                        android:background="@color/blue"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="26dp"
+                        android:text="@string/decline"
+                        android:id="@+id/rejectBtn"
+                        android:textSize="@dimen/dimen_12dp"
+                        android:textAllCaps="false"
+                        android:layout_marginLeft="@dimen/dimen_6dp"
+                        android:textColor="@color/black"
+                        android:background="@color/text_color_light_grey"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+
+        <View style="@style/cus_view" />
+    </LinearLayout>
+
+</LinearLayout>

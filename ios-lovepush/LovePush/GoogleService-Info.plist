@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>78892879787-5skh2344ru67djc9ufc7thirov0fgirb.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.78892879787-5skh2344ru67djc9ufc7thirov0fgirb</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAzMX9ojQ_Ct2ww7B2wsDpn0T2F6aexqHs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>78892879787</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.lovepush.timleube</string>
+	<key>PROJECT_ID</key>
+	<string>love-push-63d31</string>
+	<key>STORAGE_BUCKET</key>
+	<string>love-push-63d31.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:78892879787:ios:d9d405f3bfb411c0</string>
+	<key>DATABASE_URL</key>
+	<string>https://love-push-63d31.firebaseio.com</string>
+</dict>
+</plist>

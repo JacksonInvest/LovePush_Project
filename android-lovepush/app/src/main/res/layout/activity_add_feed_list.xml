@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/tool_back_login_filter" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:maxLines="4"
+        android:id="@+id/noDataFoundTV"
+        android:gravity="center"
+        android:background="@null"
+        android:visibility="gone"
+        android:fontFamily="@font/roboto_light"
+        android:padding="@dimen/dimen_8dp"
+        android:textSize="@dimen/text_18pixels"
+        android:text="@string/noDataFound"
+        android:textStyle="bold"
+        android:layout_marginBottom="@dimen/dimen_60dp"
+        android:textColor="@color/text_black" />
+    <include layout="@layout/item_radar_explore"/>
+</LinearLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/tool_back_login" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dimen_70dp"
+            android:orientation="vertical">
+
+
+            <LinearLayout style="@style/edit_layout">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/oldPasswordET"
+                    style="@style/edit_text"
+                    android:drawableStart="@drawable/password"
+                    android:hint="@string/old_pass"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/edit_layout">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/passwordET"
+                    style="@style/edit_text"
+                    android:drawableStart="@drawable/password"
+                    android:hint="@string/password"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/edit_layout">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/confirmPassET"
+                    style="@style/edit_text"
+                    android:drawableStart="@drawable/password"
+                    android:hint="@string/conf_pass"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/changeTV"
+                style="@style/bg_button"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:text="@string/change" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

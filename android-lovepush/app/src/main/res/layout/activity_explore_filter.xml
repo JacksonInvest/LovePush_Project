@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".activities.ExploreFilterActivity">
+    <include layout="@layout/tool_back_login" />
+
+    <LinearLayout
+        android:layout_marginLeft="@dimen/dimen_10dp"
+        android:layout_marginRight="@dimen/dimen_10dp"
+        android:layout_marginTop="@dimen/dimen_35dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/locationLL"
+            android:layout_marginBottom="@dimen/dimen_25dp"
+            android:layout_marginRight="@dimen/dimen_16dp"
+            android:layout_marginLeft="@dimen/dimen_16dp">
+            <TextView
+                android:gravity="start"
+                android:textSize="@dimen/dimen_16dp"
+                android:textColor="@color/black"
+                android:text="@string/location"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:gravity="start"
+                android:textSize="@dimen/dimen_16dp"
+                android:textColor="@color/black"
+                android:id="@+id/etLocation"
+                android:fontFamily="@font/roboto_light"
+                android:text="@string/location"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/dimen_20dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"
+                android:layout_marginTop="@dimen/dimen_6dp"
+                android:background="@color/color_grey"/>
+        </LinearLayout>
+
+        <TextView
+            android:gravity="start"
+            android:textSize="@dimen/dimen_16dp"
+            android:textColor="@color/black"
+            android:text="@string/select_age"
+            android:layout_marginRight="@dimen/dimen_16dp"
+            android:layout_marginLeft="@dimen/dimen_16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/dimen_16dp"
+            android:layout_marginRight="@dimen/dimen_16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/left_age_tv"
+                    android:layout_alignParentStart="true"
+                    android:textColor="@color/colorPrimary"
+                    android:text="15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true" />
+
+                <TextView
+                    android:id="@+id/right_age_tv"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="@color/colorPrimary"
+                    android:text="15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+            android:layout_marginTop="@dimen/dimen_15dp"
+            android:id="@+id/rangeSeekbar1"
+            android:layout_marginRight="@dimen/dimen_16dp"
+            android:layout_marginLeft="@dimen/dimen_16dp"
+            android:layout_width="match_parent"
+            app:corner_radius="20"
+            app:min_value="18"
+            app:max_value="100"
+            app:left_thumb_color="@color/colorPrimary"
+            app:right_thumb_color="@color/colorPrimary"
+            app:bar_highlight_color="@color/colorPrimary"
+            app:bar_color="@color/bel_red_text"
+            android:layout_height="@dimen/dimen_60dp"/>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/dimen_25dp"
+            style="@style/edit_layout"
+            android:background="@null"
+            android:orientation="vertical">
+
+            <TextView
+                android:gravity="start"
+                android:textSize="@dimen/dimen_16dp"
+                android:textColor="@color/black"
+                android:text="@string/prefernces"
+                android:layout_marginRight="@dimen/dimen_16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/maleLL"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dimen_16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/maleIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/radio_unfilled" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+
+                        style="@style/edit_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/man" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/femaleLL"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="end|center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/femaleIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/radio_unfilled" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+
+                        style="@style/edit_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/woman" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/transGenderLL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/dimen_16dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/transGenderIV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/radio_unfilled" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/edit_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/transgender" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/submitTV"
+                style="@style/bg_button"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:text="@string/submit" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

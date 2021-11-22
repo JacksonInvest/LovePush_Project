@@ -1,0 +1,215 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - AGEmojiKeyboard (0.2.1)
+  - Alamofire (4.7.3)
+  - Bolts (1.9.0):
+    - Bolts/AppLinks (= 1.9.0)
+    - Bolts/Tasks (= 1.9.0)
+  - Bolts/AppLinks (1.9.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.9.0)
+  - FBSDKCoreKit (4.35.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.35.0):
+    - FBSDKCoreKit
+  - FFCircularProgressView (0.5)
+  - FRStretchImageView (1.2.4)
+  - FTPopOverMenu_Swift (0.1.4)
+  - GoogleMaps (3.1.0):
+    - GoogleMaps/Maps (= 3.1.0)
+  - GoogleMaps/Base (3.1.0)
+  - GoogleMaps/Maps (3.1.0):
+    - GoogleMaps/Base
+  - GooglePlacesSearchController (0.2.1)
+  - GoogleSignIn (4.4.0):
+    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
+    - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleToolboxForMac/DebugUtils (2.2.0):
+    - GoogleToolboxForMac/Defines (= 2.2.0)
+  - GoogleToolboxForMac/Defines (2.2.0)
+  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.2.0)":
+    - GoogleToolboxForMac/DebugUtils (= 2.2.0)
+    - GoogleToolboxForMac/Defines (= 2.2.0)
+    - "GoogleToolboxForMac/NSString+URLArguments (= 2.2.0)"
+  - "GoogleToolboxForMac/NSString+URLArguments (2.2.0)"
+  - GTMSessionFetcher/Core (1.2.2)
+  - InstagramKit (4.1):
+    - AFNetworking (~> 3.0)
+    - InstagramKit/InstagramKit-without-UICKeyChainStore (= 4.1)
+  - InstagramKit/InstagramKit-without-UICKeyChainStore (4.1):
+    - AFNetworking (~> 3.0)
+  - InstagramKit/UICKeyChainStore (4.1):
+    - AFNetworking (~> 3.0)
+    - UICKeyChainStore (~> 2.0)
+  - IQKeyboardManager (6.1.1)
+  - Koloda (4.3.1):
+    - pop (~> 1.0)
+  - libbambuser-ios (0.9.23)
+  - LocationPicker (1.2.0)
+  - MBProgressHUD (1.1.0)
+  - pop (1.0.10)
+  - QMChatViewController (0.6.6):
+    - FFCircularProgressView
+    - QMChatViewController/Categories (= 0.6.6)
+    - QMChatViewController/Protocols (= 0.6.6)
+    - QMChatViewController/QMChatDataSource (= 0.6.6)
+    - QMChatViewController/QMChatLocationSnapshotter (= 0.6.6)
+    - QMChatViewController/Utils (= 0.6.6)
+    - QMChatViewController/Views (= 0.6.6)
+    - QuickBlox
+    - SDWebImage
+    - TTTAttributedLabel
+  - QMChatViewController/Categories (0.6.6):
+    - FFCircularProgressView
+    - QuickBlox
+    - SDWebImage
+    - TTTAttributedLabel
+  - QMChatViewController/Protocols (0.6.6):
+    - FFCircularProgressView
+    - QuickBlox
+    - SDWebImage
+    - TTTAttributedLabel
+  - QMChatViewController/QMChatDataSource (0.6.6):
+    - FFCircularProgressView
+    - QMChatViewController/Utils
+    - QuickBlox
+    - SDWebImage
+    - TTTAttributedLabel
+  - QMChatViewController/QMChatLocationSnapshotter (0.6.6):
+    - FFCircularProgressView
+    - QMChatViewController/Utils
+    - QuickBlox
+    - SDWebImage
+    - TTTAttributedLabel
+  - QMChatViewController/Utils (0.6.6):
+    - FFCircularProgressView
+    - QMChatViewController/Categories
+    - QuickBlox
+    - SDWebImage
+    - TTTAttributedLabel
+  - QMChatViewController/Views (0.6.6):
+    - FFCircularProgressView
+    - QMChatViewController/Categories
+    - QMChatViewController/Protocols
+    - QMChatViewController/Utils
+    - QuickBlox
+    - SDWebImage
+    - TTTAttributedLabel
+  - QMServices (0.6.2):
+    - Bolts (>= 1.9.0)
+    - QuickBlox (>= 2.17)
+  - QuickBlox (2.17.1)
+  - Quickblox-WebRTC (2.7.3):
+    - QuickBlox (>= 2.7)
+  - RangeSeekSlider (1.8.0)
+  - SDWebImage (4.4.8):
+    - SDWebImage/Core (= 4.4.8)
+  - SDWebImage/Core (4.4.8)
+  - TTTAttributedLabel (2.0.0)
+  - UICKeyChainStore (2.1.2)
+
+DEPENDENCIES:
+  - AGEmojiKeyboard
+  - Alamofire (~> 4.5)
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - FRStretchImageView
+  - FTPopOverMenu_Swift (~> 0.1.4)
+  - GoogleMaps
+  - GooglePlacesSearchController
+  - GoogleSignIn
+  - InstagramKit
+  - InstagramKit/UICKeyChainStore
+  - IQKeyboardManager
+  - Koloda (~> 4.0)
+  - libbambuser-ios (= 0.9.23)
+  - LocationPicker
+  - MBProgressHUD
+  - QMChatViewController
+  - QMServices
+  - QuickBlox
+  - Quickblox-WebRTC
+  - RangeSeekSlider
+  - SDWebImage (~> 4.4.6)
+
+SPEC REPOS:
+  trunk:
+    - AFNetworking
+    - AGEmojiKeyboard
+    - Alamofire
+    - Bolts
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - FFCircularProgressView
+    - FRStretchImageView
+    - FTPopOverMenu_Swift
+    - GoogleMaps
+    - GooglePlacesSearchController
+    - GoogleSignIn
+    - GoogleToolboxForMac
+    - GTMSessionFetcher
+    - InstagramKit
+    - IQKeyboardManager
+    - Koloda
+    - libbambuser-ios
+    - LocationPicker
+    - MBProgressHUD
+    - pop
+    - QMChatViewController
+    - QMServices
+    - QuickBlox
+    - Quickblox-WebRTC
+    - RangeSeekSlider
+    - SDWebImage
+    - TTTAttributedLabel
+    - UICKeyChainStore
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  AGEmojiKeyboard: d5a01a4b0de30e1f1c2a121503ac36a79c7217ab
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  FBSDKCoreKit: 1a5b2e3ceb5ca827a53c54aa5f4a3480efff80d2
+  FBSDKLoginKit: 00a3d65d1226852f9d76dcddff01981e5e6d9c38
+  FFCircularProgressView: 683a4ab1e1bd613246a3dffa61503ffdebcde8d8
+  FRStretchImageView: f92f3f6058edf26aca23debfd93d6a3c807c47a9
+  FTPopOverMenu_Swift: e4cafd1085d8125339c710fa9e53477fd615b1e2
+  GoogleMaps: 5c13302e6fe6bb6e686b267196586b91cd594225
+  GooglePlacesSearchController: e53b61b7497cf40cb18ec296b1d3314c11c0a1c0
+  GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
+  GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
+  GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
+  InstagramKit: fa2017d4fb5d0a4dde026eeebda641e6df61c714
+  IQKeyboardManager: 79c57795f5c2408d259d37b9da2ed07efcbb5225
+  Koloda: 0d39b2aa188ccd1fac48d752acaf9802e683c625
+  libbambuser-ios: 937f3e0ba6b87e66ee3cd94c2fcf16b6e4567004
+  LocationPicker: d91f9fe50493d8058391fe1408aa2a8db49a584d
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
+  QMChatViewController: 43e22929d4abbdb88cc5db5b25c54f13dbfe8373
+  QMServices: 96ee12749db0497cfb6543db9c4b11e8f913e2d7
+  QuickBlox: b8c327b61db8382880bd41185703acf228105a1c
+  Quickblox-WebRTC: 92897974c3b39fa8f54a373520e2eefc3696f6a4
+  RangeSeekSlider: 650b11fa1edcb92e1e0ede797669d98622570fb5
+  SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
+  UICKeyChainStore: 85db518bb1d294366d15ec9b92a416c4e670518f
+
+PODFILE CHECKSUM: c2f85352c52615fb59540acefb097e945049f432
+
+COCOAPODS: 1.10.1

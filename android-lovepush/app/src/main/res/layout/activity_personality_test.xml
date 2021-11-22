@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <include layout="@layout/tool_back_login" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:indeterminate="false"
+        android:visibility="gone"
+        android:minHeight="50dp"
+        android:minWidth="200dp"
+        android:progress="1" />
+
+    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+        android:id="@+id/progress_1"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:visibility="visible"
+        android:layout_marginLeft="10dp"
+        app:rcProgressColor="@color/colorAccent"
+        app:rcSecondaryProgressColor="@color/colorPrimaryDark"
+        app:rcBackgroundColor="@color/grey"
+        android:layout_height="20dp"
+        android:layout_width="match_parent"
+        app:rcBackgroundPadding="5dp" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/quest_TV"
+        android:text=""
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:padding="@dimen/dimen_12dp"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/max_ans_TV"
+        android:text=""
+        android:textSize="14sp"
+        android:padding="@dimen/dimen_12dp"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/questionRV"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/nextTV"
+        style="@style/bg_button"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        android:layout_marginBottom="@dimen/dimen_20dp"
+        android:text="@string/next" />
+
+
+    <!--<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/dimen_20dp"
+            android:paddingTop="@dimen/dimen_20dp"
+            android:paddingRight="@dimen/dimen_20dp"
+            android:paddingBottom="@dimen/dimen_20dp">
+
+            <include layout="@layout/item_personality_que"/>
+
+
+
+
+        </LinearLayout>
+    </ScrollView>-->
+</LinearLayout>

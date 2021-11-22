@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:fillViewport="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dimen_8dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_menu"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
+                        android:layout_gravity="center"
+                        app:civ_border_color="@color/white"
+                        app:civ_border_width="1.5dp"
+                        android:src="@drawable/profile_pic" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/dimen_8dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/username_menu"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_light"
+                                android:text="@string/username"
+                                android:singleLine="true"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_18pixels" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:id="@+id/email_menu"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/roboto_light"
+                                android:text="@string/email"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_16pixels" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/settingIV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:visibility="gone"
+                            android:layout_marginRight="@dimen/dimen_6dp"
+                            android:src="@drawable/settings"
+                            android:tint="@color/white" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginRight="@dimen/dimen_16dp"
+                    android:background="@drawable/bg_round_et"
+                    android:layout_marginLeft="@dimen/dimen_16dp"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:layout_marginStart="@dimen/dimen_16dp"
+                    android:layout_marginBottom="@dimen/dimen_8dp"
+                    android:layout_marginEnd="@dimen/dimen_16dp">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/passwordET"
+                            android:layout_height="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:layout_marginStart="@dimen/dimen_12dp"
+                            android:layout_marginRight="@dimen/dimen_12dp"
+                            android:padding="@dimen/dimen_6dp"
+                            android:drawableEnd="@drawable/ic_search"
+                            android:hint="@string/edit_search"
+                            android:editable="false"
+                            android:textSize="@dimen/text_13pixels"
+                            android:text="@string/edit_search"
+                            android:drawableRight="@drawable/ic_search"
+                            android:layout_marginEnd="@dimen/dimen_12dp" />
+                </LinearLayout>
+                <ExpandableListView
+                    android:id="@+id/expandableListView"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:focusable="false"
+                    android:groupIndicator="@android:color/transparent"
+                    android:choiceMode="singleChoice"
+                    android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
+                    android:divider="#E2E2E2"
+                    android:dividerHeight="0.5dp" />
+
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+</LinearLayout>

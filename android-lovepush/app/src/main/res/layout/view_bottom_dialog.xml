@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <!--ONE-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/nameTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dimen_16dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textStyle="bold"
+            android:singleLine="true"
+            android:text="dfdfsd"
+
+            android:textColor="@color/black_light"
+            android:textSize="@dimen/text_18pixels"
+          />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_2dp"
+            android:background="@color/grey" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

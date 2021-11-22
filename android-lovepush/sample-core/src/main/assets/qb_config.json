@@ -1,0 +1,16 @@
+{
+  "app_id": "92",
+  "auth_key": "wJHdOcQSxXQGWx5",
+  "auth_secret": "BTFsj7Rtt27DAmT",
+  "account_key": "rz2sXxBt5xgSxGjALDW6",
+  "api_domain": "https://api.quickblox.com",
+  "chat_domain": "chat.quickblox.com",
+  "gcm_sender_id": "761750217637"
+}
+
+
+/* /*  static final String APP_ID = "68711";
+    static final String AUTH_KEY = "HZvcJeEsFaJ2pM5";
+    static final String AUTH_SECRET = "OHcwceQL85esbSR";
+    static final String ACCOUNT_KEY = "y9oS-GvCvT28veGhCr2r";
+*/

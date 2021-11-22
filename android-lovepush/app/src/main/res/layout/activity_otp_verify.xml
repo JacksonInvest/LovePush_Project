@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/tool_back_without_login" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/dimen_70dp"
+
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/roboto_regular"
+                android:padding="@dimen/dimen_8dp"
+                android:text="@string/verify_email"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_18pixels" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:fontFamily="@font/roboto_regular"
+                android:padding="@dimen/dimen_8dp"
+                android:text="@string/we_need_send_email"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_16pixels" />
+
+
+            <LinearLayout
+                style="@style/edit_layout"
+                android:orientation="horizontal">
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/otpET"
+                    style="@style/edit_text"
+                    android:gravity="center"
+                    android:hint="@string/otp"
+                    android:imeOptions="actionNext"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/verifyBTN"
+                style="@style/bg_button"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:text="@string/verify" />
+
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/resendTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dimen_30dp"
+                android:fontFamily="@font/roboto_regular"
+                android:padding="@dimen/dimen_8dp"
+                android:text="@string/resend_otp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_18pixels" />
+
+           <!-- <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/changeNumberTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dimen_12dp"
+                android:fontFamily="@font/roboto_regular"
+                android:padding="@dimen/dimen_8dp"
+                android:text="@string/change_number"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_14pixels" />-->
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

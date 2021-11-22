@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="edit_text_multi">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dimen_150dp</item>
+        <item name="android:background">@null</item>
+        <item name="android:drawablePadding">@dimen/dimen_8dp</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+        <item name="android:padding">@dimen/dimen_8dp</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textColorHint">@color/black_light</item>
+        <item name="android:textSize">@dimen/text_16pixels</item>
+        <item name="android:layout_gravity">start</item>
+        <item name="android:gravity">start</item>
+        <item name="android:nestedScrollingEnabled">false</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:singleLine">false</item>
+    </style>
+</resources>

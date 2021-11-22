@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+
+    android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/headerTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:visibility="visible"
+            android:background="@drawable/level_unfill"
+            android:text="Level 1"
+            android:inputType="textPersonName"
+            android:paddingBottom="6dp"
+            android:paddingLeft="@dimen/dimen_16dp"
+            android:gravity="center"
+            android:paddingRight="@dimen/dimen_16dp"
+            android:paddingTop="6dp"
+            android:textColor="#999999"
+            android:textSize="@dimen/_15sdp" />
+
+
+</LinearLayout>

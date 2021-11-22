@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/l1"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/insta_backArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:padding="5dp"
+            android:src="@drawable/back_arrow"
+            android:tint="@color/white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:id="@+id/dialog_toolbartxt"
+            android:text="Instagram"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+
+    <WebView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_below="@+id/l1"
+        android:id="@+id/webview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:progressTint="@color/colorPrimary" />
+
+</RelativeLayout>

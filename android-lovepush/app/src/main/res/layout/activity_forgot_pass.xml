@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/tool_back_without_login" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/dimen_70dp"
+
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/dimen_8dp"
+                android:src="@drawable/logo_img" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/roboto_regular"
+                android:padding="@dimen/dimen_8dp"
+                android:text="@string/we_need"
+                android:textColor="@color/text_black" />
+
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/ccp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:ccp_contentColor="@color/text_black"
+                app:ccp_countryPreference="US,IN"
+                app:ccp_defaultNameCode="US">
+
+            </com.hbb20.CountryCodePicker>
+
+            <LinearLayout
+                style="@style/edit_layout"
+                android:orientation="horizontal">
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/phoneET"
+                    style="@style/edit_text"
+                    android:digits="0123456789"
+                    android:drawableStart="@drawable/phone"
+                    android:hint="@string/phone"
+                    android:imeOptions="actionNext"
+                    android:inputType="phone" />
+
+            </LinearLayout>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/submitBTN"
+                style="@style/bg_button"
+                android:layout_marginTop="@dimen/dimen_16dp"
+                android:text="@string/submit" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

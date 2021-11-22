@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".activities.DeleteAccount">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:padding="@dimen/dimen_8dp"
+        android:id="@+id/toolbar"
+        android:background="@color/colorPrimary"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/backIV"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/dimen_15dp"
+            android:src="@drawable/back_arrow" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/screenTitleTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:drawableStart="@drawable/logo_sm"
+            android:drawablePadding="@dimen/dimen_5dp"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:includeFontPadding="false"
+            android:padding="@dimen/dimen_5dp"
+            android:text="DELETE ACCOUNT"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_20pixels"
+            android:drawableLeft="@drawable/logo_sm" />
+
+
+    </RelativeLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_above="@+id/bottomView"
+        android:layout_below="@+id/toolbar"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dimen_25dp"
+                android:drawablePadding="@dimen/dimen_5dp"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:padding="@dimen/dimen_16dp"
+                android:text="We are constantly working on our app to improve it and offer the greatest possible added value for our community."
+                android:textColor="@color/black"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:drawablePadding="@dimen/dimen_5dp"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:padding="@dimen/dimen_16dp"
+                android:text="To achieve this in the best possible way,we would be happy if you let us know why you are leaving our community."
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:id="@+id/txtPlease"
+                android:textAlignment="center"
+                android:layout_marginTop="@dimen/dimen_8dp"
+                android:textSize="@dimen/text_16pixels"
+                android:text="Please select one or more answer options:"
+                android:layout_height="wrap_content" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:background="#40ECECEC"
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:drawablePadding="@dimen/dimen_5dp"
+                android:includeFontPadding="false"
+                android:text="Prototype Cells"
+                android:padding="@dimen/dimen_16dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_16pixels"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:padding="@dimen/dimen_16dp"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:id="@+id/chFreezing"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Freezing"
+                        android:layout_marginLeft="@dimen/dimen_8dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16pixels"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:background="#CDDBDBDB"
+                    android:layout_marginTop="@dimen/dimen_4dp"
+                    android:layout_marginBottom="@dimen/dimen_4dp"
+                    android:layout_height="0.5dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:id="@+id/chBadUser"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Bad User Experience"
+                        android:layout_marginLeft="@dimen/dimen_8dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16pixels"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:background="#CDDBDBDB"
+                    android:layout_marginTop="@dimen/dimen_4dp"
+                    android:layout_marginBottom="@dimen/dimen_4dp"
+                    android:layout_height="0.5dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:id="@+id/chAds"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Instrusive adds"
+                        android:layout_marginLeft="@dimen/dimen_8dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16pixels"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:background="#CDDBDBDB"
+                    android:layout_marginTop="@dimen/dimen_4dp"
+                    android:layout_marginBottom="@dimen/dimen_4dp"
+                    android:layout_height="0.5dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:id="@+id/chPrivacy"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Privacy Concerns"
+                        android:layout_marginLeft="@dimen/dimen_8dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16pixels"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:background="#CDDBDBDB"
+                    android:layout_marginTop="@dimen/dimen_4dp"
+                    android:layout_marginBottom="@dimen/dimen_4dp"
+                    android:layout_height="0.5dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:id="@+id/chForcedSocial"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Forced Social logins"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="@dimen/dimen_8dp"
+                        android:textSize="@dimen/text_16pixels"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:background="#CDDBDBDB"
+                    android:layout_marginTop="@dimen/dimen_4dp"
+                    android:layout_marginBottom="@dimen/dimen_4dp"
+                    android:layout_height="0.5dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:id="@+id/chDisinterest"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Disinterest"
+                        android:layout_marginLeft="@dimen/dimen_8dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16pixels"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:background="#CDDBDBDB"
+                    android:layout_marginTop="@dimen/dimen_4dp"
+                    android:layout_marginBottom="@dimen/dimen_4dp"
+                    android:layout_height="0.5dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:id="@+id/chLittleActivity"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Little activity in my area"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="@dimen/dimen_8dp"
+                        android:textSize="@dimen/text_16pixels"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:background="#CDDBDBDB"
+                    android:layout_marginTop="@dimen/dimen_4dp"
+                    android:layout_marginBottom="@dimen/dimen_4dp"
+                    android:layout_height="0.5dp"/> <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:id="@+id/chOther"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Other"
+                    android:layout_marginLeft="@dimen/dimen_8dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_16pixels"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:background="#CDDBDBDB"
+                    android:layout_marginTop="@dimen/dimen_4dp"
+                    android:layout_marginBottom="@dimen/dimen_4dp"
+                    android:layout_height="0.5dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Description:"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="@dimen/dimen_25dp"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/text_16pixels"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:background="#40ECECEC"
+                    android:padding="@dimen/dimen_8dp"
+                    android:layout_marginTop="@dimen/dimen_8dp"
+                    android:layout_height="@dimen/dimen_150dp">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:background="@null"
+                        android:id="@+id/etDescription"
+                        android:hint="Enter description here."
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:weightSum="2"
+        android:layout_marginLeft="@dimen/dimen_4dp"
+        android:layout_marginRight="@dimen/dimen_4dp"
+        android:id="@+id/bottomView"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Continue"
+            android:textAllCaps="true"
+            android:id="@+id/txtContinue"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimary"
+            android:padding="@dimen/dimen_16dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/txtCancel"
+            android:textAllCaps="true"
+            android:background="@color/blue"
+            android:text="Cancel"
+            android:padding="@dimen/dimen_16dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</RelativeLayout>

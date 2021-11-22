@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <include layout="@layout/tool_back_login" />
+
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            android:gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dimen_12dp"
+            android:layout_marginBottom="@dimen/dimen_12dp">
+
+            <TextView
+                android:id="@+id/level1TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:visibility="gone"
+                android:background="@drawable/level_unfill"
+                android:text="Level 1"
+                android:inputType="textPersonName"
+                android:paddingBottom="6dp"
+                android:paddingLeft="@dimen/dimen_16dp"
+                android:gravity="center"
+                android:paddingRight="@dimen/dimen_16dp"
+                android:paddingTop="6dp"
+                android:textColor="#999999"
+                android:textSize="@dimen/_15sdp" />
+            <TextView
+                android:id="@+id/level2TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/level_unfill"
+                android:text="Level 2"
+                android:inputType="textPersonName"
+                android:visibility="gone"
+                android:paddingBottom="6dp"
+                android:gravity="center"
+                android:paddingLeft="@dimen/dimen_16dp"
+                android:paddingRight="@dimen/dimen_16dp"
+                android:paddingTop="6dp"
+                android:textColor="#999999"
+                android:textSize="@dimen/_15sdp" />
+            <TextView
+                android:id="@+id/level3TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/level_unfill"
+                android:gravity="center"
+                android:text="Level 3"
+                android:inputType="textPersonName"
+                android:visibility="gone"
+                android:paddingBottom="6dp"
+                android:paddingLeft="@dimen/dimen_16dp"
+                android:paddingRight="@dimen/dimen_16dp"
+                android:paddingTop="6dp"
+                android:textColor="#999999"
+                android:textSize="@dimen/_15sdp" />
+            <TextView
+                android:id="@+id/level4TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+
+                android:background="@drawable/level_unfill"
+                android:text="Level 4"
+                android:inputType="textPersonName"
+                android:paddingBottom="6dp"
+                android:paddingLeft="@dimen/dimen_16dp"
+                android:paddingRight="@dimen/dimen_16dp"
+                android:paddingTop="6dp"
+                android:textColor="#999999"
+                android:textSize="@dimen/_15sdp" />
+            <TextView
+                android:id="@+id/level5TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/level_unfill"
+                android:text="Level 5"
+                android:visibility="gone"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:paddingBottom="6dp"
+                android:paddingLeft="@dimen/dimen_16dp"
+                android:paddingRight="@dimen/dimen_16dp"
+                android:paddingTop="6dp"
+                android:textColor="#999999"
+                android:textSize="@dimen/_15sdp" />
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <View style="@style/cus_view"
+        android:layout_gravity="bottom"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:maxLines="4"
+        android:id="@+id/noDataFoundTV"
+        android:gravity="center"
+        android:background="@null"
+        android:visibility="gone"
+        android:fontFamily="@font/roboto_light"
+        android:padding="@dimen/dimen_8dp"
+        android:textSize="@dimen/text_18pixels"
+        android:text="@string/noDataFound"
+        android:textStyle="bold"
+        android:layout_marginBottom="@dimen/dimen_60dp"
+        android:textColor="@color/text_black" />
+</LinearLayout>

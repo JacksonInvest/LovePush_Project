@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#B70016</color>
+    <color name="colorPrimaryDark">#B70016</color>
+    <color name="primary_shaded">#FFDA979E</color>
+    <color name="colorAccent">#B70016</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="text_black">#191919</color>
+    <color name="black_light">#db3d3c3c</color>
+    <color name="grey">#f1f1f1</color>
+    <color name="ef_grey">#9E9E9E</color>
+
+    <color name="green">#008000</color>
+
+    <color name="blue">#0F7CE1</color>
+    <color name="blue_trans">#2E0F7CE1</color>
+    <color name="chat_grey">#9496A3</color>
+    <color name="pink">#F9E5E7</color>
+
+    <color name="color_grey">#d3d3d3</color>
+
+
+    <color name="white_green">#A9FF80</color>
+    <color name="black_transparent_50">#50000000</color>
+    <color name="grey_transparent_50">#50606060</color>
+    <color name="toolbar_subtitle_color">#6e6e6e</color>
+    <color name="toolbar_title_color">#1f1f1f</color>
+
+    <color name="text_color_outgoing_opponents_names_audio_call">#1f1f1f</color>
+
+    <color name="background_fragment_conversation">#2b2a2a</color>
+
+    <color name="button_end_call_pressed_color">#FC5876</color>
+    <color name="text_color_call_type">#6e6e6e</color>
+    <color name="text_color_also_on_call">@color/text_color_call_type</color>
+    <color name="text_color_other_inc_users">#1f1f1f</color>
+    <color name="text_color_caller_name">#1f1f1f</color>
+    <color name="color_primary_dark">#d0d0d0</color>
+    <color name="color_accent">@color/color_green_qb</color>
+    <color name="color_green_qb">#4ad24d</color>
+    <color name="red">#FF0000</color>
+    <color name="background_chat_color">#f5f6f5</color>
+
+    <color name="text_color_primary">#212121</color>
+    <color name="text_color_white">#ffffff</color>
+    <color name="text_color_black">#000000</color>
+    <color name="text_color_light_grey">#dedede</color>
+    <color name="text_color_dark_grey">#6e6e6e</color>
+    <color name="text_color_green">@color/green</color>
+    <color name="dark_gray">#6c6c6c</color>
+    <color name="text_color_link">@color/blue</color>
+    <color name="text_color_link_preview_title">@color/blue</color>
+    <color name="text_color_link_preview_description">#333333</color>
+
+</resources>

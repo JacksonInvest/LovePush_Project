@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <include layout="@layout/tool_back_login" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_16dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/graphView"
+            android:layout_marginLeft="@dimen/dimen_30dp"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="@dimen/dimen_100dp"
+                android:layout_margin="@dimen/dimen_16dp"
+                android:layout_height="@dimen/dimen_100dp">
+                <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                    android:id="@+id/circularProgressBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cpb_background_progressbar_color="#b6bbd8"
+                    app:cpb_background_progressbar_width="@dimen/dimen_12dp"
+                    app:cpb_progress_direction="to_right"
+                    app:cpb_progressbar_color="@color/blue"
+                    app:cpb_progressbar_width="@dimen/dimen_12dp"
+                    app:cpb_round_border="false" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Total"
+                        android:layout_centerInParent="true"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="0"
+                        android:textSize="@dimen/dimen_20dp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:id="@+id/txtTotal"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:orientation="vertical"
+               android:gravity="center"
+               android:layout_height="match_parent">
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:gravity="center"
+                   android:layout_height="wrap_content">
+                   <View
+                       android:layout_width="@dimen/dimen_12dp"
+                       android:background="@color/colorAccent"
+                       android:layout_height="@dimen/dimen_12dp"/>
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:text="Direct"
+                       android:textColor="@color/black"
+                       android:layout_marginLeft="@dimen/dimen_20dp"
+                       android:layout_height="wrap_content"/>
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:text="0"
+                       android:id="@+id/txtDirect"
+                       android:textColor="@color/black"
+                       android:layout_marginLeft="@dimen/dimen_20dp"
+                       android:layout_height="wrap_content"/>
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:gravity="center"
+                   android:layout_marginTop="@dimen/dimen_12dp"
+                   android:layout_height="wrap_content">
+                   <View
+                       android:layout_width="@dimen/dimen_12dp"
+                       android:background="@color/blue"
+                       android:layout_height="@dimen/dimen_12dp"/>
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:text="Other"
+                       android:textColor="@color/black"
+                       android:layout_marginLeft="@dimen/dimen_20dp"
+                       android:layout_height="wrap_content"/>
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:text="0"
+                       android:id="@+id/txtOther"
+                       android:textColor="@color/black"
+                       android:layout_marginLeft="@dimen/dimen_20dp"
+                       android:layout_height="wrap_content"/>
+               </LinearLayout>
+           </LinearLayout>
+        </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/refrral_banner"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/nameTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:gravity="center"
+            android:layout_margin="@dimen/dimen_16dp"
+            android:text="@string/itsBetterTogether"
+            android:textStyle="bold"
+            android:textColor="@color/text_black"
+            android:fontFamily="@font/roboto_light"
+            android:textSize="@dimen/text_22pixels"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:layout_gravity="center"
+            android:text="@string/inviteFriends"
+            android:fontFamily="@font/roboto_light"
+            android:textSize="@dimen/text_14pixels"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:id="@+id/llCode"
+            android:paddingRight="@dimen/dimen_30dp"
+
+            android:paddingBottom="@dimen/dimen_12dp"
+            android:background="@drawable/bg_button_mid_blue"
+            android:paddingTop="@dimen/dimen_12dp"
+            android:gravity="center"
+            android:paddingLeft="@dimen/dimen_30dp"
+            android:layout_marginTop="@dimen/dimen_26dp"
+            android:layout_marginBottom="@dimen/dimen_26dp"
+            >
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:gravity="center"
+                android:text="d4onN"
+                android:textStyle="bold"
+                android:id="@+id/codeTV"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_20pixels"
+                android:fontFamily="@font/roboto_light"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:text="@string/tapCopy"
+                android:visibility="gone"
+                android:textSize="@dimen/text_14pixels"
+                android:fontFamily="@font/roboto_light"
+                />
+
+
+        </LinearLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/inviteBtn"
+            style="@style/bg_button"
+            android:text="@string/invite"
+            android:layout_marginBottom="@dimen/dimen_60dp"/>
+    </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

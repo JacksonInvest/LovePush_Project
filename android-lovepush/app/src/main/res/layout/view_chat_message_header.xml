@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MatchWidth"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/header_date_textview"
+        style="@style/ListDateHeaderStyle"
+        tools:text="MARCH 06"
+        android:layout_marginTop="@dimen/dimen_2dp"
+        android:fontFamily="@font/roboto_light"
+        android:textSize="11sp"
+
+        android:textColor="@color/white"
+       />
+
+    <!--<com.devspark.robototextview.widget.RobotoTextView
+        android:id="@+id/header_date_textview"
+        style="@style/ListDateHeaderStyle"
+        tools:text="MARCH 06" />-->
+</LinearLayout>

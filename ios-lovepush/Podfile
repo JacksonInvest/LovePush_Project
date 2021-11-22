@@ -1,0 +1,34 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'LovePush' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for LovePush
+
+   pod 'IQKeyboardManager'
+   pod "FRStretchImageView"
+   pod 'Koloda', '~> 4.0'
+   pod 'FBSDKCoreKit'
+   pod 'FBSDKLoginKit'
+   pod 'MBProgressHUD'
+   pod 'Alamofire', '~> 4.5'
+   pod 'SDWebImage', '~> 4.4.6'
+   pod 'GoogleMaps'
+   pod 'InstagramKit'
+   pod 'InstagramKit/UICKeyChainStore'
+   pod 'GoogleSignIn'
+   pod 'QuickBlox'
+   pod 'QMServices'
+   pod 'QMChatViewController'
+   pod 'Quickblox-WebRTC'
+   pod "AGEmojiKeyboard"
+   pod 'RangeSeekSlider'
+   pod 'GooglePlacesSearchController'
+#   pod "ROGoogleTranslate"
+   pod 'LocationPicker'
+   pod 'libbambuser-ios', '0.9.23'
+   pod 'FTPopOverMenu_Swift', '~> 0.1.4'
+
+end

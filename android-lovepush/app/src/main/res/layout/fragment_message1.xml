@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@android:color/white"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rootLAyout"
+        android:orientation="vertical">
+
+        <include layout="@layout/tool_login_without_back" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_6dp"
+                android:id="@+id/newestTV"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:text="@string/newest_match"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_12pixels"
+                app:fontFamily="@font/roboto_light" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_6dp"
+                android:layout_weight="1"
+                android:id="@+id/requestCountTV"
+                android:singleLine="true"
+                android:textStyle="bold"
+                android:gravity="end"
+                android:layout_marginEnd="@dimen/dimen_6dp"
+                android:textColor="@color/blue"
+                android:textSize="@dimen/text_16pixels"
+                app:fontFamily="@font/roboto_light"
+                android:layout_marginRight="@dimen/dimen_6dp" />
+            </LinearLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recentChatRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <View style="@style/cus_view"
+                android:layout_gravity="bottom"/>
+
+        </LinearLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:maxLines="4"
+            android:id="@+id/noDataFoundTV"
+            android:gravity="center"
+            android:background="@null"
+            android:visibility="gone"
+            android:fontFamily="@font/roboto_light"
+            android:padding="@dimen/dimen_16dp"
+            android:textSize="@dimen/text_16pixels"
+            android:text="@string/noDataFound"
+            android:textStyle="bold"
+            android:textColor="@color/text_black" />
+        <!--<androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lastChatRV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+        <include layout="@layout/item_message_list" />-->
+
+        <com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout
+            android:id="@+id/swipy_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srl_direction="top">
+
+            <!--<ListView
+                android:id="@+id/list_dialogs_chats"
+                style="@style/ListViewWithoutDividerStyle" />-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/dialogsRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout>
+
+        <LinearLayout
+            style="@style/MatchWidth"
+
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:onClick="onStartNewChatClick"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <com.devspark.robototextview.widget.RobotoTextView
+                style="@style/WrapContent"
+                android:text="@string/chat_empty_you_are_alone_here"
+                android:textColor="@color/text_color_dark_grey"
+                android:textSize="20sp"
+                app:robotoTypeface="roboto_medium" />
+
+            <com.devspark.robototextview.widget.RobotoTextView
+                style="@style/WrapContent"
+                android:text="@string/chat_empty_start_new_chat"
+                android:textColor="@color/text_color_green"
+                android:textSize="20sp"
+                app:robotoTypeface="roboto_medium" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_dialogs"
+            style="@style/CenterProgressBarStyle"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

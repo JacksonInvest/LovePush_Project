@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/homeIV"
+        style="@style/bottom_menu_IV"
+        android:src="@drawable/home_icon" />
+
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/notificataionIV"
+        android:padding="@dimen/dimen_8dp"
+        android:src="@drawable/notification_icon" />
+        <TextView
+            android:id="@+id/total_noti_count"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:minWidth="20dp"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:padding="1.5dp"
+            android:textColor="@color/white"
+            android:layout_marginRight="18dp"
+            android:layout_marginTop="@dimen/dimen_6dp"
+            android:background="@drawable/shape_rectangle"
+            android:visibility="gone"
+            android:textSize="11sp"
+            android:text="9"
+            />
+</RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/messagesIV"
+            android:padding="@dimen/dimen_8dp"
+            android:src="@drawable/msg_icon" />
+        <TextView
+            android:id="@+id/total_msg_count"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:minWidth="20dp"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:padding="1.5dp"
+            android:textColor="@color/white"
+            android:layout_marginRight="18dp"
+            android:layout_marginTop="@dimen/dimen_6dp"
+            android:background="@drawable/shape_rectangle"
+            android:visibility="gone"
+            android:textSize="11sp"
+            android:text="9"
+            />
+    </RelativeLayout>
+
+
+
+    <ImageView
+        android:id="@+id/profileIV"
+        style="@style/bottom_menu_IV"
+        android:src="@drawable/profile_normal" />
+
+    <ImageView
+        android:id="@+id/menuIV"
+        style="@style/bottom_menu_IV"
+        android:src="@drawable/menu" />
+
+</LinearLayout>

@@ -1,0 +1,425 @@
+/* 
+  Localizable.strings
+  LovePush
+
+  Created by Lavi Kumar on 20/08/19.
+  Copyright © 2019 Lavi Kumar. All rights reserved.
+*/
+
+/****************** Comman Text ******************/
+"Love Push" = "Love Push";
+"Alert" = "Alert";
+"OK"    = "OK";
+"Yes"   = "Yes";
+"No"    = "No";
+"Current Language" = "English";
+
+/****************** Login ******************/
+
+"Username"               = "Username";
+"Password"               = "Password";
+"Forgot"                 = "Forgot";
+"SIGN IN"                = "SIGN IN";
+"OR SIGN IN WITH"        = "OR SIGN IN WITH";
+"Don't have a account? " = "Dont't have a account? ";
+"Sign up"                = "Sign Up";
+"Please enter your Username." = "Please enter Username.";
+"Please enter your Password." = "Please enter your Password.";
+
+/****************** Register ******************/
+
+"REGISTER"          = "REGISTER";
+"Email"             = "Email";
+"Phone"             = "Phone";
+"Gender"            = "Gender";
+"Male"              = "Male";
+"Female"            = "Female";
+"Man"               = "Man";
+"Women"             = "Women";
+"Transgender"       = "Transgender";
+"NEXT"              = "NEXT";
+"Confirm Password"  = "Confirm Password";
+"OR SIGN UP WITH"   = "OR SIGN UP WITH";
+"Not Sure"          = "Not Sure";
+"Terms and Conditions" = "Terms and Conditions";
+"Privacy Policy"       = "Privacy Policy";
+"Please enter your phone number." = "Please enter your phone number.";
+"Username length should be maximum 20 characters." = "Username length should be maximum 20 characters.";
+"Phone number should be of 10 to 15 digits."       = "Phone number should be of 10 to 15 digits.";
+"Phone number should be minimum 10 digits."        =  "Phone number should be minimum 10 digits.";
+"Are you sure you don't have any referral code."   = "Are you sure you don't have any referral code.";
+"A server with the specified hostname could not be found." = "A server with the specified hostname could not be found.";
+"I accept Terms and Conditions and Privacy Policy" = "I accept Terms and Conditions and Privacy Policy";
+
+//Alert Data
+"Please enter your Email."                               = "Please enter your Email.";
+"Please enter valid Email."                              = "Please enter valid Email.";
+"Password length should be between 6 and 20 characters." = "Password length should be between 6 and 20 characters.";
+"Your password not confirmed."                           = "Your password not confirmed.";
+"Please Select Gender"                                   = "Please Select Gender";
+"Please accept terms & conditions and Privacy Policy."   = "Please accept terms & conditions and Privacy Policy.";
+
+/****************** Verify OTP ******************/
+
+"Verify Your Email!"                         = "Verify Your Email!";
+"Resend OTP?"                                = "Resend OTP?";
+"Change Number"                              = "Change Number";
+"We have sent an OTP to your email address"  = "We have sent an OTP to your email address";
+
+/****************** CREATE PROFILE OR UPDATE PROFILE ******************/
+
+"COMPLETE INFORMATION"          = "COMPLETE INFORMATION";
+"CREATE PROFILE"                = "CREATE PROFILE";
+"Name"                          = "Name";
+"Select Age"                    = "Select Age";
+"Select LovePush Intention"     = "Select LovePush Intention";
+"Select Relationship"           = "Select Relationship";
+"Done"                          = "Done";
+"Sexual Orientation"            = "Sexual Orientation";
+"Heterosexual"                  = "Heterosexual";
+"Bisexual"                      = "Bisexual";
+"Homosexual"                    = "Homosexual";
+"Languages"                     = "Languages";
+"Size"                          = "Size";
+"Physique"                      = "Physique";
+"Music Style"                   = "Music Style";
+"Favorite Travel Destinations"  = "Favorite Travel Destinations";
+"Job & Employer"                = "Job & Employer";
+"Hobbies"                       = "Hobbies";
+"Relationship"                  = "Relationship";
+"Friendship"                    = "Friendship";
+"Daily Activities"              = "Daily Activities";
+"No Expectation"                = "No Expectation";
+"Single"                        = "Single";
+"In Relationship"               = "In Relationship";
+"Married"                       = "Married";
+"Recently Separated"            = "Recently Separated";
+"Plump"                         = "Plump";
+"Thin"                          = "Thin";
+"Athletic"                      = "Athletic";
+"Muscular"                      = "Muscular";
+"Normal"                        = "Normal";
+"About me"                      = "About me";
+"Please set age."               = "Please set age.";
+"SUBMIT"                        = "SUBMIT";
+"CONTINUE"                      = "CONTINUE";
+"Continue"                      = "Continue";
+"Electro"                       = "Electro";
+"Reggae"                        = "Reggae";
+"Rock"                          = "Rock";
+"HipHop"                        = "HipHop";
+"Pop"                           = "Pop";
+"Classic"                       = "Classic";
+"All mixed up"                  = "All mixed up";
+
+//---------- UPDATE PROFILE ------------//
+
+"UPDATE PROFILE" = "UPDATE PROFILE";
+"IMAGES"         = "IMAGES";
+"Choose Image"   = "Choose Image";
+"Camera"         = "Camera";
+"Gallery"        = "Gallery";
+"Remove Image"   = "Remove Image";
+"Cancel"         = "Cancel";
+
+
+/****************** CREATE PROFILE ******************/
+
+"CHANGE PASSWORD"          = "CHANGE PASSWORD";
+"Old password"             = "Old password";
+"New password"             = "New password";
+"Confirm new password"     = "Confirm new password";
+"CHANGE"                   = "CHANGE";
+"All fields are required." = "All fields are required.";
+
+/****************** PROFILE ******************/
+
+"PROFILE"               = "PROFILE";
+"USER NAME:"            = "USER NAME:";
+"AGE:"                  = "AGE:";
+"LOOKING FOR:"          = "LOOKING FOR:";
+"LANGUAGE:"             = "LANGUAGE:";
+"BIO:"                  = "BIO:";
+"POSTS:"                = "POSTS:";
+"Accept"                = "Accept";
+"Reject"                = "Reject";
+"FAVORITE DESTINATION:" = "FAVORITE DESTINATION:";
+"LOVE PUSH INTENTION:"  = "LOVE PUSH INTENTION:";
+"RELATIONSHIP STATUS:"  = "RELATIONSHIP STATUS:";
+
+/****************** PERSONALITY TEST ******************/
+
+"PERSONALITY TEST" = "PERSONALITY TEST";
+"Question"         = "Question";
+"Mark"             = "Mark";
+"Answer"           = "Answer";
+"Answers"          = "Answers";
+"Max"              = "Max";
+"DONE"             = "DONE";
+
+//Alert
+"Kindly complete the test to exit this section"         = "Kindly complete the test to exit this section";
+"Please give all answer of the question"                = "Please give all answer of the question";
+"Maximum answer limit of this question is"              = "Maximum answer limit of this question is";
+"You have to attempt the personality test completely"   = "You have to attempt the personality test completely";
+"Do you want to edit your personality test?"            = "Do you want to edit your personality test?";
+"Congratulations, you have done it!"                    = "Congratulations, you have done it!";
+"Thank you for taking the time, here are your results." = "Thank you for taking the time, here are your results.";
+
+/****************** SETTINGS ******************/
+
+"SETTINGS"                        = "SETTINGS";
+"Set Language"                    = "Set Language";
+"Subscription Details"            = "Subscription Details";
+"Filter"                          = "Filter";
+"Set Partner Preferences"         = "Set Partner Preferences";
+"Notifications"                   = "Notifications";
+"Receive Chat Request"            = "Receive Chat Request";
+"Receive Love Request"            = "Receive Love Request";
+"Receive Private Message"         = "Receive Private Message";
+"Hide Me From Search"             = "Hide Me From Search";
+"Restrict Social Media Friends"   = "Restrict Social Media Friends";
+"Community Guidlines"             = "Community Guidelines";
+"Legacy"                          = "Legacy";
+"Legacy (T&C and Privacy Policy)" = "Legacy (T&C and Privacy Policy)";
+"Change Password"                 = "Change Password";
+"Support"                         = "Support";
+"Delete Account"                  = "Delete Account";
+"Membership"                      = "Membership";
+"MEMBERSHIP"                      = "MEMBERSHIP";
+"Are you sure, you want to delete your account?"    = "Are you sure, you want to delete your account?";
+
+/****************** INSTAGRAM ******************/
+
+"INSTAGRAM" = "INSTAGRAM";
+
+/****************** Location Picker ******************/
+
+"Search or enter an address" = "Search or enter an address";
+"Search History"             = "Search History";
+"Select"                     = "Select";
+"Search places"              = "Search places";
+"Previously searched"        = "Previously searched";
+
+/****************** Community Guidlines ******************/
+
+"GUIDLINES"           = "GUIDLINES";
+"COMMUNITY GUIDLINES" = "COMMUNITY GUIDLINES";
+
+/****************** Help & Support ******************/
+
+"HELP & SUPPORT"            = "HELP & SUPPORT";
+"Subject"                   = "Subject";
+"Message"                   = "Message";
+"Please enter name."        = "Please enter name.";
+"Please enter subject."     = "Please enter subject.";
+"Please Enter the message." = "Please Enter the message.";
+"Request Sent Successful."  = "Request Sent Successful.";
+
+/****************** Legacy ******************/
+
+"LEGACY"                = "LEGACY";
+"TERMS AND CONDITIONS"  = "TERMS AND CONDITIONS";
+"PRIVACY POLICY"        = "PRIVACY POLICY";
+"PRIVACY"               = "PRIVACY";
+"AGREE"                 = "AGREE";
+"NOT AGREE"             = "NOT AGREE";
+
+/****************** SUBSCRIPTION ******************/
+
+"SUBSCRIPTION"                = "SUBSCRIPTION";
+"FREE PASS"                   = "FREE PASS";
+"VIP PASS"                    = "VIP PASS";
+"New Messages"                = "New Messages";
+"See Match Requests"          = "See Match Requests";
+"Match Request"               = "Match Requests";
+"Writing Ads*"                = "Writing Ads*";
+"Tips"                        = "Tips";
+"Advertisments"               = "Advertisments";
+"Couchsurfing"                = "Couchsurfing";
+"LovePush Affiliate"          = "LovePush Affiliate";
+"OR"                          = "OR";
+"PURCHASE VIP PASS"           = "PURCHASE VIP PASS";
+"Unlimited"                   = "Unlimited";
+
+/****************** POST ADS ******************/
+
+//"POST ADS"              = "POST ADS";
+"Title"                 = "Title";
+"Description"           = "Description";
+"Love Ad"               = "Love Ad";
+"Connect Ad"            = "Connect Ad";
+"Add image"             = "          Add image";
+"Select Location"       = "Set location";
+"Post Anonymously"      = "Post Anonymously";
+"Set radius"            = "Set radius";
+"POST"                  = "POST";
+"UPDATE"                = "UPDATE";
+"UPDATE ADS"            = "UPDATE ADS";
+"Please add Title."         = "Please add Title.";
+"Please add image."         = "Please add image.";
+"Please select location."   = "Please select location.";
+"Please enter description." = "Please enter description.";
+"Please add description of at least 20 characters." = "Please add description of at least 20 characters.";
+
+/****************** MY FEED ******************/
+
+"MY FEED"           = "MY FEED";
+"FILTER BY AD"      = "FILTER BY AD";
+"CANCEL"            = "CANCEL";
+
+/****************** Referral Code ******************/
+
+"REFERRAL CODE"                      = "REFERRAL CODE";
+"AFFILIATE OVERVIEW"                 = "AFFILIATE OVERVIEW";
+"Total"                              = "Total";
+"Direct"                             = "Direct";
+"Others"                             = "Others";
+"Other"                              = "Other";
+"It's Better Together"               = "It's Better Together";
+"Invite your Friends to the app now" = "Invite your friends to the app now";
+"Tap to copy code"                   = "Tap to copy code";
+"INVITE"                             = "INVITE";
+
+/****************** My Team ******************/
+
+"MY TEAM" = "MY TEAM";
+"Level"   = "Level";
+
+/****************** Match List ******************/
+
+"LOVE"          = "LOVE";
+"CONNECT"       = "CONNECT";
+"Love"          = "Love";
+"Connect"       = "Connect";
+"Go to Explore to find new match." = "Go to Explore to find new match.";
+
+/****************** Match Request ******************/
+
+"MATCH REQUEST" = "MATCH REQUESTS";
+
+/****************** FAQ ******************/
+
+"Frequently asked questions"   = "Frequently asked questions";
+
+/****************** Menu ******************/
+
+"Search"                = "Search";
+"Ads"                   = "Ads";
+"Personal Matching"     = "Personal Matching";
+"Around"                = "Around";
+"Affiliate Center"      = "Affiliate Center";
+"My Matches"            = "My Matches";
+"User tips"             = "User Tips";
+"Shop"                  = "Shop";
+"Settings"              = "Settings";
+"Logout"                = "Logout";
+"Post Ad"               = "Post Ad";
+"Ad Feed"               = "Ad Feed";
+"AD FEED"               = "AD FEED";
+"My Ads"                = "My Ads";
+"Personality Test"      = "Personality Test";
+"Recommended Profiles"  = "Recommended Profiles";
+"RECOMMENDED PROFILES"  = "RECOMMENDED PROFILES";
+"Referral Code"         = "Referral Code";
+"Affiliate Overview"    = "Affiliate Overview";
+"My Team"               = "My Team";
+"Commissions"           = "Commissions";
+"Withdraw Settings"     = "Withdraw Settings";
+"Links and Media"       = "Links and Media";
+"Tips & Media"          = "Tips & Media";
+"- will come soon"      = " - will come soon";
+"Match List"            = "Match List";
+"Match Request"         = "Match Requests";
+"Preferances"           = "Preferances";
+
+"COMMISSIONS"           = "COMMISSIONS";
+"TIPS & MEDIA"          = "TIPS & MEDIA";
+"WITHDRAW SETTINGS"     = "WITHDRAW SETTINGS";
+
+
+/****************** Search User ******************/
+
+"SEARCH RESULT"         = "SEARCH RESULT";
+"Results Founds"        = "Results Founds";
+
+/****************** NOTIFICATIONS ******************/
+
+"NOTIFICATIONS"     = "NOTIFICATIONS";
+"NEWEST MATCHES"    = "NEWEST MATCHES";
+
+/****************** Explore ******************/
+
+"EXPLORE"           = "EXPLORE";
+"SWIPE"             = "SWIPE";
+"RADAR"             = "RADAR";
+"No Data Found"     = "No Data Found";
+
+/****************** Explore Filter ******************/
+
+"FILTER"            = "FILTER";
+"Location"          = "Location";
+"Search Location"   = "Search Location";
+"Select Age"        = "Select Age";
+"Preferences"       = "Preferences";
+"Please Select Location" = "Please Select Location";
+
+/****************** Messages/Chat List ******************/
+
+"MESSAGES"          = "MESSAGES";
+"NEWEST MATCHES"    = "NEWEST MATCHES";
+"Report"            = "Report";
+"Remove"            = "Reomve";
+"Delete"            = "Delete";
+"Unmatch"           = "Unmatch";
+"REPORT"            = "REPORT";
+"Request"           = "Request";
+"Please enter report description." = "Please enter report description.";
+"If you want to unmatch this user, you can't see this user in app." = "If you want to unmatch this user, you can't see this user in app.";
+"Are you sure, you want to unmatch?" = "Are you sure, you want to unmatch?";
+"If you request to report,It will be unmatch and you can't see this user in app." = "If you request to report,It will be unmatch and you can't see this user in app.";
+"Are you sure, you want request to report?" = "Are you sure, you want request to report?";
+"No messages yet. Go to Explore & find your first match" = "No messages yet. \n Go to Explore & find your first match";
+"No messages yet."  = "No messages yet.";
+"Go to Explore & find your first match." = "Go to Explore & find your first match.";
+"Are you sure, you want to delete the chat?" = "Are you sure, you want to delete the chat?";
+
+/****************** NOTIFICATIONS ******************/
+
+"NOTIFICATIONS" = "NOTIFICATIONS";
+"No notification found." = "No notification found.";
+
+/****************** LOVE PUSH Home ******************/
+
+"LOVE PUSH"     = "LOVE PUSH";
+"No Post Found" = "No Post Found";
+"Are you sure, you want to delete this post" = "Are you sure, you want to delete this post";
+"You are blocked by admin, You can't login this app." = "You are blocked by admin, You can't login this app.";
+
+"years ago"   = "years ago";
+"months ago"  = "months ago";
+"weeks ago"   = "weeks ago";
+"days ago"    = "days ago";
+"hours ago"   = "hours ago";
+"minutes ago" = "minutes ago";
+"seconds ago" = "seconds ago";
+
+/****************** Delete Account ******************/
+
+"DELETE ACCOUNT"            = "DELETE ACCOUNT";
+"Freezing"                  = "Freezing";
+"Bad User Experience"       = "Bad User Experience";
+"Intrusive ads"             = "Intrusive ads";
+"Privacy concerns"          = "Privacy concerns";
+"Forced social logins"          = "Forced social logins";
+"Disinterest"                   = "Disinterest";
+"Little activity in my area"    = "Little activity in my area";
+"Other"                         = "Other";
+
+
+"We are constantly working on our app to improve it and to offer the greatest possible added value for our community." = "We are constantly working on our app to improve it and to offer the greatest possible added value for our community.";
+"To achieve this in the best possible way, we would be happy if you let us know why you are leaving our community."   = "To achieve this in the best possible way, we would be happy if you let us know why you are leaving our community.";
+
+"Please select one or more answer options:" = "Please select one or more answer options:";
+"Description:"                              = "Description:";
+"Enter description here"                    = "Enter description here";
