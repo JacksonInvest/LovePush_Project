@@ -16,13 +16,11 @@ import android.widget.Toast;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatTextView;
 
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
-import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.ui.PlacePicker;
+import com.google.android.libraries.places.api.model.Place;
 import com.lovepushapp.R;
 import com.lovepushapp.core.BaseActivity;
 import com.lovepushapp.helper.PreferenceManager;
+import com.lovepushapp.utils.PlacesUtils;
 
 import java.io.IOException;
 import java.util.List;
@@ -109,14 +107,7 @@ public class FilterPstAdActivity extends BaseActivity {
 
             case R.id.locationLL:
                 if (CheckGpsStatus()) {
-                    PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
-                    try {
-                        startActivityForResult(builder.build(context), REQUEST_location);
-                    } catch (GooglePlayServicesRepairableException e) {
-                        e.printStackTrace();
-                    } catch (GooglePlayServicesNotAvailableException e) {
-                        e.printStackTrace();
-                    }
+                    startActivityForResult(PlacesUtils.getPlacesIntent(this), REQUEST_location);
                 } else {
                     Toast.makeText(context, "Please Enable your GPS location.", Toast.LENGTH_SHORT).show();
                 }
@@ -162,7 +153,7 @@ public class FilterPstAdActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_location) {
             if (resultCode == RESULT_OK) {
-                Place selectedPlace = PlacePicker.getPlace(data, this);
+                Place selectedPlace = PlacesUtils.parsePlacesData(data);
 
                 Geocoder geocoder = new Geocoder(context, Locale.getDefault());
                 latitude = selectedPlace.getLatLng().latitude;
@@ -180,17 +171,16 @@ public class FilterPstAdActivity extends BaseActivity {
                 String address = addresses.get(0).getAddressLine(0);
                 etLocation.setText(address);
 
-/*
-                LocationNameAutomatic.setText(getLocality()+", "+getCountry());
+              /*  LocationNameAutomatic.setText(getLocality()+", "+getCountry());
                 LocationNameManual.setText(getLocality()+", "+getCountry());
                 LocationLatLong.setText(getLatitude()+" , "+getLongitude());*/
+
                 // Do something with the place
             }
         }
     }
 
     private boolean CheckGpsStatus() {
-
         locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
     }

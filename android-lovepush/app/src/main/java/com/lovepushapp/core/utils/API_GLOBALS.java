@@ -10,10 +10,19 @@ public interface API_GLOBALS {
     String BASE_URL_FOR_PREVIEW_ACTIVITY = "http://lovepush.alcax.com/";
 
     //quick blox live id
-    String APP_ID = "77171";
+/*    String APP_ID = "77171";
     String AUTH_KEY = "hhPNP9nfTYOLfNt";
     String AUTH_SECRET = "fQFhcFxfkH2tTNG";
     String ACCOUNT_KEY = "ibS26PbG9Ao2fneNBUAd";
+    */
+
+    //quick blox dev id
+
+    String APP_ID = "96034";
+    String AUTH_KEY = "9pnRjgpwMkpAxx8";
+    String AUTH_SECRET = "qJzACsuW2gJtabV";
+    String ACCOUNT_KEY = "8yeD_sCg4G_yscbNZHhc";
+
 
 
     //quick blox dev id

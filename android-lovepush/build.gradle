@@ -6,6 +6,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
 
         if (project.hasProperty('local.repo'))
         {
@@ -17,7 +18,6 @@ buildscript {
         maven {
             url "https://maven.google.com"
         }
-
         maven { url "https://jitpack.io" }
 
         maven { url "https://dl.bintray.com/hani-momanii/maven"}
@@ -29,8 +29,9 @@ buildscript {
     }
     dependencies {
 
-        classpath 'com.android.tools.build:gradle:3.4.2'
-        classpath 'com.google.gms:google-services:4.3.0'
+        classpath 'com.android.tools.build:gradle:4.0.0'
+        classpath 'com.google.gms:google-services:4.3.2'
+
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
 //        classpath 'com.android.tools.build:gradle:3.2.0'
@@ -50,17 +51,7 @@ buildscript {
 
 allprojects {
     repositories {
-        configurations.all {
-            resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-                def requested = details.requested
-                if (requested.group == 'com.google.android.gms') {
-                    details.useVersion '12.0.1'
-                }
-                if (requested.group == 'com.google.firebase') {
-                    details.useVersion '12.0.1'
-                }
-            }
-        }
+
         google()
         jcenter()
         maven { url "https://jitpack.io" }
@@ -103,7 +94,7 @@ ext {
     dimensionDefault = 'default'
 
 
-
+    firebaseVersion = "17.0.0"
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
     lintAbortOnError = false

@@ -47,6 +47,8 @@ import com.lovepushapp.core.BaseFragment;
 import com.lovepushapp.core.MyApplication;
 import com.lovepushapp.model.response.LoginResponse;
 
+import org.json.JSONObject;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -68,6 +70,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import retrofit2.Response;
 
 
 public class Util {
@@ -446,7 +449,19 @@ public class Util {
     }
 
 
+    public String parseErrorMessage(Response response) {
+        try {
+            String string = response.errorBody().string();
+            JSONObject jsonObject = new JSONObject(string);
+            return jsonObject.optString("message");
+        } catch (Exception e) {
+            return "Something went wrong";
+        }
+    }
+
+
     public void showToast(String message) {
+        if (message == null || message.isEmpty()) return;
      /*   AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
 //        builder1.setTitle("Message");
         builder1.setMessage(message);
@@ -462,6 +477,10 @@ public class Util {
         AlertDialog alert11 = builder1.create();
         alert11.show();*/
         Toast.makeText(MyApplication.getInstance(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    public void showToast(String message, int length) {
+        Toast.makeText(MyApplication.getInstance(), message, length).show();
     }
 
     public void setLog(String message) {

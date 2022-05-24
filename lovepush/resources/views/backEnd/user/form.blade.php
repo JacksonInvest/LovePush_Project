@@ -19,7 +19,7 @@
 			<h5 style="margin-bottom: 2em;">{{ $form_title }} User</h5>
 
             <form class="form-horizontal" action="{{ $form_action }}" method="POST" enctype="multipart/form-data" role="form">
-            	
+
             	{{csrf_field()}}
 
             	<div class="form-group row">
@@ -38,8 +38,8 @@
 
 				<div class="form-group row">
 					<div class="col-md-8">
-						<?php if(isset($user->email)) { 
-							$readOnly = 'readonly'; 
+						<?php if(isset($user->email)) {
+							$readOnly = 'readonly';
 						} else {
 							$readOnly = '';
 						} ?>
@@ -51,7 +51,7 @@
 				{{--<div class="form-group row">
 					<div class="col-md-8 ">
 						<label for="phone_code" class="col-form-label">Phone Code</label>
-						
+
 						<select name="phone_code" class="form-control">
 							<option value="">Select Code</option>
 							<option value="+1"
@@ -142,10 +142,10 @@
 						<input type="file" name="image" class="dropify form-control-file" id="picture" tip="image" aria-describedby="fileHelp">
 					</div>
 				</div> -->
-				
+
 				<div class="form-group row">
 					<div class="col-md-8">
-						<label for="password" class="col-form-label">Password  
+						<label for="password" class="col-form-label">Password
 							@if($form_title == 'Edit')
 							<span class="note">(Fill only if you want to change password)</span>
 							@endif
@@ -176,6 +176,7 @@
 						<input type="checkbox" name="love_push_intention[]" value="Friendship" <?php if (strpos(@$user->love_push_intention, 'Friendship') !== false) echo "checked"; ?>> Friendship<br>
 						<input type="checkbox" name="love_push_intention[]" value="Daily Activities" <?php if (strpos(@$user->love_push_intention, 'Daily Activities') !== false) echo "checked"; ?>> Daily Activities<br>
 						<input type="checkbox" name="love_push_intention[]" value="No Expectation" <?php if (strpos(@$user->love_push_intention, 'No Expectation') !== false)  echo "checked" ; ?>> No Expectation<br>
+						<input type="checkbox" name="love_push_intention[]" value="Dating" <?php if (strpos(@$user->love_push_intention, 'Dating') !== false)  echo "checked" ; ?>> Dating<br>
 					</div>
 				</div>
 
@@ -452,7 +453,7 @@
 						</select>
 					</div>
 				</div>
-			
+
 				<div class="form-group row">
 					<div class="col-xs-10">
 						<input type="hidden" name="type" value="{{ $type }}">
@@ -477,7 +478,7 @@
 
 	/*image validation*/
     $(document).ready(function() {
-        $(".dropify").change(function(){ 
+        $(".dropify").change(function(){
         	var tip = $(this).attr('tip');
 
             var img_name = $(this).val();
@@ -485,18 +486,18 @@
                 var img_arr=img_name.split('.');
                 var ext = img_arr.pop();
                 ext     = ext.toLowerCase();
-                
+
                 if(tip == 'resume'){
-                	if(ext =="doc" || ext =="docx" || ext =="pdf") {	
-	                } else { 
+                	if(ext =="doc" || ext =="docx" || ext =="pdf") {
+	                } else {
 	                    $(this).val('');
 	                	$(this).siblings('.dropify-clear').click();
 	                    alert('Only .doc,docx,pdf formats are allowed.');
 	                }
 
                 } else{
-	                if(ext =="jpg" || ext =="jpeg" || ext =="png") {	
-	                } else { 
+	                if(ext =="jpg" || ext =="jpeg" || ext =="png") {
+	                } else {
 	                    $(this).val('');
 	                	$(this).siblings('.dropify-clear').click();
 	                    alert('Only .jpg,jpeg,png formats are allowed.');
@@ -505,8 +506,8 @@
             }
 
             return true;
-        }); 
+        });
     });
 </script>
- 
+
 @endsection

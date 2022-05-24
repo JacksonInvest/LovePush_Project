@@ -103,6 +103,7 @@ return [
         'App screenshots' => 'App-Screenshots',
         'Contact Us'   => 'Contact Us',
         'Official Partner' => 'Offizieller Partner',
+        'Advisor'   => 'Berater',
 
 
         //singUp form

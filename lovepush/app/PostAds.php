@@ -11,8 +11,8 @@ class PostAds extends Model
 
     public function getImageAttribute($value) {
     	if($value) {
-            return asset(Config::get('const.img_path.post_ads').$value); 
-            // return asset(config('const.img_path.post_ads').$value); 
+            return asset(POST_ADS_PATH.$value);
+            // return asset(POST_ADS_PATH.$value);
     	}
     }
 

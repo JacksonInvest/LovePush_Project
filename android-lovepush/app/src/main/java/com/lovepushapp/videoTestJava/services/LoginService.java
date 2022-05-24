@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
 import androidx.annotation.Nullable;
+
+import com.lovepushapp.BuildConfig;
 import com.quickblox.chat.QBChatService;
 import com.quickblox.chat.QBSignaling;
 import com.quickblox.chat.QBWebRTCSignaling;
@@ -108,7 +110,7 @@ public class LoginService extends Service {
             QBTcpConfigurationBuilder configurationBuilder = new QBTcpConfigurationBuilder();
             configurationBuilder.setSocketTimeout(0);
             QBChatService.setConnectionFabric(new QBTcpChatConnectionFabric(configurationBuilder));
-            QBChatService.setDebugEnabled(true);
+            QBChatService.setDebugEnabled(BuildConfig.DEBUG);
             chatService = QBChatService.getInstance();
         }
     }

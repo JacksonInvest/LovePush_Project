@@ -10,7 +10,7 @@ class PostsController extends Controller
 {
     public function index(Request $request) {
 
-        $posts = Post::getPosts();        
+        $posts = Post::getPosts();
         // echo "<pre>"; print_r($posts); die;
         return view('backEnd.posts.index', compact('posts'));
     }
@@ -19,10 +19,10 @@ class PostsController extends Controller
         $users = User::where('username','!=','')->where('status',1)->where('email_verified_at','!=', null)->get();
         return view('backEnd.posts.add', ['users'=>$users]);
     }
-    
+
 
     public function delete($post_id) {
-        
+
         $delete = Post::where('id', $post_id)->delete();
         if($delete) {
             return redirect('/admin/posts')->with('success','Record deleted successfully.');
@@ -32,7 +32,7 @@ class PostsController extends Controller
     }
 
     public function edit(Request $request,$post_id) {
-		
+
 		if($request->isMethod('post')){
 
             $request->validate([
@@ -42,17 +42,17 @@ class PostsController extends Controller
                 // 'capture_distance'   => 'required|max:4',
                 'image'     => 'nullable|mimes:jpeg,jpg,png'
             ]);
-            
+
             $posts              = Post::find($post_id);
             $posts->title       = $request->title;
             $posts->description = $request->description;
             if (!file_exists(url('/post'))) {
-                mkdir(url('/images/post'), 0777, true);
+                mkdir(url(POST_PATH), 0777, true);
             }
             if($request->has('image')){
                 $image               = $request->file('image');
                 $input['imagename']  = time().'.'.$image->getClientOriginalExtension();
-                $destinationPath     = public_path('/images/post');
+                $destinationPath     = public_path(POST_PATH);
                 $image->move($destinationPath, $input['imagename']);
                 $posts->image       = $input['imagename'];
             }
@@ -66,7 +66,7 @@ class PostsController extends Controller
                 return redirect()->back()->with('error',COMMON_ERR);
 	        }
 	    } else{
-	        $posts = Post::getPostById($post_id);        
+	        $posts = Post::getPostById($post_id);
         	return view('backEnd.posts.form', compact('posts'));
 	    }
     }

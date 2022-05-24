@@ -1,9 +1,7 @@
 package com.lovepushapp.activities;
 
 import android.app.AlertDialog;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
@@ -16,7 +14,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.firebase.iid.FirebaseInstanceId;
 import com.lovepushapp.R;
 import com.lovepushapp.core.BaseActivity;
 import com.lovepushapp.core.utils.API_GLOBALS;
@@ -24,7 +21,6 @@ import com.lovepushapp.core.utils.GlobalsVariables;
 import com.lovepushapp.core.utils.SharedStorage;
 import com.lovepushapp.fragments.HomeFragment;
 import com.lovepushapp.fragments.MenuFragment;
-
 import com.lovepushapp.fragments.MessageFragment1;
 import com.lovepushapp.fragments.NotificationFragment;
 import com.lovepushapp.helper.GPSTracker;
@@ -35,13 +31,10 @@ import com.lovepushapp.modules.Login.LoginMvp;
 import com.lovepushapp.modules.Login.LoginRegisterProfilePresenter;
 import com.lovepushapp.quickBloxTest.utils.ErrorUtils;
 import com.lovepushapp.quickBloxTest.utils.SharedPrefsHelper;
-import com.lovepushapp.quickBloxTest.utils.SubscribeToNotification;
 import com.lovepushapp.quickBloxTest.utils.ToastUtils;
 import com.lovepushapp.quickBloxTest.utils.chat.ChatHelper;
 import com.lovepushapp.quickBloxTest.utils.qb.QbDialogHolder;
-import com.lovepushapp.videoTestJava.services.CallService;
 import com.lovepushapp.videoTestJava.services.LoginService;
-import com.lovepushapp.videoTestJava.utils.Consts;
 import com.quickblox.auth.session.QBSessionManager;
 import com.quickblox.auth.session.QBSettings;
 import com.quickblox.chat.QBChatService;
@@ -49,8 +42,6 @@ import com.quickblox.chat.model.QBChatDialog;
 import com.quickblox.core.QBEntityCallback;
 import com.quickblox.core.exception.QBResponseException;
 import com.quickblox.core.request.QBRequestGetBuilder;
-import com.quickblox.messages.model.QBNotificationChannel;
-import com.quickblox.messages.model.QBSubscription;
 import com.quickblox.messages.services.QBPushManager;
 import com.quickblox.messages.services.SubscribeService;
 import com.quickblox.users.model.QBUser;
@@ -283,8 +274,7 @@ public class DashboardActivity extends BaseActivity implements LoginMvp {
                     });
                 }
                 QBSettings.getInstance().setEnablePushNotification(true);
-                String token = FirebaseInstanceId.getInstance().getToken();
-                Log.e("DATA", token);
+
                 SubscribeService.subscribeToPushes(context, true);
 
                 QBPushManager.getInstance().addListener(new QBPushManager.QBSubscribeListener() {

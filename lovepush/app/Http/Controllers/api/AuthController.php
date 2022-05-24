@@ -44,13 +44,14 @@ use App\Traits\QuickBlox;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\forgotPasswordEmail;
 use Log;
+use Illuminate\Support\Carbon;
 
 class AuthController extends Controller
-{   
+{
     use QuickBlox;
 
     public function register(Request $request){
-
+        Log::info($request->all());
         $invalidWords = ["sex", "penis", "dick", "cock", "vagina", "pussy", "ass", "fuck", "faggot", "hoe", "slut", "basstard", "sell", "rent", "drugs", "cocaine", "heroin", "lsd", "ketamine", "xtc", "ectasy", "mdma", "schwanz", "schwanz", "arsch", "fick", "schwuchtel", "schlampe", "hure", "verkaufen", "mieten", "drogen", "kokain", "ketamin"];
 
         $validator = Validator::make($request->all(), [
@@ -81,7 +82,7 @@ class AuthController extends Controller
             //     'email.exists'      => trans('api.user.user_error'),
             // ]
         );
-        
+
         if ($validator->fails()) {
             return response()->json(['message'=>$validator->errors()->first(), 'status' => 400]);
         }
@@ -89,28 +90,28 @@ class AuthController extends Controller
 
        /* if(in_array(strtoupper($request->username), $invalidWords)) {
             return response()->json([
-                'message'=> "The selected username is invalid.", 
+                'message'=> "The selected username is invalid.",
                 'status' => 400,
             ]);
         }*/
         // echo "11"; die;
         if(!$this->_checkStringIsValid($request->name, $invalidWords) ) {
             return response()->json([
-                'message'=> "Your name contain forbidden words.", 
+                'message'=> "Your name contain forbidden words.",
                 'status' => 400,
             ]);
         }
 
         if(!$this->_checkStringIsValid($request->username, $invalidWords) ) {
             return response()->json([
-                'message'=> "Your username contain forbidden words.", 
+                'message'=> "Your username contain forbidden words.",
                 'status' => 400,
             ]);
         }
 
         if(!$this->_checkStringIsValid($request->email, $invalidWords) ) {
             return response()->json([
-                'message'=> "Your email contain forbidden words.", 
+                'message'=> "Your email contain forbidden words.",
                 'status' => 400,
             ]);
         }
@@ -153,13 +154,13 @@ class AuthController extends Controller
                         'status' => 200,
                         'data'   => $user_data,
                         'token'  => $tokenResult,
-                        'message'=> trans('api.user.registration_success'), 
+                        'message'=> trans('api.user.registration_success'),
 
                     ]);
                 }else{
                     return response()->json([
                         'status' => 400,
-                        'message'=> trans('api.user.something_went_wrong'), 
+                        'message'=> trans('api.user.something_went_wrong'),
 
                     ]);
                 }
@@ -167,7 +168,7 @@ class AuthController extends Controller
                 // $validator = Validator::make($request->all(), [
                 //     'social_id'    => 'required',
                 // ]);
-                
+
                 // if ($validator->fails()) {
                 //     return response()->json(['message'=>$validator->errors()->first(), 'status' => 400]);
                 // }
@@ -188,13 +189,13 @@ class AuthController extends Controller
                 'login_type'    => 'required|in:2,3,4',
                 'social_id'     => 'required|max:255',
                 'email'         => 'nullable|email'
-               
+
             ]
         );
-        
+
         if ($validator->fails()) {
             return response()->json(['message'=>$validator->errors()->first(), 'status' => 400]);
-        } 
+        }
 
         if($request->login_type == 2 || $request->login_type == 3){
             $exist = User::where('social_id',$request->social_id)->first();
@@ -219,12 +220,12 @@ class AuthController extends Controller
         }else if($request->login_type == 4){
              $exist = User::where('social_id', $request->social_id)
                         ->where('login_type', $request->login_type)
-                        ->first(); 
+                        ->first();
 
             if($exist) {
                 $user_data = User::getUserById($exist->id);
                 if($exist->is_profile_complete){
-                   
+
                     $tokenResult = $user_data->createToken('user')->accessToken;
 
                     return response()->json([
@@ -251,8 +252,8 @@ class AuthController extends Controller
                     ]);
             }
         }
-        
-        
+
+
     }
 
     public function socailLogin(Request $request) {
@@ -273,10 +274,10 @@ class AuthController extends Controller
             //     'email.exists'      => trans('api.user.user_error'),
             // ]
         );
-        
+
         if ($validator->fails()) {
             return response()->json(['message'=>$validator->errors()->first(), 'status' => 400]);
-        }   
+        }
         Log::info($request->all());
         /*if($request->email){
             $email = $request->email;
@@ -291,8 +292,8 @@ class AuthController extends Controller
         if(empty($exist)){
             if($email){
                 $exist = User::where('email', $email)->first();
-            }   
-            
+            }
+
         }
         if($exist) {
 
@@ -301,7 +302,7 @@ class AuthController extends Controller
                 $update              = User::find($user_id);
                 $update->login_type  = $request->login_type;
                 $update->social_id   = $request->social_id;
-                $update->name        = ($request->name) ? $request->name : ''; 
+                $update->name        = ($request->name) ? $request->name : '';
                 // $update->username    = $request->username;
                 // $update->phone       = $request->phone;
                 // $update->phone_code  = $request->phone_code;
@@ -332,19 +333,19 @@ class AuthController extends Controller
                         'status' => 200,
                         'token'  => $tokenResult,
                         'data'   => $user_data,
-                        'message'=> trans('api.user.login_success'), 
+                        'message'=> trans('api.user.login_success'),
                     ]);
                 } else {
                     return response()->json([
                         'status' => 400,
-                        'message'=> trans('api.something_went_wrong'), 
+                        'message'=> trans('api.something_went_wrong'),
                     ]);
                 }
             }
             else{
                 return response()->json([
                     'status' => 400,
-                    'message'=> trans('api.user.user_blocked'), 
+                    'message'=> trans('api.user.user_blocked'),
                 ]);
             }
         } else {
@@ -386,12 +387,12 @@ class AuthController extends Controller
                     'status' => 200,
                     'token'  => $tokenResult,
                     'data'   => $user_data,
-                    'message'=> trans('api.user.login_success'), 
+                    'message'=> trans('api.user.login_success'),
                 ]);
             } else {
                 return response()->json([
                     'status' => 400,
-                    'message'=> trans('api.something_went_wrong'), 
+                    'message'=> trans('api.something_went_wrong'),
                 ]);
             }
         }
@@ -410,16 +411,16 @@ class AuthController extends Controller
                 // 'phone_code'    => 'nullable',
                 // 'gender'        => 'required|in:1,2',
                 'device_type'   => 'required|in:1,2',
-                'device_token'  => 'nullable',      
+                'device_token'  => 'nullable',
             ]
             // ,[
             //     'email.exists'      => trans('api.user.user_error'),
             // ]
         );
-        
+
         if ($validator->fails()) {
             return response()->json(['message'=>$validator->errors()->first(), 'status' => 400]);
-        }   
+        }
         $email = $request->email;
 
         $exist = User::where('social_id', $request->social_id)
@@ -429,7 +430,7 @@ class AuthController extends Controller
             if($email){
                 $exist = User::where('email', $email)->first();
             }
-            
+
         }
         if($exist) {
 
@@ -438,12 +439,12 @@ class AuthController extends Controller
                 $update               = User::find($user_id);
                 $update->login_type   = $request->login_type;
                 $update->social_id    = $request->social_id;
-                $update->name         = ($request->name) ? $request->name : ''; 
+                $update->name         = ($request->name) ? $request->name : '';
                 $update->device_type  = $request->device_type;
                 $update->device_token = $request->device_token;
                 $update->locale       = ($_SERVER['HTTP_LOCALE']) ? $_SERVER['HTTP_LOCALE'] : 'en';
                 $update->verification_code = Null;
-                
+
 
                 if($request->has('email')){
                     $update->email = $email;
@@ -451,7 +452,7 @@ class AuthController extends Controller
                 if($request->has('username')){
                     $update->username = $request->username;
                 }
-                
+
                 if($request->has('gender')){
                     $update->gender = $request->gender;
                 }
@@ -477,19 +478,19 @@ class AuthController extends Controller
                         'status' => 200,
                         'token'  => $tokenResult,
                         'data'   => $user_data,
-                        'message'=> trans('api.user.login_success'), 
+                        'message'=> trans('api.user.login_success'),
                     ]);
                 } else {
                     return response()->json([
                         'status' => 400,
-                        'message'=> trans('api.something_went_wrong'), 
+                        'message'=> trans('api.something_went_wrong'),
                     ]);
                 }
             }
             else{
                 return response()->json([
                     'status' => 400,
-                    'message'=> trans('api.user.user_blocked'), 
+                    'message'=> trans('api.user.user_blocked'),
                 ]);
             }
         } else {
@@ -509,13 +510,13 @@ class AuthController extends Controller
             if($request->has('username')){
                 $add->username = $request->username;
             }
-            
+
 
                 if($request->has('email')){
                     $add->email = $email ?? $request->email;
                 }
-                
-                
+
+
                 if($request->has('gender')){
                     $add->gender = $request->gender;
                 }
@@ -540,21 +541,21 @@ class AuthController extends Controller
                     'status' => 200,
                     'token'  => $tokenResult,
                     'data'   => $user_data,
-                    'message'=> trans('api.user.login_success'), 
+                    'message'=> trans('api.user.login_success'),
                 ]);
             } else {
                 return response()->json([
                     'status' => 400,
-                    'message'=> trans('api.something_went_wrong'), 
+                    'message'=> trans('api.something_went_wrong'),
                 ]);
             }
         }
     }
 
-    public function random_strings($length_of_string) 
+    public function random_strings($length_of_string)
     {
         $str_result = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-        return substr(str_shuffle($str_result), 0, $length_of_string); 
+        return substr(str_shuffle($str_result), 0, $length_of_string);
     }
 
     //Socail Login time
@@ -581,7 +582,7 @@ class AuthController extends Controller
                         'phone_code'    => 'nullable',
                         'gender'        => 'required|in:1,2,3',
                         'device_type'   => 'required|in:1,2',
-                        'device_token'  => 'nullable',  
+                        'device_token'  => 'nullable',
                     ]
                     // ,[
                     //     'email.exists'      => trans('api.user.user_error'),
@@ -605,7 +606,7 @@ class AuthController extends Controller
                 'phone_code'    => 'nullable',
                 'gender'        => 'required|in:1,2,3',
                 'device_type'   => 'required|in:1,2',
-                'device_token'  => 'nullable',  
+                'device_token'  => 'nullable',
             ]
             // ,[
             //     'email.exists'      => trans('api.user.user_error'),
@@ -630,7 +631,7 @@ class AuthController extends Controller
                 'phone_code'    => 'nullable',
                 'gender'        => 'required|in:1,2,3',
                 'device_type'   => 'required|in:1,2',
-                'device_token'  => 'nullable',  
+                'device_token'  => 'nullable',
             ]
             // ,[
             //     'email.exists'      => trans('api.user.user_error'),
@@ -640,31 +641,31 @@ class AuthController extends Controller
         /*$validator = Validator::make($request->all(), [
                 'user_id'    => 'required|exists:users,id',
                 'login_type'    => 'required|in:1,2,3,4',
-              
+
                 'email'      => 'required|unique:users,email,'.$request->user_id.',id',
-              
+
                 'username' => [
                     'required','unique:users',
                     Rule::notIn(array_map("strtolower", $invalidWords)),
                     Rule::notIn(array_map("strtoupper", $invalidWords)),
-                  
+
                 ],
-              
+
                 'phone'         => 'nullable',
                 'phone_code'    => 'nullable',
                 'gender'        => 'required|in:1,2,3',
                 'device_type'   => 'required|in:1,2',
-                'device_token'  => 'nullable',  
+                'device_token'  => 'nullable',
             ]
         );*/
-        
+
         if ($validator->fails()) {
             return response()->json(['message'=>$validator->errors()->first(), 'status' => 400]);
         }
 
         if(!$this->_checkStringIsValid($request->username, $invalidWords) ) {
             return response()->json([
-                'message'=> "The selected username is invalid.", 
+                'message'=> "The selected username is invalid.",
                 'status' => 400,
             ]);
         }
@@ -683,20 +684,20 @@ class AuthController extends Controller
         $update->device_token = $request->device_token;
         $update->referalBy    = ($request->referalBy) ? $request->referalBy : '';
         if($update->save()) {
-                
+
                 $user_data = User::getUserById($user_id);
-                
+
                 $tokenResult = $user_data->createToken('user')->accessToken;
                 return response()->json([
                     'status' => 200,
                     'token'  => $tokenResult,
                     'data'   => $user_data,
-                    'message'=> trans('api.user.login_success'), 
+                    'message'=> trans('api.user.login_success'),
                 ]);
         } else {
             return response()->json([
                 'status' => 400,
-                'message'=> trans('api.something_went_wrong'), 
+                'message'=> trans('api.something_went_wrong'),
             ]);
         }
     }
@@ -730,7 +731,7 @@ class AuthController extends Controller
 
         if ($validator->fails()) {
             return response()->json(['message'=>$validator->errors()->first(), 'status' => 400]);
-        }  
+        }
 
 
         try{
@@ -789,43 +790,58 @@ class AuthController extends Controller
                     'status' => 200,
                     'data'   => $user_data,
                     'token'  => $tokenResult,
-                    'message'=> trans('api.user.profile_success'), 
+                    'message'=> trans('api.user.profile_success'),
 
                 ]);
             } else {
                 return response()->json([
                     'status' => 400,
-                    'message'=> trans('api.something_went_wrong'), 
+                    'message'=> trans('api.something_went_wrong'),
                 ]);
             }
         } catch(\Exception $e){
             return response()->json([
                 'status' => 400,
-                'message'=> $e->getMessage(), 
+                'message'=> $e->getMessage(),
             ]);
         }
     }
 
     public function activateFreePlan($user_id){
+
         $plan = Plans::where('type','FREE')->first();
         if($plan){
+
+            $is_free_ac = false;
             $exist = UserPlanDetails::where('user_id',$user_id)->first();
-            if(!$exist){
-                $user_plan_details = new UserPlanDetails;
-                $user_plan_details->user_id = $user_id;
-                $user_plan_details->plan_id = $plan->plan_id;
-                $user_plan_details->type = $plan->type;
-                $user_plan_details->name = $plan->name;
-                $user_plan_details->price = $plan->price;
-                $user_plan_details->messages = $plan->messages;
-                $user_plan_details->sending_requests = $plan->sending_requests;
-                $user_plan_details->see_love_requests = $plan->see_love_requests;
-                $user_plan_details->recommended_profiles = $plan->recommended_profiles;
-                $user_plan_details->recommended_profiles_started_at = date('Y-m-d H:i:s');
-                $user_plan_details->ads = $plan->ads;
-                $user_plan_details->ads_started_at = date('Y-m-d H:i:s');
-                $user_plan_details->save();
+            if($exist){
+                if ($exist->type == 'FREE') {
+                    $date = Carbon::now()->subDays(7);
+                    if($exist->ads_started_at <= $date){
+                        $is_free_ac = true;
+                    }
+                }
+            }else{
+                $is_free_ac = true;
             }
+            if($is_free_ac){
+                UserPlanDetails::updateOrCreate([
+                    'user_id' => $user_id,
+                ],[
+                    'plan_id' => $plan->plan_id,
+                    'type' => $plan->type,
+                    'name' => $plan->name,
+                    'price' => $plan->price,
+                    'messages' => $plan->messages,
+                    'sending_requests' => $plan->sending_requests,
+                    'see_love_requests' => $plan->see_love_requests,
+                    'recommended_profiles' => $plan->recommended_profiles,
+                    'recommended_profiles_started_at' => date('Y-m-d H:i:s'),
+                    'ads' => $plan->ads,
+                    'ads_started_at' => date('Y-m-d H:i:s'),
+                ]);
+            }
+
         }
     }
 
@@ -848,11 +864,11 @@ class AuthController extends Controller
             'email.exists'      => trans('api.user.user_error'),
         ]);
 
-        
+
         if ($validator->fails()) {
             return response()->json([
                 'status' => 400,
-                'message'=>$validator->errors()->first(), 
+                'message'=>$validator->errors()->first(),
             ]);
         }
 
@@ -860,7 +876,7 @@ class AuthController extends Controller
         if(!Auth::attempt($credentials)){
             return response()->json([
                 'status' => 400,
-                'message'=> trans('api.user.password_not_matched'), 
+                'message'=> trans('api.user.password_not_matched'),
             ]);
         }
         $user = Auth::user();
@@ -887,21 +903,21 @@ class AuthController extends Controller
                 'status' => 200,
                 'token'  => $tokenResult,
                 'data'   => $user_data,
-                'message'=> trans('api.user.login_success'), 
+                'message'=> trans('api.user.login_success'),
 
             ]);
         }
         else{
             return response()->json([
                 'status' => 400,
-                'message'=> trans('api.user.user_blocked'), 
+                'message'=> trans('api.user.user_blocked'),
             ]);
         }
     }
 
 
     public function reSendVerificationCode(Request $request){
-        
+
         $validator = Validator::make($request->all(), [
             'email' => [
                 'required',
@@ -917,7 +933,7 @@ class AuthController extends Controller
         if ($validator->fails()) {
             return response()->json([
                 'status' => 400,
-                'message'=>$validator->errors()->first(), 
+                'message'=>$validator->errors()->first(),
             ]);
         }
         $user_id = User::where('email', $request->email)->value('id');
@@ -930,13 +946,13 @@ class AuthController extends Controller
             return response()->json([
                 'status' => 200,
                 'data'   => $user_data,
-                'message'=> trans('api.user.otp_send_success'), 
+                'message'=> trans('api.user.otp_send_success'),
 
             ],200);
         } else {
             return response()->json([
                 'status' => 400,
-                'message'=> trans('api.something_went_wrong'), 
+                'message'=> trans('api.something_went_wrong'),
             ],200);
         }
     }
@@ -973,14 +989,14 @@ class AuthController extends Controller
             return response()->json([
                 'status' => 200,
                 'data'   => $user_data,
-                'message'=> trans('api.user.email_verify_success'), 
+                'message'=> trans('api.user.email_verify_success'),
 
             ],200);
             // }
             // else{
             //     return response()->json([
             //         'status' => 400,
-            //         'message'=> trans('api.user.phone_verify_fail'), 
+            //         'message'=> trans('api.user.phone_verify_fail'),
 
             //     ],200);
             // }
@@ -988,9 +1004,9 @@ class AuthController extends Controller
         }catch (\Exception $e) {
            return response()->json([
                 'status' => 400,
-                'message'=> $e->getMessage(), 
+                'message'=> $e->getMessage(),
             ],200);
-            
+
         }
     }
 
@@ -1001,11 +1017,11 @@ class AuthController extends Controller
         return response()->json([
             'status' => 200,
             'data'   => $intentions,
-            'message'=> 'Love Push Intentions', 
+            'message'=> 'Love Push Intentions',
 
         ],200);
     }
-    
+
     // public function sendCodeOnPhone($phone){
 
     //     $verification_code = rand(1111, 9999);
@@ -1021,7 +1037,7 @@ class AuthController extends Controller
     //             $phone,
     //             array(
     //                  // A Twilio phone number you purchased at twilio.com/console
-    //                 'from' => '+16822047258', 
+    //                 'from' => '+16822047258',
     //                  // the body of the text message you'd like to send
     //                 'body' => 'Your verification code is: '.$verification_code
     //             )
@@ -1035,7 +1051,7 @@ class AuthController extends Controller
     //             'status' => 200,
     //             'data'   => {},
     //             'verification_code' => $verification_code,
-    //             'message'=> trans('api.user.login_success'), 
+    //             'message'=> trans('api.user.login_success'),
 
     //         ],200);
     //     }catch(\Exception $e){
@@ -1051,13 +1067,13 @@ class AuthController extends Controller
      * @return [string] message
      */
     public function logout(Request $request)
-    {   
+    {
         $request->user()->token()->revoke();
 
         return response()->json([
             'status' => 200,
             'data'   => '',
-            'message'=> trans('api.user.logout_success'), 
+            'message'=> trans('api.user.logout_success'),
 
         ]);
     }
@@ -1087,7 +1103,7 @@ class AuthController extends Controller
                 $phone,
                 array(
                      // A Twilio phone number you purchased at twilio.com/console
-                     'from' => '+16822047258', 
+                     'from' => '+16822047258',
                      // the body of the text message you'd like to send
                      'body' => 'Your verification code is: '.$verification_code
                 )
@@ -1101,7 +1117,7 @@ class AuthController extends Controller
             return response()->json([
                 'status' => 200,
                 'data'   => $verification_code,
-                'message'=> trans('api.user.otp_send_success'), 
+                'message'=> trans('api.user.otp_send_success'),
 
             ],200);
 
@@ -1115,11 +1131,11 @@ class AuthController extends Controller
             $user = User::find($request->user_id);
             $user->verification_code = $verification_code;
             $user->save();
-            
+
             return response()->json([
                 'status' => 400,
                 'verification_code'   => $verification_code,
-                'message'=> $e->getMessage(), 
+                'message'=> $e->getMessage(),
             ],200);
             // $response['status'] = 400;
             // $response['message'] = $e->getMessage();
@@ -1148,7 +1164,7 @@ class AuthController extends Controller
                 return response()->json([
                     'status' => 200,
                     'data'   => $user,
-                    'message'=> trans('api.user.phone_verify_success'), 
+                    'message'=> trans('api.user.phone_verify_success'),
 
                 ],200);
 
@@ -1160,7 +1176,7 @@ class AuthController extends Controller
             }else{
                 return response()->json([
                     'status' => 400,
-                    'message'=> trans('api.user.phone_verify_fail'), 
+                    'message'=> trans('api.user.phone_verify_fail'),
 
                 ],200);
                 // $response['status'] = 400;
@@ -1171,9 +1187,9 @@ class AuthController extends Controller
         }catch (\Exception $e) {
            return response()->json([
                 'status' => 400,
-                'message'=> $e->getMessage(), 
+                'message'=> $e->getMessage(),
             ],200);
-            
+
         }
     }*/
 
@@ -1200,14 +1216,14 @@ class AuthController extends Controller
                     Mail::to($request->input('email'))->send(new forgotPasswordEmail($mailObj));
                     return response()->json([
                         'status' => 200,
-                        'message'=> 'Link has been sent to your mail to reset password', 
-                    ]); 
+                        'message'=> 'Link has been sent to your mail to reset password',
+                    ]);
                 }
             }
             else{
                 return response()->json([
                     'status' => 400,
-                    'message'=> 'Email not exist.', 
+                    'message'=> 'Email not exist.',
                 ]);
             }
         }
@@ -1348,13 +1364,13 @@ class AuthController extends Controller
             return response()->json([
                 'status' => 200,
                 'data'   => $levels,
-                'message'=> 'levels', 
+                'message'=> 'levels',
             ]);
         } else {
             return response()->json([
                 'status' => 400,
                 'data'   => null,
-                'message'=> 'No team found', 
+                'message'=> 'No team found',
             ]);
         }
     }
@@ -1371,7 +1387,7 @@ class AuthController extends Controller
                 'status'  => false,
                 'message' => $validator->errors()->first()
             ],400);
-        } 
+        }
 
 
         $update = User::where('id', $request->id)->update(['hide_from_search' => $request->status]);
@@ -1384,7 +1400,7 @@ class AuthController extends Controller
         } else {
             return response()->json([
                 'status' => false,
-                'message'=> trans('api.something_went_wrong'), 
+                'message'=> trans('api.something_went_wrong'),
             ],400);
         }
     }
@@ -1401,7 +1417,7 @@ class AuthController extends Controller
                 'status'  => false,
                 'message' => $validator->errors()->first()
             ],400);
-        } 
+        }
 
 
         $update = User::where('id', $request->id)->update(['receive_like_request' => $request->status]);
@@ -1414,7 +1430,7 @@ class AuthController extends Controller
         } else {
             return response()->json([
                 'status' => false,
-                'message'=> trans('api.something_went_wrong'), 
+                'message'=> trans('api.something_went_wrong'),
             ],400);
         }
     }
@@ -1431,7 +1447,7 @@ class AuthController extends Controller
                 'status'  => false,
                 'message' => $validator->errors()->first()
             ],400);
-        } 
+        }
 
 
         $update = User::where('id', $request->id)->update(['receive_chat_request' => $request->status]);
@@ -1444,7 +1460,7 @@ class AuthController extends Controller
         } else {
             return response()->json([
                 'status' => false,
-                'message'=> trans('api.something_went_wrong'), 
+                'message'=> trans('api.something_went_wrong'),
             ],400);
         }
     }
@@ -1461,7 +1477,7 @@ class AuthController extends Controller
                 'status'  => false,
                 'message' => $validator->errors()->first()
             ],400);
-        } 
+        }
 
 
         $update = User::where('id', $request->id)->update(['receive_notification' => $request->status]);
@@ -1474,7 +1490,7 @@ class AuthController extends Controller
         } else {
             return response()->json([
                 'status' => false,
-                'message'=> trans('api.something_went_wrong'), 
+                'message'=> trans('api.something_went_wrong'),
             ],400);
         }
     }
@@ -1491,7 +1507,7 @@ class AuthController extends Controller
                 'status'  => false,
                 'message' => $validator->errors()->first()
             ],400);
-        } 
+        }
         $name   = $request->input('name');
         $subject =$request->input('subject');
         $message = $request->input('message');
@@ -1507,10 +1523,10 @@ class AuthController extends Controller
             $company_name = PROJECT_NAME;
 
             $subject = $subject;
-        
-            if (!filter_var($to_email, FILTER_VALIDATE_EMAIL) === false) {   
+
+            if (!filter_var($to_email, FILTER_VALIDATE_EMAIL) === false) {
                 Mail::send('emails.support',
-                    ['c_email' => $name, 'c_subject' => $subject, 'c_message' => $message], 
+                    ['c_email' => $name, 'c_subject' => $subject, 'c_message' => $message],
                     function($message) use ($to_email,$company_name,$subject){
                         $message->to($to_email,$company_name)->subject($subject);
                     }
@@ -1520,7 +1536,7 @@ class AuthController extends Controller
                     'status'  => true,
                     'message' => 'Success.',
                 ],200);
-            } 
+            }
         }
 
     }
@@ -1618,7 +1634,7 @@ class AuthController extends Controller
                     ],400);
                 }
             }
-        } 
+        }
     }
 
     public function deleteAccount(Request $request){
@@ -1693,7 +1709,7 @@ class AuthController extends Controller
                 TestScore::where(function($query) use ($test_id) {
                                                 $query->orWhere('test_id_1', $test_id);
                                                 $query->orWhere('test_id_2', $test_id);
-                                            })                            
+                                            })
                                             ->delete();
 
                 $testQues = TestQues::where('test_id',$test_id)->get();
@@ -1761,7 +1777,7 @@ class AuthController extends Controller
                 } else{
                     return false; break 2; //found
                 }
-            }                
+            }
         }
         return true; //valid
     }
@@ -1819,7 +1835,7 @@ class AuthController extends Controller
                     'blocked' => 'Something went wrong. Please try again later.',
                 ],400);
             }
-        } 
+        }
     }
- 
+
 }

@@ -22,8 +22,8 @@ import com.esafirm.imagepicker.features.ImagePicker;
 import com.esafirm.imagepicker.features.ReturnMode;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
-import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.ui.PlacePicker;
+/*import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlacePicker;*/
 import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
 import com.lovepushapp.R;
@@ -36,6 +36,7 @@ import com.lovepushapp.model.local.PostAddRequest;
 import com.lovepushapp.model.response.PostAdsResponse;
 import com.lovepushapp.modules.PostAds.PostAdsMvp;
 import com.lovepushapp.modules.PostAds.PostAdsPresenter;
+import com.lovepushapp.utils.PlacesUtils;
 import com.nabinbhandari.android.permissions.PermissionHandler;
 import com.nabinbhandari.android.permissions.Permissions;
 import com.theartofdev.edmodo.cropper.CropImage;
@@ -307,14 +308,7 @@ public class updatePostAdsActivity extends BaseActivity implements PostAdsMvp {
     }
 
     private void getManualLocation() {
-        try {
-            PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
-            startActivityForResult(builder.build(this), GlobalsVariables.REQUEST_CODE.PLACE_PICKER_REQUEST);
-        } catch (GooglePlayServicesRepairableException e) {
-            e.printStackTrace();
-        } catch (GooglePlayServicesNotAvailableException e) {
-            e.printStackTrace();
-        }
+            startActivityForResult(PlacesUtils.getPlacesIntent(this), GlobalsVariables.REQUEST_CODE.PLACE_PICKER_REQUEST);
     }
 
     @Override
@@ -357,6 +351,7 @@ public class updatePostAdsActivity extends BaseActivity implements PostAdsMvp {
            e.printStackTrace();
        }
         try {
+/*
             if (requestCode == GlobalsVariables.REQUEST_CODE.PLACE_PICKER_REQUEST) {
                 if (resultCode == RESULT_OK) {
                     Place place = PlacePicker.getPlace(data, this);
@@ -371,6 +366,7 @@ public class updatePostAdsActivity extends BaseActivity implements PostAdsMvp {
                 }
 
             }
+*/
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -20,8 +20,9 @@ import android.widget.Toast;
 import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
-import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.ui.PlacePicker;
+/*import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlacePicker;*/
+import com.google.android.libraries.places.api.model.Place;
 import com.lovepushapp.R;
 import com.lovepushapp.core.BaseActivity;
 import com.lovepushapp.core.utils.API_GLOBALS;
@@ -30,6 +31,7 @@ import com.lovepushapp.helper.PreferenceManager;
 import com.lovepushapp.model.response.updateUserLocationResponse;
 import com.lovepushapp.network.RestCallback;
 import com.lovepushapp.network.RestProcess;
+import com.lovepushapp.utils.PlacesUtils;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -175,14 +177,7 @@ public class ExploreFilterActivity extends BaseActivity {
                 break;
             case R.id.locationLL:
                 if (CheckGpsStatus()) {
-                    PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
-                    try {
-                        startActivityForResult(builder.build(context), REQUEST_location);
-                    } catch (GooglePlayServicesRepairableException e) {
-                        e.printStackTrace();
-                    } catch (GooglePlayServicesNotAvailableException e) {
-                        e.printStackTrace();
-                    }
+                    startActivityForResult(PlacesUtils.getPlacesIntent(this),REQUEST_location);
                 } else {
                     Toast.makeText(context, "Please Enable your GPS location.", Toast.LENGTH_SHORT).show();
                 }
@@ -238,17 +233,18 @@ public class ExploreFilterActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_location) {
             if (resultCode == RESULT_OK) {
-                Place selectedPlace = PlacePicker.getPlace(data, ExploreFilterActivity.this);
+
+                Place selectedPlace = PlacesUtils.parsePlacesData(data);
 
 
                 latitude = selectedPlace.getLatLng().latitude;
                 longitude = selectedPlace.getLatLng().longitude;
                 setAddress(latitude, longitude);
 
-/*
-                LocationNameAutomatic.setText(getLocality()+", "+getCountry());
+             /*   LocationNameAutomatic.setText(getLocality()+", "+getCountry());
                 LocationNameManual.setText(getLocality()+", "+getCountry());
                 LocationLatLong.setText(getLatitude()+" , "+getLongitude());*/
+
                 // Do something with the place
             }
         }

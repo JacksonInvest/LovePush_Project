@@ -22,7 +22,7 @@ class PostAdsController extends Controller
     public function addPostAds(Request $request){
 
         $invalidWords = ["sex", "penis", "dick", "cock", "vagina", "pussy", "ass", "fuck", "faggot", "hoe", "slut", "basstard", "sell", "rent", "drugs", "cocaine", "heroin", "lsd", "ketamine", "xtc", "ectasy", "mdma", "schwanz", "schwanz", "arsch", "fick", "schwuchtel", "schlampe", "hure", "verkaufen", "mieten", "drogen", "kokain", "ketamin"];
-        
+
         $rules = [
                 'title'                 => [
                     'required',
@@ -43,7 +43,7 @@ class PostAdsController extends Controller
                 'radius'                => 'required'
             ];
         $validator = Validator::make($request->all(), $rules);
-        
+
         if($validator->fails()) {
             return response()->json(['message' => $validator->errors()->first(), 'status' => 400]);
         }
@@ -51,14 +51,14 @@ class PostAdsController extends Controller
 
             if(!$this->_checkStringIsValid($request->title, $invalidWords) ) {
                 return response()->json([
-                    'message'=> "Your title contain forbidden words.", 
+                    'message'=> "Your title contain forbidden words.",
                     'status' => 400,
                 ]);
             }
 
             if(!$this->_checkStringIsValid($request->description, $invalidWords) ) {
                 return response()->json([
-                    'message'=> "Your description contain forbidden words.", 
+                    'message'=> "Your description contain forbidden words.",
                     'status' => 400,
                 ]);
             }
@@ -70,7 +70,7 @@ class PostAdsController extends Controller
                     return response()->json([
                         'status' => 200,
                         'data'   => $postad,
-                        'message'=> trans('api.user.postads_add_success')
+                        'message'=> trans('api.user.postads_new_add_success')
                     ]);
                 }
                 else{
@@ -86,7 +86,7 @@ class PostAdsController extends Controller
                         return response()->json([
                             'status' => 200,
                             'data'   => $postad,
-                            'message'=> trans('api.user.postads_add_success')
+                            'message'=> trans('api.user.postads_new_add_success')
                         ]);
                     }
                     else{
@@ -104,7 +104,7 @@ class PostAdsController extends Controller
                 ],400);
             }
 
-            
+
         } catch(\Exception $e){
             return response()->json([
                 'status' => 400,
@@ -120,13 +120,13 @@ class PostAdsController extends Controller
         $postad->title       = $request->title;
         $postad->description = $request->description;
         $postad->post_type   = $request->post_type;
-        // if (!file_exists(url('/images/postads'))) {
-        //     mkdir(url('/images/postads'), 0777, true);
+        // if (!file_exists(url(POST_ADS_PATH))) {
+        //     mkdir(url(POST_ADS_PATH), 0777, true);
         // }
         if($request->has('image')){
             $image               = $request->file('image');
             $input['imagename']  = time().'.'.$image->getClientOriginalExtension();
-            $destinationPath     = public_path('/images/postads');
+            $destinationPath     = public_path(POST_ADS_PATH);
             $image->move($destinationPath, $input['imagename']);
             $postad->image       = $input['imagename'];
         }
@@ -154,7 +154,7 @@ class PostAdsController extends Controller
         else{
             $postads = PostAds::with('userInfo')->where('user_id', Auth::id())->orderBy('id','DESC')->paginate(10);
         }
-        
+
         return response()->json([
             'status' => 200,
             'data'   => $postads,
@@ -171,7 +171,7 @@ class PostAdsController extends Controller
         );
         if ($validator->fails()) {
             return response()->json(['message'=>$validator->errors()->first(), 'status' => 400]);
-        } 
+        }
 
         $delete = PostAds::where('id', $request->id)
                             ->where('user_id', Auth::id())
@@ -199,12 +199,12 @@ class PostAdsController extends Controller
                 'user_id' => 'required',
             ]
         );
-        
+
         if ($validator->fails()) {
             return response()->json(['message'=>$validator->errors()->first(), 'status' => 400]);
         }
 
-        $user_id = $request->user_id; 
+        $user_id = $request->user_id;
         $user_info = User::where('id', $user_id)->first();
 
         $lat  = floatval($user_info->latitude);
@@ -226,7 +226,7 @@ class PostAdsController extends Controller
                             ->whereRaw("(6371 * acos( cos( radians('$lat') ) * cos( radians(latitude) ) * cos( radians(longitude) - radians('$lng') ) + sin( radians('$lat') ) * sin( radians(latitude) ) ) ) <= radius")
                             ->orderBy('id','DESC')
                             ->paginate(10);
-     
+
 
         $postads->getCollection()
             ->transform(function($rec,$key) use($user_id)
@@ -259,9 +259,9 @@ class PostAdsController extends Controller
                 }
 
                 $rec->blockedBy = (int)$blockedBy;
-                return $rec;   
+                return $rec;
             });
-        
+
 
         if(count($postads)){
             return response()->json([
@@ -307,7 +307,7 @@ class PostAdsController extends Controller
         ];
 
         $validator = Validator::make($request->all(), $rules);
-        
+
         if($validator->fails()) {
             return response()->json(['message' => $validator->errors()->first(), 'status' => 400],400);
         }
@@ -315,14 +315,14 @@ class PostAdsController extends Controller
 
             if(!$this->_checkStringIsValid($request->title, $invalidWords) ) {
                 return response()->json([
-                    'message'=> "Your title contain forbidden words.", 
+                    'message'=> "Your title contain forbidden words.",
                     'status' => 400,
                 ]);
             }
 
             if(!$this->_checkStringIsValid($request->description, $invalidWords) ) {
                 return response()->json([
-                    'message'=> "Your description contain forbidden words.", 
+                    'message'=> "Your description contain forbidden words.",
                     'status' => 400,
                 ]);
             }
@@ -333,13 +333,13 @@ class PostAdsController extends Controller
             $postad->title       = $request->title;
             $postad->description = $request->description;
             $postad->post_type   = $request->post_type;
-            // if (!file_exists(url('/images/postads'))) {
-            //     mkdir(url('/images/postads'), 0777, true);
+            // if (!file_exists(url(POST_ADS_PATH))) {
+            //     mkdir(url(POST_ADS_PATH), 0777, true);
             // }
             if($request->has('image')){
                 $image               = $request->file('image');
                 $input['imagename']  = time().'.'.$image->getClientOriginalExtension();
-                $destinationPath     = public_path('/images/postads');
+                $destinationPath     = public_path(POST_ADS_PATH);
                 $image->move($destinationPath, $input['imagename']);
                 $postad->image       = $input['imagename'];
             }
@@ -374,7 +374,7 @@ class PostAdsController extends Controller
                 } else{
                     return false; break 2; //found
                 }
-            }                
+            }
         }
         return true; //valid
     }
@@ -384,7 +384,7 @@ class PostAdsController extends Controller
     //     try{
     //         $latitude =  Auth::user()->latitude;
     //         $longitude =  Auth::user()->longitude;
-            
+
     //         if($latitude=='' || $longitude ==''){
     //             $response['status'] = 400;
     //             $response['message'] = 'Please add latitude and longitude first.';
@@ -401,7 +401,7 @@ class PostAdsController extends Controller
     //             })
     //             ->orderBy('created_at', 'dsc')
     //             ->get();
-            
+
     //         if($pads_distance->count()){
     //             foreach ($pads_distance as $ky => $ve) {
     //                 $p_radius = $ve['radius'];
@@ -418,7 +418,7 @@ class PostAdsController extends Controller
     //         }else{
     //             $posts = PostAds::whereIn('id', [0, -10])->orderBy('created_at', 'dsc')->paginate(10);
     //         }
-            
+
     //         $response['status'] = 200;
     //         $response['posts'] = $posts;
     //         return $response;

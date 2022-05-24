@@ -26,6 +26,7 @@ import com.lovepushapp.helper.TimeAgo;
 import com.lovepushapp.model.homePosts.addsmodel.DataItem;
 import com.lovepushapp.model.homePosts.getHomePostResponse;
 import com.lovepushapp.model.homePosts.postAdDeleteResponse;
+import com.lovepushapp.model.response.LikeResponse;
 import com.lovepushapp.model.response.Profile_Model.Data;
 import com.lovepushapp.model.response.Profile_Model.GetProfile;
 import com.lovepushapp.modules.Login.LoginMvp;
@@ -47,41 +48,49 @@ import com.quickblox.users.model.QBUser;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Response;
 
-public class singlePostAdView extends BaseActivity  implements PostAdsMvp , LoginMvp {
+public class singlePostAdView extends BaseActivity implements PostAdsMvp, LoginMvp {
     private static final String TAG = "singlePostAdView";
     @BindView(R.id.screenTitleTV)
     AppCompatTextView screenTitleTV;
-    @BindView(R.id.postIV) ImageView postIV;
-    @BindView(R.id.postedByImg) CircleImageView postedByImg;
-    @BindView(R.id.postedByName) AppCompatTextView postedByName;
-    @BindView(R.id.postedDesTV) AppCompatTextView postedDesTV;
-    @BindView(R.id.postedTimeTV) AppCompatTextView postedTimeTV;
-    @BindView(R.id.postTitleTV) AppCompatTextView postTitleTV;
-    @BindView(R.id.postLocationTV) AppCompatTextView postLocationTV;
+    @BindView(R.id.postIV)
+    ImageView postIV;
+    @BindView(R.id.postedByImg)
+    CircleImageView postedByImg;
+    @BindView(R.id.postedByName)
+    AppCompatTextView postedByName;
+    @BindView(R.id.postedDesTV)
+    AppCompatTextView postedDesTV;
+    @BindView(R.id.postedTimeTV)
+    AppCompatTextView postedTimeTV;
+    @BindView(R.id.postTitleTV)
+    AppCompatTextView postTitleTV;
+    @BindView(R.id.postLocationTV)
+    AppCompatTextView postLocationTV;
     @BindView(R.id.root_view)
     LinearLayout root_view;
-    @BindView(R.id.postTypeTV) AppCompatTextView postTypeTV;
-    @BindView(R.id.editIV) ImageView editIV;
-    @BindView(R.id.deleteIV) ImageView deleteIV;
-    @BindView(R.id.chatIV) ImageView chatIV;
+    @BindView(R.id.postTypeTV)
+    AppCompatTextView postTypeTV;
+    @BindView(R.id.editIV)
+    ImageView editIV;
+    @BindView(R.id.deleteIV)
+    ImageView deleteIV;
+    @BindView(R.id.chatIV)
+    ImageView chatIV;
     String userId = "";
 
     boolean match_1_fill = false, match_2_fill = false;
     Data userProfileData;
-    Boolean meBlocked=false;
+    Boolean meBlocked = false;
     private String notiReceiverQbId = "0", notiEventType = "", acceptEventType = "";
     String event_type = "", isReceiveNotification = "1";
     String receiverName = "", receiverImage = "", receiverId = "0", receiver_event_type = "", chat_match_id = "0", chat_deleted_by = "0", blocked_by = "0";
     private LoginRegisterProfilePresenter loginRegisterProfilePresenter;
-
-
 
 
     DataItem data;
@@ -93,7 +102,7 @@ public class singlePostAdView extends BaseActivity  implements PostAdsMvp , Logi
 
     getHomePostResponse.Data.Datum chatData;
     private boolean isChatDialogCreated = false;
-    private String check="new";
+    private String check = "new";
     private static QBChatDialog qbChatDialog = null;
 
 
@@ -105,17 +114,17 @@ public class singlePostAdView extends BaseActivity  implements PostAdsMvp , Logi
 
 
         chatIV.setVisibility(View.GONE);
-            // likell.setVisibility(View.VISIBLE);
+        // likell.setVisibility(View.VISIBLE);
 
 
         if (getIntent().getExtras() != null) {
-            isMyProfile = false;            editIV.setVisibility(View.GONE);
+            isMyProfile = false;
+            editIV.setVisibility(View.GONE);
             userId = getIntent().getStringExtra("user_id");
 
-        }else {
+        } else {
             chatIV.setVisibility(View.GONE);
         }
-
 
 
         loginRegisterProfilePresenter = new LoginRegisterProfilePresenter(context);
@@ -131,16 +140,16 @@ public class singlePostAdView extends BaseActivity  implements PostAdsMvp , Logi
         adsPresenter.attachView(this);
 
         data = new Gson().fromJson(getIntent().getExtras().getString("data"), DataItem.class);
-        String myProfileImage=String.valueOf(SharedStorage.getSharedData(GlobalsVariables.STORAGE.STORAGE_KEYS.profile_image, GlobalsVariables.STORAGE.TYPE_STRING));
-        String MyName=String.valueOf(SharedStorage.getSharedData(GlobalsVariables.STORAGE.STORAGE_KEYS.name, GlobalsVariables.STORAGE.TYPE_STRING));
-        String my_user_id=String.valueOf(SharedStorage.getSharedData(GlobalsVariables.STORAGE.STORAGE_KEYS.UserId, GlobalsVariables.STORAGE.TYPE_STRING));
+        String myProfileImage = String.valueOf(SharedStorage.getSharedData(GlobalsVariables.STORAGE.STORAGE_KEYS.profile_image, GlobalsVariables.STORAGE.TYPE_STRING));
+        String MyName = String.valueOf(SharedStorage.getSharedData(GlobalsVariables.STORAGE.STORAGE_KEYS.name, GlobalsVariables.STORAGE.TYPE_STRING));
+        String my_user_id = String.valueOf(SharedStorage.getSharedData(GlobalsVariables.STORAGE.STORAGE_KEYS.UserId, GlobalsVariables.STORAGE.TYPE_STRING));
 
 
         progressDialog = new AlertDialogs(context);
 
-        if (data.getImage() == null || data.getImage().equals("")){
+        if (data.getImage() == null || data.getImage().equals("")) {
             postIV.setVisibility(View.GONE);
-        }else {
+        } else {
             Picasso.get()
                     .load(data.getImage())
                     .placeholder(R.drawable.default_image)
@@ -150,7 +159,6 @@ public class singlePostAdView extends BaseActivity  implements PostAdsMvp , Logi
         }
 
 
-
         postTitleTV.setText(data.getTitle());
         postedDesTV.setText(data.getDescription());
         postLocationTV.setText(data.getLocation());
@@ -158,31 +166,32 @@ public class singlePostAdView extends BaseActivity  implements PostAdsMvp , Logi
         String posted_user_id = String.valueOf(data.getUserId());
 
 
-        if (posted_user_id.equals(my_user_id)){
+        if (posted_user_id.equals(my_user_id)) {
             deleteIV.setVisibility(View.VISIBLE);
             editIV.setVisibility(View.VISIBLE);
             chatIV.setVisibility(View.GONE);
-        }else {
+        } else {
+            chatIV.setVisibility(View.VISIBLE);
             deleteIV.setVisibility(View.GONE);
             editIV.setVisibility(View.GONE);
         }
 
-        if (data.getIsPostAnonymously()==1){
+        if (data.getIsPostAnonymously() == 1) {
             Picasso.get()
                     .load(R.drawable.placeholder_male_square)
                     .placeholder(R.drawable.placeholder_male_square)
                     .error(R.drawable.placeholder_male_square)
                     .into(postedByImg);
             postedByName.setText("Anonymous");
-        }else {
-            if (posted_user_id.equals(my_user_id)){
+        } else {
+            if (posted_user_id.equals(my_user_id)) {
                 Picasso.get()
                         .load(myProfileImage)
                         .placeholder(R.drawable.placeholder_male_square)
                         .error(R.drawable.placeholder_male_square)
                         .into(postedByImg);
                 postedByName.setText(MyName);
-            }else {
+            } else {
                 Picasso.get()
                         .load(data.getUserInfo().getProfileImage())
                         .placeholder(R.drawable.placeholder_male_square)
@@ -193,23 +202,23 @@ public class singlePostAdView extends BaseActivity  implements PostAdsMvp , Logi
         }
 
 
-        if (data.getPostType()==1){
+        if (data.getPostType() == 1) {
             postTypeTV.setText(getString(R.string.love_ad));
             postTypeTV.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.bg_button_small_blue));
-        }else {
+        } else {
             postTypeTV.setText(getString(R.string.connect_ad));
             postTypeTV.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.bg_button_small));
         }
 
 
-        String MyFinalValue =  new TimeAgo().covertTimeStringToAgo(data.getCreatedAt(), context);
+        String MyFinalValue = new TimeAgo().covertTimeStringToAgo(data.getCreatedAt(), context);
 
         postedTimeTV.setText(MyFinalValue);
 
         postedByImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (data.getIsPostAnonymously()!=1) {
+                if (data.getIsPostAnonymously() != 1) {
                     if (posted_user_id.equals(my_user_id)) {
                         appUtils.startActivity(context,
                                 ProfileActivity.createIntent(context),
@@ -219,7 +228,7 @@ public class singlePostAdView extends BaseActivity  implements PostAdsMvp , Logi
                                 0
                         );
                     } else {
-                        context.startActivity(new Intent(new Intent(context, ProfileActivity.class)).putExtra("user_id", data.getUserInfo().getId()+"").putExtra("from", "explore"));
+                        context.startActivity(new Intent(new Intent(context, ProfileActivity.class)).putExtra("user_id", data.getUserInfo().getId() + "").putExtra("from", "explore"));
                     }
                 }
 
@@ -244,7 +253,7 @@ public class singlePostAdView extends BaseActivity  implements PostAdsMvp , Logi
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, FullImage.class);
-                i.putExtra("ImagePath",data.getImage());
+                i.putExtra("ImagePath", data.getImage());
                 startActivity(i);
             }
         });
@@ -256,7 +265,6 @@ public class singlePostAdView extends BaseActivity  implements PostAdsMvp , Logi
                 startChat();
             }
         });
-
 
 
     }
@@ -290,6 +298,8 @@ public class singlePostAdView extends BaseActivity  implements PostAdsMvp , Logi
                 createDialog(qbUsers, receiverName);
             }
 
+        } else {
+            sendChatRequest(chatData.getUserId().toString());
         }
     }
 
@@ -398,7 +408,7 @@ public class singlePostAdView extends BaseActivity  implements PostAdsMvp , Logi
 
     }
 
-    @OnClick({R.id.backIV,R.id.deleteIV,R.id.editIV})
+    @OnClick({R.id.backIV, R.id.deleteIV, R.id.editIV})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.backIV:
@@ -421,15 +431,13 @@ public class singlePostAdView extends BaseActivity  implements PostAdsMvp , Logi
     @Override
     public <T> void onApiResponse(T test, String serviceMode) {
         if (test instanceof postAdDeleteResponse) {
-            Log.e("RESPONSEGetUSer",new Gson().toJson(test));
+            Log.e("RESPONSEGetUSer", new Gson().toJson(test));
             postAdDeleteResponse response = (postAdDeleteResponse) test;
 //            appUtils.showToast(response.getMessage());
             if (response.getStatus() == API_GLOBALS.RESPONSE_CODE.SUCCESS) {
                 appUtils.showToast(response.getMessage());
                 goback();
-            }
-            else
-            {
+            } else {
                 appUtils.showToast(response.getMessage());
 
             }
@@ -448,13 +456,12 @@ public class singlePostAdView extends BaseActivity  implements PostAdsMvp , Logi
     }
 
 
-
 // new chat
 
-    private QBUser getUserFromSession(){
+    private QBUser getUserFromSession() {
         QBUser user = SharedPrefsHelper.getInstance().getQbUser();
         user.setId(QBSessionManager.getInstance().getSessionParameters().getUserId());
-        Log.e("saved user name",user.getLogin()+"  "+user.getPassword());
+        Log.e("saved user name", user.getLogin() + "  " + user.getPassword());
         return user;
     }
 
@@ -477,13 +484,10 @@ public class singlePostAdView extends BaseActivity  implements PostAdsMvp , Logi
     }
 
 
-
-
-
     private void getProfile() {
-        AlertDialogs dialogs=new AlertDialogs(this);
+        AlertDialogs dialogs = new AlertDialogs(this);
         dialogs.show();
-        Log.d("getProfile", "getProfile: userid"+String.valueOf(chatData.getUserId()));
+        Log.d("getProfile", "getProfile: userid" + String.valueOf(chatData.getUserId()));
         loginRegisterProfilePresenter.hitGetProfile(String.valueOf(chatData.getUserId()), new ResponseListner() {
             @Override
             public <T> void onComplete(Response<T> response) {
@@ -494,10 +498,10 @@ public class singlePostAdView extends BaseActivity  implements PostAdsMvp , Logi
                     GetProfile res = (GetProfile) response.body();
                     userProfileData = res.getData();
                     notiReceiverQbId = String.valueOf(res.getData().getQuickbloxId());
-                    Log.d("onComplete", "onComplete: notiReceiverQbId  "+notiReceiverQbId);
+                    Log.d("onComplete", "onComplete: notiReceiverQbId  " + notiReceiverQbId);
                     chat_deleted_by = String.valueOf(res.getData().getDeletedBy());
-                    blocked_by=String.valueOf(res.getData().getBlockedBy());
-                    isReceiveNotification = res.getData().getReceive_notification() !=null ? res.getData().getReceive_notification() : isReceiveNotification;
+                    blocked_by = String.valueOf(res.getData().getBlockedBy());
+                    isReceiveNotification = res.getData().getReceive_notification() != null ? res.getData().getReceive_notification() : isReceiveNotification;
                     receiverId = String.valueOf(res.getData().getId());
                     receiverName = res.getData().getName();
                     receiverImage = res.getData().getProfileImage();
@@ -519,15 +523,14 @@ public class singlePostAdView extends BaseActivity  implements PostAdsMvp , Logi
                         chatIV.setVisibility(View.VISIBLE);
                     }
 
-                        if (userProfileData != null && userProfileData.getBlockedBy() != null) {
-                            String my_user_id = String.valueOf(SharedStorage.getSharedData(GlobalsVariables.STORAGE.STORAGE_KEYS.UserId, GlobalsVariables.STORAGE.TYPE_STRING));
-                            Boolean isBlocked = String.valueOf(userProfileData.getBlockedBy()).equalsIgnoreCase(my_user_id);
-                            if (isBlocked)
-                                chatIV.setVisibility(View.GONE);
-                            else if (!isBlocked && userProfileData.getBlockedBy() != 0)
-                                meBlocked = true;
-                        }
-
+                    if (userProfileData != null && userProfileData.getBlockedBy() != null) {
+                        String my_user_id = String.valueOf(SharedStorage.getSharedData(GlobalsVariables.STORAGE.STORAGE_KEYS.UserId, GlobalsVariables.STORAGE.TYPE_STRING));
+                        Boolean isBlocked = String.valueOf(userProfileData.getBlockedBy()).equalsIgnoreCase(my_user_id);
+                        if (isBlocked)
+                            chatIV.setVisibility(View.GONE);
+                        else if (!isBlocked && userProfileData.getBlockedBy() != 0)
+                            meBlocked = true;
+                    }
 
 
                 }
@@ -544,6 +547,35 @@ public class singlePostAdView extends BaseActivity  implements PostAdsMvp , Logi
 
     }
 
+
+    private void sendChatRequest(String toUserId) {
+        progressDialog.show();
+
+        adsPresenter.sendChatReqeuest(toUserId, new ResponseListner() {
+            @Override
+            public <T> void onComplete(Response<T> response) {
+                progressDialog.dismiss();
+
+                if (response.isSuccessful()) {
+                    LikeResponse likeResponse = (LikeResponse) response.body();
+
+                    if (likeResponse != null) appUtils.showToast(likeResponse.getMessage());
+
+                } else {
+                    appUtils.showToast("Something Went Wrong.");
+                }
+
+            }
+
+            @Override
+            public Void onError(String message) {
+                appUtils.showToast(message);
+                progressDialog.dismiss();
+                return null;
+            }
+        });
+
+    }
 
     @Override
     protected void onResume() {

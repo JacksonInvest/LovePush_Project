@@ -16,7 +16,7 @@ use App\UserPlanDetails;
 use App\Traits\PushNotification;
 
 class ConnectController extends Controller
-{   
+{
     use PushNotification;
 
     public function sendConnectRequest(Request $request) {
@@ -35,7 +35,7 @@ class ConnectController extends Controller
         }
 
         $from_user_id = $request->from_user_id;
-        $to_user_id = $request->to_user_id; 
+        $to_user_id = $request->to_user_id;
 
         \Log::debug('CONNECT from_user_id'.$from_user_id.'to_user_id'.$to_user_id);
 
@@ -56,19 +56,19 @@ class ConnectController extends Controller
             return response()->json([
                 'status' => false,
                 'message'=> 'You have already sent a Connect request.'
-            ],400);  
+            ],400);
         }
         else if($exist1) {
             return response()->json([
                 'status' => false,
                 'message'=> 'You have already sent a Chat request.'
-            ],400);  
+            ],400);
         }
         else if($exist2) {
             return response()->json([
                 'status' => false,
                 'message'=> 'You have already sent a Date request.'
-            ],400);  
+            ],400);
         }
 
         $remaining_sending_requests = UserPlanDetails::where('user_id',$from_user_id)->value('sending_requests');
@@ -123,11 +123,11 @@ class ConnectController extends Controller
         $connect->to_user_id   = $to_user_id;
         $connect->status       = 'S';
         if($connect->save()) {
-              
-            //------- Save Notification 
+
+            //------- Save Notification
             Notification::saveNotification('S_C_R', $connect->id, $from_user_id, $to_user_id);
 
-            //Send Push Notification 
+            //Send Push Notification
             // $this->PushNotify($request->to_user_id, $request->from_user_id, $connect->id, 'C');
             // $this->notifyAndroidNotification();
 
@@ -142,7 +142,7 @@ class ConnectController extends Controller
         } else {
             return false;
         }
-    }  
+    }
 
 
     //Connect Request Accept/Reject
@@ -191,7 +191,7 @@ class ConnectController extends Controller
                 //Save in match table end
 
 
-                //------- Save Notification 
+                //------- Save Notification
                 Notification::saveNotification('A_C_R', $connect_data->id, $connect_data->to_user_id, $connect_data->from_user_id);
 
                 //Make send request Notificatin inactive
@@ -207,7 +207,7 @@ class ConnectController extends Controller
                 // $this->PushNotify($connect_data->from_user_id, $connect_data->to_user_id, $connect_data->id, 'A');
             } else {
 
-                //------- Save Notification 
+                //------- Save Notification
                 // Notification::saveNotification('R_C_R', $connect_data->id, $connect_data->to_user_id, $connect_data->from_user_id);
 
                 $message = 'rejected';
@@ -225,15 +225,15 @@ class ConnectController extends Controller
                 'data'    => $connect_data,
             ],200);
         }
-    } 
+    }
 
 
     public function notifyAndroidNotification() { //For Android and IOS both
-        
+
         $url = 'https://fcm.googleapis.com/fcm/send';
 
         $device_token = 'cAFMxu5eDeY:APA91bF4M5IkU9-JKgnOpxI_9wK-0tRdgSVsgzjQdk_hnbMosXJ82CbL1FPNFFXw8Spe67acBhcuoO_s4sm6oYno4woGJCamk13oKJUr5Xi9WBNYO-eyf4L2oMaX-tx5xxAvrJjJ2irp';
-        
+
         $form_user_data = [
             'name'  => 'TEST',
         ];
@@ -250,7 +250,7 @@ class ConnectController extends Controller
             'notification'  =>  $message,
             'data'          =>  $message
         );
-        // prx($message); die;  
+        // prx($message); die;
 
         $headers = array(
             'Authorization: key=' . FCM_API_KEY,

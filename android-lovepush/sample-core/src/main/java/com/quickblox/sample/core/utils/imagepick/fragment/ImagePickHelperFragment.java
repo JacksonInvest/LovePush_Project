@@ -114,4 +114,7 @@ public class ImagePickHelperFragment extends Fragment {
                 && ((requestCode == ImageUtils.CAMERA_REQUEST_CODE)
                 || (requestCode == ImageUtils.GALLERY_REQUEST_CODE && data != null));
     }
+
+
 }
+

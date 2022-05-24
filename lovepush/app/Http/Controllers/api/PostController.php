@@ -19,11 +19,11 @@ use App\BlockList;
 use App\Notification;
 
 class PostController extends Controller
-{   
+{
     public function addPost(Request $request){
 
         $invalidWords = ["sex", "penis", "dick", "cock", "vagina", "pussy", "ass", "fuck", "faggot", "hoe", "slut", "basstard", "sell", "rent", "drugs", "cocaine", "heroin", "lsd", "ketamine", "xtc", "ectasy", "mdma", "schwanz", "schwanz", "arsch", "fick", "schwuchtel", "schlampe", "hure", "verkaufen", "mieten", "drogen", "kokain", "ketamin"];
-        
+
         $rules = [
                 'title'                 => [
                     Rule::notIn(array_map("strtolower", $invalidWords)),
@@ -37,7 +37,7 @@ class PostController extends Controller
                 'is_post_anonymously'   => 'required',
             ];
         $validator = Validator::make($request->all(), $rules);
-        
+
         if($validator->fails()) {
             return response()->json(['message' => $validator->errors()->first(), 'status' => 400]);
         }
@@ -45,14 +45,14 @@ class PostController extends Controller
 
             if(!$this->_checkStringIsValid($request->title, $invalidWords) ) {
                 return response()->json([
-                    'message'=> "Your title contain forbidden words.", 
+                    'message'=> "Your title contain forbidden words.",
                     'status' => 400,
                 ]);
             }
 
             if(!$this->_checkStringIsValid($request->description, $invalidWords) ) {
                 return response()->json([
-                    'message'=> "Your description contain forbidden words.", 
+                    'message'=> "Your description contain forbidden words.",
                     'status' => 400,
                 ]);
             }
@@ -61,13 +61,13 @@ class PostController extends Controller
             $post->user_id     = Auth::id();
             $post->title       = $request->title;
             $post->description = $request->description;
-            if (!file_exists(url('/images/post'))) {
-                mkdir(url('/images/post'), 0777, true);
+            if (!file_exists(url(POST_PATH))) {
+                mkdir(url(POST_PATH), 0777, true);
             }
             if($request->has('image')){
                 $image               = $request->file('image');
                 $input['imagename']  = time().'.'.$image->getClientOriginalExtension();
-                $destinationPath     = public_path('/images/post');
+                $destinationPath     = public_path(POST_PATH);
                 $image->move($destinationPath, $input['imagename']);
                 $post->image       = $input['imagename'];
             }
@@ -160,7 +160,7 @@ class PostController extends Controller
 
                 $rec->blockedBy = (int)$blockedBy;
 
-                return $rec;   
+                return $rec;
             });
 
         return response()->json([
@@ -179,7 +179,7 @@ class PostController extends Controller
         );
         if ($validator->fails()) {
             return response()->json(['message'=>$validator->errors()->first(), 'status' => 400]);
-        } 
+        }
 
         $delete = Post::where('id', $request->id)
                             ->where('user_id', Auth::id())
@@ -217,26 +217,26 @@ class PostController extends Controller
                         })
                         ->pluck('id');
 
-         //echo "<pre>"; print_r($matchIds); die;      
+         //echo "<pre>"; print_r($matchIds); die;
         if(!empty($matchIds)) {
             $userIds = Match::whereIn('id',$matchIds)->pluck('user_id');
             $likeIds = Match::whereIn('id',$matchIds)->pluck('like_by_me');
-            // echo "<pre>"; print_r($userIds);// die;      
-            // echo "<pre>"; print_r($likeIds); //die;      
+            // echo "<pre>"; print_r($userIds);// die;
+            // echo "<pre>"; print_r($likeIds); //die;
         }
 
 
         $newArray = [];
         $newArray = array_merge(json_decode($userIds), json_decode($likeIds));
         array_push($newArray, $user_id);
-        // echo "<pre>"; print_r($newArray); die;  
+        // echo "<pre>"; print_r($newArray); die;
 
-        $user_ids = Post::whereIn('user_id', $newArray)->orderBy('id','desc')->pluck('user_id');    
+        $user_ids = Post::whereIn('user_id', $newArray)->orderBy('id','desc')->pluck('user_id');
         //echo "<pre>";print_r($user_ids);die;
 
-            
+
         $posts = Post::with('userInfo')
-                        ->has('userInfo')           
+                        ->has('userInfo')
                         ->orderBy('id','desc')
                         //->where('user_id','!=',Auth::id())
                         //->with('matchUserInfo')
@@ -313,7 +313,7 @@ class PostController extends Controller
                     $rec->blockedBy = (int)$blockedBy;
 
                 }
-                return $rec;   
+                return $rec;
             });
 
 
@@ -350,7 +350,7 @@ class PostController extends Controller
         ];
 
         $validator = Validator::make($request->all(), $rules);
-        
+
         if($validator->fails()) {
             return response()->json(['message' => $validator->errors()->first(), 'status' => 400],400);
         }
@@ -358,14 +358,14 @@ class PostController extends Controller
 
             if(!$this->_checkStringIsValid($request->title, $invalidWords) ) {
                 return response()->json([
-                    'message'=> "Your title contain forbidden words.", 
+                    'message'=> "Your title contain forbidden words.",
                     'status' => 400,
                 ]);
             }
 
             if(!$this->_checkStringIsValid($request->description, $invalidWords) ) {
                 return response()->json([
-                    'message'=> "Your description contain forbidden words.", 
+                    'message'=> "Your description contain forbidden words.",
                     'status' => 400,
                 ]);
             }
@@ -381,7 +381,7 @@ class PostController extends Controller
             if($request->has('image')){
                 $image               = $request->file('image');
                 $input['imagename']  = time().'.'.$image->getClientOriginalExtension();
-                $destinationPath     = public_path('/images/post');
+                $destinationPath     = public_path(POST_PATH);
                 $image->move($destinationPath, $input['imagename']);
                 $post->image       = $input['imagename'];
             }
@@ -413,7 +413,7 @@ class PostController extends Controller
         );
         if ($validator->fails()) {
             return response()->json(['message'=>$validator->errors()->first(), 'status' => 400]);
-        } 
+        }
 
         $status = $request->status;
 
@@ -433,7 +433,7 @@ class PostController extends Controller
             $post_user_id = Post::where('id',$request->post_id)->value('user_id');
             if($post_user_id != Auth::id()){
                 if($status == 1){
-                    //------- Save Notification 
+                    //------- Save Notification
                     Notification::saveNotification('P_L_R', $request->post_id, $request->user_id, $post_user_id);
                 }
             }
@@ -443,7 +443,7 @@ class PostController extends Controller
                 'status' => 200,
                 'data'   => $exist,
                 'message' => $message
-                
+
             ],400);
         } else {
             $add = new PostLike;
@@ -456,7 +456,7 @@ class PostController extends Controller
                 if($post_user_id != Auth::id()){
                     if($status == 1){
                         $post_user_id = Post::where('id',$request->post_id)->value('user_id');
-                        //------- Save Notification 
+                        //------- Save Notification
                         Notification::saveNotification('P_L_R', $request->post_id, $request->user_id, $post_user_id);
                     }
                 }
@@ -483,7 +483,7 @@ class PostController extends Controller
                 } else{
                     return false; break 2; //found
                 }
-            }                
+            }
         }
         return true; //valid
     }

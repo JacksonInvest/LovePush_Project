@@ -87,7 +87,7 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                     .error(R.drawable.placeholder_male_square)
                     .into(holder.postedByImg);
             holder.postedByName.setText("Anonymous");
-            holder.chatIV.setVisibility(View.GONE);
+           // holder.chatIV.setVisibility(View.GONE);
         } else {
             Picasso.get()
                     .load(dataList.get(pos).getUserInfo().getProfileImage())

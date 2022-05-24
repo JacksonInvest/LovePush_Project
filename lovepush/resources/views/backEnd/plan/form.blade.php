@@ -177,7 +177,7 @@
 					</div>
 
 					<div class="form-group row">
-						<label for="ads" class="col-md-3 col-xs-12 col-form-label">Ads (Monthly)</label>
+						<label for="ads" class="col-md-3 col-xs-12 col-form-label">Ads (Weekly)</label>
 						<div class="col-xs-6">
 							<input class="form-control" name="ads" id="ads" type="text" value="{{ $plan['ads'] }}" <?php if($plan['ads'] == "Unlimited") echo "readonly"; ?>>
 						</div>
@@ -197,7 +197,7 @@
 			</form>
 
 			</div>
-				
+
 		</div>
     </div>
 </div>

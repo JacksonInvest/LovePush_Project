@@ -3,6 +3,8 @@
     <string name="facebook_app_id" translatable="false">664377490884177</string>
     <string name="fb_login_protocol_scheme" translatable="false">fb664377490884177</string>
 
+    <string name="google_places_api_key" translatable="false">AIzaSyA5sAjRYPFFaiFkQeR1BVdTL8egbHLAG9U</string>
+
     <string name="server_error">Internal Server Error</string>
     <string name="internet_not_available">Internet not available</string>
     <string name="api_crashed">An error occurred</string>

@@ -24,7 +24,7 @@ use App\ChatRequest;
 use App\Like;
 
 class ProfileController extends Controller
-{   
+{
     public function getProfile(Request $request){
 
         $validator = Validator::make($request->all(), [
@@ -34,10 +34,10 @@ class ProfileController extends Controller
 
         if ($validator->fails()) {
             return response()->json(['message'=>$validator->errors()->first(), 'status' => 400]);
-        } 
+        }
 
         $my_user_id = Auth::user()->id;
-        $user_id   = $request->user_id; 
+        $user_id   = $request->user_id;
         $user_data = User::getFullUserById($user_id, $my_user_id);
         //print_r($user_data['profile_images']);die;
 
@@ -77,7 +77,7 @@ class ProfileController extends Controller
 
             //checking Block status
             $isBlocked = 0;
-            
+
             $check_block = BlockList::where(['user_id'=>$my_user_id])->where(['blocked_user_id'=>$user_id])->first();
             if($check_block){
                 $isBlocked = 1;
@@ -145,7 +145,7 @@ class ProfileController extends Controller
             'status' => 200,
             'data'   => $user_data,
             'f_que_ans' => $gender_array,
-            'message'=> 'User Profile Info', 
+            'message'=> 'User Profile Info',
 
         ]);
     }
@@ -177,7 +177,7 @@ class ProfileController extends Controller
 
         if ($validator->fails()) {
             return response()->json(['message'=>$validator->errors()->first(), 'status' => 400]);
-        } 
+        }
 
 
         // $photos = count($request->images);
@@ -187,14 +187,14 @@ class ProfileController extends Controller
 
         if(!$this->_checkStringIsValid($request->name, $invalidWords) ) {
             return response()->json([
-                'message'=> "Name is invalid.", 
+                'message'=> "Name is invalid.",
                 'status' => 400,
             ]);
         }
 
         if(!$this->_checkStringIsValid($request->aboutme, $invalidWords) ) {
             return response()->json([
-                'message'=> "Some text is invalid.", 
+                'message'=> "Some text is invalid.",
                 'status' => 400,
             ]);
         }
@@ -220,8 +220,8 @@ class ProfileController extends Controller
             $user->aboutme             = $request->aboutme;
 	        $user->religion            = $request->religion;
             $user->language            = $request->language;
-	        
-	        // Profile Images upload 
+
+	        // Profile Images upload
 	        if (!file_exists(url('/profile'))) {
 	            mkdir(url('/profile'), 0777, true);
 	        }
@@ -233,13 +233,13 @@ class ProfileController extends Controller
 		        $user->profile_image = $input['imagename'];
 	        }
 	        $user->save();
-	            
+
             $user      = Auth::user();
             $user_data = User::getUserById($user->id);
             return response()->json([
                 'status' => 200,
                 'data'   => $user_data,
-                'message'=> trans('api.user.profile_update_success'), 
+                'message'=> trans('api.user.profile_update_success'),
 
             ]);
     	    //$response['status'] = 200;
@@ -258,7 +258,7 @@ class ProfileController extends Controller
 
         // Profile images upload
 
-        
+
 
         if($request->has('images') && is_array($request->images)){
             foreach ($request->images as $k => $v) {
@@ -273,10 +273,10 @@ class ProfileController extends Controller
             }
         }
 
-        $user = User::find(Auth::user()->id);
+        /*$user = User::find(Auth::user()->id);
         $profile_image = UserProfileImages::where('user_id',Auth::user()->id)->select('image')->first();
         $user->profile_image = $profile_image->getOriginal('image');
-        $user->save();
+        $user->save();*/
 
         $user = Auth::user();
         $user_data = User::getUserById($user->id);
@@ -284,7 +284,26 @@ class ProfileController extends Controller
         return response()->json([
             'status' => 200,
             'data'   => $user_data,
-            'message'=> trans('api.user.profile_update_success'), 
+            'message'=> trans('api.user.profile_update_success'),
+        ]);
+    }
+
+    public function set_profile_image(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'id' => 'required|exists:user_profile_images'
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['message'=>$validator->errors()->first(), 'status' => 400]);
+        }
+        $profile_image = UserProfileImages::where('id',$request->id)->select('image')->first();
+        $user = User::find(Auth::user()->id);
+        $user->profile_image = $profile_image->getOriginal('image');
+        $user->save();
+        return response()->json([
+            'status' => 200,
+            'data'   => $user,
+            'message'=> trans('api.user.profile_update_success'),
+
         ]);
     }
 
@@ -297,27 +316,27 @@ class ProfileController extends Controller
 
         if ($validator->fails()) {
             return response()->json(['message'=>$validator->errors()->first(), 'status' => 400]);
-        } 
+        }
 
         $delete = UserProfileImages::where('id', $request->id)->delete();
 
         $user = User::find(Auth::user()->id);
-        $profile_image = UserProfileImages::where('user_id',Auth::user()->id)->select('image')->first();
+        //$profile_image = UserProfileImages::where('user_id',Auth::user()->id)->select('image')->first();
         //$user->profile_image = null;
-        $user->profile_image = $profile_image->image;
-        $user->save();
-        
+        //$user->profile_image = $profile_image->image;
+        //$user->save();
+
         return response()->json([
             'status' => 200,
             'data'   => $user,
-            'message'=> trans('api.user.profile_update_success'), 
+            'message'=> trans('api.user.profile_update_success'),
 
         ]);
 
     }
 
     public function changePassword(Request $request){
-        
+
         $validator = Validator::make($request->all(), [
             'old_password'      => 'required|min:6',
             'new_password'  => 'required|min:6'
@@ -326,10 +345,10 @@ class ProfileController extends Controller
 
         if ($validator->fails()) {
             return response()->json(['message'=>$validator->errors()->first(), 'status' => 400]);
-        }  
-        
+        }
+
         $old_password = $request->old_password;
-    
+
         if (Hash::check($old_password, Auth::user()->password)) {
             $user = User::find(Auth::id());
             $user->password = Hash::make($request->new_password);
@@ -345,7 +364,7 @@ class ProfileController extends Controller
                 'status' => 400,
                 'message'=> trans('api.user.password_not_matched'),
             ]);
-        }  
+        }
     }
 
     public function updateLocation(Request $request) {
@@ -373,7 +392,7 @@ class ProfileController extends Controller
             return response()->json([
                 'status'  => 200,
                 'message' => trans('api.user.profile_update_success'),
-                'data'    => $update 
+                'data'    => $update
             ],200);
         } else {
             return response()->json([
@@ -384,7 +403,7 @@ class ProfileController extends Controller
 
         // /location/update
         // POST
-        // address, latitude, longitude 
+        // address, latitude, longitude
     }
 
     function _checkStringIsValid($title, $invalidWords){
@@ -396,7 +415,7 @@ class ProfileController extends Controller
                 } else{
                     return false; break 2; //found
                 }
-            }                
+            }
         }
         return true; //valid
     }

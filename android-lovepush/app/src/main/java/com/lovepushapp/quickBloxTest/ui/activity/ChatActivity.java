@@ -144,7 +144,8 @@ public class ChatActivity extends BaseActivity implements OnImagePickedListener,
     String[] PERMISSIONS = {Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO};
     ImageView emojiButton, callIV, videoIV;
     EmojIconActions emojIcon;
-    String intentNewDialogCreate, intentReceiverName, intentReceiverImage, intentReceiverId, intentMatchId, intentDialogId, intentEventType, intent;
+    Boolean intentNewDialogCreate;
+    String intentReceiverName, intentReceiverImage, intentReceiverId, intentMatchId, intentDialogId, intentEventType, intent;
     String my_shared_name, my_shared_image, my_qb_id, my_shared_id;
     String intentFrom, intentDeletedBy = "0", intentBlockedBy = "0", intentRestoreMatchId, isReceiveNofication = "1";
     boolean isDeleteRestored = false;
@@ -247,7 +248,7 @@ public class ChatActivity extends BaseActivity implements OnImagePickedListener,
         systemMessagesListener = new SystemMessagesListener();
         intentDialogId = getIntent().getStringExtra("dialog_id");
         qbChatDialog = QbDialogHolder.getInstance().getChatDialogById(getIntent().getStringExtra("dialog_id"));
-        intentNewDialogCreate = getIntent().getStringExtra("newDialogCreate");
+        intentNewDialogCreate = getIntent().getBooleanExtra("newDialogCreate", false);
         intentReceiverImage = getIntent().getStringExtra("receiverImage");
         intentReceiverName = getIntent().getStringExtra("receiverName");
         intentReceiverId = getIntent().getStringExtra("receiverId");
@@ -880,7 +881,7 @@ public class ChatActivity extends BaseActivity implements OnImagePickedListener,
             }
 
             try {
-                if (qbChatDialog.getLastMessage() == null) {
+                if (qbChatDialog.getLastMessage() == null || intentNewDialogCreate) {
                     CreateDialogInOurServer();
                 }
                 Log.d(TAG, "Sending Message with ID: " + chatMessage.getId());

@@ -11,8 +11,7 @@ class Post extends Model
 
     public function getImageAttribute($value) {
         if($value) {
-            return asset(Config::get('const.img_path.post').$value); 
-            // return asset(config('const.img_path.post_ads').$value); 
+            return asset(POST_PATH.$value);
         }
     }
 

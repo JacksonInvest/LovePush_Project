@@ -104,6 +104,7 @@ return [
         'App screenshots' => 'App screenshots',
         'Contact Us'   => 'Contact Us',
         'Official Partner'   => 'Official Partner',
+        'Advisor'   => 'Advisor',
 
         //singUp form
         'Become part of the LovePush movement!' => 'Become part of the LovePush movement!',

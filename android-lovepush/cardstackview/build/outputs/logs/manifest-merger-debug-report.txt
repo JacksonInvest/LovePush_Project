@@ -1,37 +1,37 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml:3:1-58
-INJECTED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml:3:1-58
-INJECTED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml:3:1-58
-INJECTED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml:3:1-58
-INJECTED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml:3:1-58
-INJECTED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml:3:1-58
-INJECTED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml:3:1-58
+ADDED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml:3:1-58
+INJECTED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml:3:1-58
+INJECTED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml:3:1-58
+INJECTED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml:3:1-58
+INJECTED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml:3:1-58
+INJECTED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml:3:1-58
+INJECTED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml:3:1-58
 	package
-		ADDED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml:3:11-56
-		INJECTED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml
-		INJECTED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml
+		ADDED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml:3:11-56
+		INJECTED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml
+		INJECTED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml
-		ADDED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml:3:1-58
-		INJECTED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml
+		INJECTED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml
+		ADDED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml:3:1-58
+		INJECTED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml:3:1-58
+		ADDED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml:3:1-58
 	android:versionCode
-		INJECTED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml
-		ADDED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml:3:1-58
-		INJECTED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml
+		INJECTED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml
+		ADDED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml:3:1-58
+		INJECTED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml
 uses-sdk
-INJECTED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml
-INJECTED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml
-INJECTED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml
-INJECTED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml
+INJECTED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml
+INJECTED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml
+INJECTED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml
+INJECTED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml
-		ADDED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml
-		INJECTED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml
+		INJECTED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml
+		ADDED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml
+		INJECTED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml
-		ADDED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml
-		INJECTED from /home/manjinder/AndroidStudioProjects/Mantainance Project/lovepushnew/cardstackview/src/main/AndroidManifest.xml
+		INJECTED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml
+		ADDED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml
+		INJECTED from /home/ravindra/AndroidStudioProjects/lovepushnew/cardstackview/src/main/AndroidManifest.xml

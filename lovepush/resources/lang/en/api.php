@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 return array (
 
@@ -12,7 +12,8 @@ return array (
 		'profile_success'	=> 'Profile has been created successfully.',
 		'password_change_success' => 'Password has been changed successfully.',
 		'password_not_matched'	=> 'Your password is invalid.',
-		'postads_add_success'	=> 'Post has been added successfully.',
+		'postads_add_success'	=> 'Post has been created successfully',
+		'postads_new_add_success'	=> 'Add successfully created, you can publish 3 adds / week, you´re add will be deleted automatically within 3 days. Thank you for using Love Push',
 		'postads_edit_success'	=> 'Post has been updated successfully.',
 		'profile_update_success'	=> 'Profile has been updated successfully.',
 		'like_request_success'	=> 'Your like request has been sent successfully.',

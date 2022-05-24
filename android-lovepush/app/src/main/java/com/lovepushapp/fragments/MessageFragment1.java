@@ -1,5 +1,7 @@
 package com.lovepushapp.fragments;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
@@ -90,8 +92,6 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Response;
-
-import static android.app.Activity.RESULT_OK;
 
 
 public class MessageFragment1 extends BaseFragment implements LoginMvp, DialogsManager.ManagingDialogsCallbacks
@@ -184,7 +184,9 @@ public class MessageFragment1 extends BaseFragment implements LoginMvp, DialogsM
         newestTV.setVisibility(View.GONE);
         my_user_id = String.valueOf(SharedStorage.getSharedData(GlobalsVariables.STORAGE.STORAGE_KEYS.UserId, GlobalsVariables.STORAGE.TYPE_STRING));
 //        setAdapterRecent();
-        my_qb_id = Integer.valueOf(String.valueOf(SharedStorage.getSharedData(GlobalsVariables.STORAGE.STORAGE_KEYS.QuickbloxId, GlobalsVariables.STORAGE.TYPE_STRING)));
+        try {
+            my_qb_id = Integer.valueOf(String.valueOf(SharedStorage.getSharedData(GlobalsVariables.STORAGE.STORAGE_KEYS.QuickbloxId, GlobalsVariables.STORAGE.TYPE_STRING)));
+        }catch (Exception e ){}
         dialogsList = new ArrayList<>(QbDialogHolder.getInstance().getDialogs().values());
         //Toast.makeText(getActivity(), "hello guys i am in message frament 1 "+profile_url, Toast.LENGTH_SHORT).show();
 
@@ -538,7 +540,7 @@ public class MessageFragment1 extends BaseFragment implements LoginMvp, DialogsM
         if (test instanceof unmatchUserResponse) {
             unmatchUserResponse res = (unmatchUserResponse) test;
             loginRegisterProfilePresenter.hitGetMyMatches();
-            updateDialogsAdapter();
+          updateDialogsAdapter();
             appUtils.showToast(res.getMessage());
             loginRegisterProfilePresenter.hitGetNotification(false);
         }
@@ -916,17 +918,18 @@ public class MessageFragment1 extends BaseFragment implements LoginMvp, DialogsM
         String receiverName = "", receiverImage = "", receiverId = "", receiverReceiveNotification = "";
         Intent intent = new Intent(getContext(), ChatActivity.class);
         intent.putExtra("dialog_id", qbChatDialog.getDialogId());
-        intent.putExtra("newDialogCreate", "true");
+
+        intent.putExtra("newDialogCreate", data1.get(position).getQbChatDialog() == null );
         intent.putExtra("match_id", data1.get(position).getId());
 
-        String finalDeleteBy="";
+        String finalDeleteBy = "";
 
         if (my_user_id.equalsIgnoreCase(data1.get(position).getUser_info2().getId())) {
             receiverName = data1.get(position).getUser_info1().getName();
             receiverImage = data1.get(position).getUser_info1().getProfile_image();
             receiverId = data1.get(position).getUser_info1().getId();
             receiverReceiveNotification = data1.get(position).getUser_info1().getReceive_notification();
-            finalDeleteBy=data1.get(position).getDeletedBy();
+            finalDeleteBy = data1.get(position).getDeletedBy();
         } else if (my_user_id.equalsIgnoreCase(data1.get(position).getUser_info1().getId())) {
             receiverName = data1.get(position).getUser_info2().getName();
             receiverImage = data1.get(position).getUser_info2().getProfile_image();

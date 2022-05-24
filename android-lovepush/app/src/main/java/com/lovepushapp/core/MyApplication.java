@@ -1,29 +1,23 @@
 package com.lovepushapp.core;
 
+import static com.lovepushapp.core.utils.API_GLOBALS.ACCOUNT_KEY;
+import static com.lovepushapp.core.utils.API_GLOBALS.AUTH_KEY;
+
 import android.app.Application;
 import android.content.Context;
 
-import com.crashlytics.android.Crashlytics;
 import com.google.firebase.FirebaseApp;
 import com.lovepushapp.core.Component.DaggerDiComponent;
 import com.lovepushapp.core.Component.DiComponent;
 import com.lovepushapp.core.Component.DiModule;
 import com.lovepushapp.core.utils.API_GLOBALS;
+import com.lovepushapp.utils.LocaleUtils;
 import com.lovepushapp.videoTestJava.db.DbHelper;
 import com.lovepushapp.videoTestJava.util.QBResRequestExecutor;
-import com.lovepushapp.utils.LocaleUtils;
 import com.quickblox.auth.session.QBSettings;
 import com.quickblox.chat.QBChatService;
-import com.quickblox.core.ServiceZone;
 import com.quickblox.core.SubscribePushStrategy;
-import com.quickblox.messages.services.SubscribeService;
 
-import io.fabric.sdk.android.Fabric;
-
-import static com.lovepushapp.core.utils.API_GLOBALS.ACCOUNT_KEY;
-import static com.lovepushapp.core.utils.API_GLOBALS.AUTH_KEY;
-import static com.quickblox.core.QBSettingsSaver.API_DOMAIN;
-import static com.quickblox.core.QBSettingsSaver.CHAT_DOMAIN;
 
 
 public class MyApplication extends Application {
@@ -57,7 +51,9 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
         FirebaseApp.initializeApp(this);
+
         QBSettings.getInstance().init(this, API_GLOBALS.APP_ID, AUTH_KEY, API_GLOBALS.AUTH_SECRET);
         QBSettings.getInstance().setAccountKey(ACCOUNT_KEY);
        // QBSettings.getInstance().setEndpoints(API_DOMAIN, CHAT_DOMAIN), ServiceZone.PRODUCTION);
@@ -75,7 +71,8 @@ public class MyApplication extends Application {
         dbHelper = new DbHelper(this);
 
 
-        Fabric.with(this, new Crashlytics());
+//        Fabric.with(this, new Crashlytics());
+
 
         instance = this;
 

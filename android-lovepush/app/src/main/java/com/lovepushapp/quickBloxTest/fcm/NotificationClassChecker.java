@@ -2,7 +2,6 @@ package com.lovepushapp.quickBloxTest.fcm;
 
 import android.util.Log;
 
-import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.google.gson.Gson;
 import com.quickblox.messages.services.fcm.QBFcmPushListenerService;

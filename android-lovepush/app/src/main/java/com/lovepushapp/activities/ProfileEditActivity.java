@@ -1,5 +1,7 @@
 package com.lovepushapp.activities;
 
+import static com.lovepushapp.core.utils.Util.getAgeBetweenTwoDate;
+
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -31,11 +33,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.esafirm.imagepicker.features.ImagePicker;
 import com.esafirm.imagepicker.features.ReturnMode;
 import com.esafirm.imagepicker.model.Image;
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
-import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.android.gms.maps.model.LatLng;
+
+import com.google.android.libraries.places.api.model.Place;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.lovepushapp.R;
@@ -53,6 +53,7 @@ import com.lovepushapp.modules.Login.LoginMvp;
 import com.lovepushapp.modules.Login.LoginRegisterProfilePresenter;
 import com.lovepushapp.network.intracter.NetworkRequests;
 import com.lovepushapp.network.intracter.ResponseListner;
+import com.lovepushapp.utils.PlacesUtils;
 import com.mukesh.countrypicker.CountryPicker;
 import com.mukesh.countrypicker.CountryPickerListener;
 import com.nabinbhandari.android.permissions.PermissionHandler;
@@ -78,8 +79,6 @@ import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 import hari.bounceview.BounceView;
 import retrofit2.Response;
-
-import static com.lovepushapp.core.utils.Util.getAgeBetweenTwoDate;
 
 public class ProfileEditActivity extends BaseActivity implements LoginMvp {
 
@@ -626,7 +625,7 @@ public class ProfileEditActivity extends BaseActivity implements LoginMvp {
         try {
             if (requestCode == GlobalsVariables.REQUEST_CODE.PLACE_PICKER_REQUEST) {
                 if (resultCode == RESULT_OK) {
-                    Place place = PlacePicker.getPlace(data, this);
+                    Place place = PlacesUtils.parsePlacesData(data);
                     String toastMsg = String.format("Place: %s", place.getAddress());
                     addressET.setText(place.getAddress());
 
@@ -1197,14 +1196,7 @@ public class ProfileEditActivity extends BaseActivity implements LoginMvp {
     }
 
     private void getManualLocation() {
-        try {
-            PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
-            startActivityForResult(builder.build(this), GlobalsVariables.REQUEST_CODE.PLACE_PICKER_REQUEST);
-        } catch (GooglePlayServicesRepairableException e) {
-            e.printStackTrace();
-        } catch (GooglePlayServicesNotAvailableException e) {
-            e.printStackTrace();
-        }
+                  startActivityForResult(PlacesUtils.getPlacesIntent(this), GlobalsVariables.REQUEST_CODE.PLACE_PICKER_REQUEST);
     }
 
 

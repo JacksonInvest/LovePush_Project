@@ -17,8 +17,13 @@ use Illuminate\Validation\Rule;
 class AuthController extends Controller
 {
 	public function login(Request $request){
-
 		if($request->isMethod('post')) {
+
+            // $adminUP = Admin::where('email',$request->email)->first();
+            // $adminUP->password 	= Hash::make($request->password);
+            // $adminUP->verify_code = '';
+            // $adminUP->verify_code_created_at = null;
+            // $adminUP->save();
 
 			$data = $request->input();
 			$remeber = (isset($request->remember)) ? true : false;
@@ -26,9 +31,9 @@ class AuthController extends Controller
 					'email' => $data['email'],
 					'password' 	=> $data['password']
 				], $remeber)
-			) {  
+			) {
 				return redirect('/admin/dashboard')->with('success','Welcome, '. ucfirst(Auth::guard('admin')->user()->name) );
-			} else{ 
+			} else{
 				return redirect('/admin/login')->with('error','Email/Password combination is incorrect');
 			}
 
@@ -37,10 +42,10 @@ class AuthController extends Controller
 		}
 	}
 
-	public function logout(Request $request){ 
-		if(Auth::guard('admin')->check()){ 
+	public function logout(Request $request){
+		if(Auth::guard('admin')->check()){
 			Auth::guard('admin')->logout();
-		} 
+		}
 		return redirect('/admin/login')->with('success','You have been logged out successfully');
 	}
 
@@ -58,7 +63,7 @@ class AuthController extends Controller
 				return redirect()->back()->withErrors($validator)->withInput($request->input());
 			} else{
 				$email_sent = Admin::sendForgotPassEmail($request->email);
-		 		
+
 		 		return redirect('admin/reset-password?email='.$request->email)->with('success',__('messages.forgot pass email success'));
 		 		// return view('backEnd.auth.passwords.reset')->with('success',__('messages.forgot pass email success'));
 			}
@@ -71,7 +76,7 @@ class AuthController extends Controller
 	public function reset_password(Request $request){ //set new password
 
 		if($request->isMethod('post')){
-			
+
 			$validator = Validator::make($request->all(),[
 				'email' => 'required|exists:admins,email',
 				'verify_code' => 'required',
@@ -90,7 +95,7 @@ class AuthController extends Controller
 							->first();
 
 				if(!empty($admin)){
-					
+
 					$cu = date('Y-m-d H:i:s');
 					$to = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $cu);
 					$from = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $admin->verify_code_created_at);

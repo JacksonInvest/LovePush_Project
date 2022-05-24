@@ -831,7 +831,7 @@ class PersonalityTestController extends Controller
 
 
     public function getRecommededProfile(Request $request) {
-
+print_r("Hello");die;
         $validator = Validator::make($request->all(), [
                 'user_id' => 'required',
                 // 'user_id' => 'required|exists:users,id',

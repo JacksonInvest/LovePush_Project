@@ -3,21 +3,21 @@ namespace App\Traits;
 use App\User;
 
 trait QuickBlox{
-    
+
     function generateRegisteredUserQuickBloxPassword($user_id){
         // $constant_pass = 'WXYZ1234';
         // return base64_encode($user_id.$constant_pass);
         return '12345678LOVEPUSH_APP';
     }
 
-    public function QuickBloxRegistration($user){ 
+    public function QuickBloxRegistration($user){
         $resp = $this->getQuickBloxSessionToken();
         if($resp['status'] == true){
-            $token = $resp['token']; 
+            $token = $resp['token'];
         } else{
             return array(
                 'status' => false,
-                'message' => ''             
+                'message' => ''
             );
         }
 
@@ -62,7 +62,7 @@ trait QuickBlox{
 
             return array(
                 'status' => true,
-                'quickblox_id' => $result['user']['id']             
+                'quickblox_id' => $result['user']['id']
             );
         } else{
             /*if(@$result['errors']['email'][0] == 'has already been taken.'){
@@ -71,7 +71,7 @@ trait QuickBlox{
                 'status' => false,
                 'message' => 'register curl error'
             );
-        } 
+        }
     }
 
     public function getQuickBloxSessionToken(){ //Application session token (read access)
@@ -89,10 +89,10 @@ trait QuickBlox{
                 'nonce'         => $nonce,
                 'timestamp'     => $timestamp
            );
-        
+
         $built_query        = urldecode(http_build_query($body));
         $signature          = hash_hmac('sha1', $built_query , $authSecret);
-        $body['signature']  = $signature; 
+        $body['signature']  = $signature;
         $post_body          = http_build_query($body);
 
         $url = 'https://api.quickblox.com/session.json';
@@ -111,6 +111,7 @@ trait QuickBlox{
         curl_setopt($ch, CURLOPT_POSTFIELDS, $post_body);
 
         $result = curl_exec($ch);
+        // dd($result);
         if($result == false){
             // die('quickblox token req failed: '.curl_error($ch));
         }
@@ -125,7 +126,7 @@ trait QuickBlox{
             return array(
                 'status' => false,
             );
-        } 
+        }
     }
 
     public function QuickBloxUserUpdate($user_id){
@@ -134,11 +135,11 @@ trait QuickBlox{
                 // echo '<pre>'; print_r($user); die;
 
         if(!empty($user)){
-            $resp = $this->getQuickBloxUserSessionToken($user->id); 
+            $resp = $this->getQuickBloxUserSessionToken($user->id);
                 // echo '<pre>'.$user->id;  print_r($resp); die;
 
             if($resp['status'] == true){
-                $token = $resp['token']; 
+                $token = $resp['token'];
 
                 $url = 'https://api.quickblox.com/users/'.$user->quickblox_id.'.json';
                 $data = array(
@@ -153,7 +154,7 @@ trait QuickBlox{
                         // 'external_user_id' => '',    //no more use
                     )
                 );
-         
+
                 $headers = array(
                     'Content-Type:application/json',
                     'QuickBlox-REST-API-Version: 0.1.0',
@@ -176,41 +177,41 @@ trait QuickBlox{
                 curl_close($ch);
                 $result = json_decode($result,true);
                 // echo '<pre>'; print_r($result); die;
-                
+
                 ///////////////////////////////////////////////
                 // $admin = \App\Admin::find(1);
                 // $old_img = $admin->test;
-                
+
                 // $admin->test = $old_img.",'".$user->id."'";
                 // $admin->save();
 
-                ///////////////////////////////////////////////                
+                ///////////////////////////////////////////////
 
                 if(isset($result['user'])) {
-                   
+
                     return array(
                         'status' => true,
                         'message' => 'updated successfully'
-                        // 'quickblox_id' => $result['user']['id']             
+                        // 'quickblox_id' => $result['user']['id']
                     );
                 } else{
                     return array(
                         'status' => false,
                         'message' => $result
                     );
-                } 
+                }
 
             } else{
                 return array(
                     'status' => false,
-                    'message' => 'generate session token err',             
+                    'message' => 'generate session token err',
                 );
             }
-        } else{ 
+        } else{
             return array(
                 'status' => false,
                 'message' => 'user not found'
-            );            
+            );
         }
     }
 
@@ -220,11 +221,11 @@ trait QuickBlox{
                 // echo '<pre>'; print_r($user); die;
 
         if(!empty($user)){
-            $resp = $this->getQuickBloxUserSessionToken($user_id); 
+            $resp = $this->getQuickBloxUserSessionToken($user_id);
                  //echo '<pre>'.$user_id;  print_r($resp); die;
 
             if($resp['status'] == true){
-                $token = $resp['token']; 
+                $token = $resp['token'];
 
                 $url = 'https://api.quickblox.com/users/'.$user->quickblox_id.'.json';
                 //echo '<pre>'; print_r($url); die;
@@ -234,7 +235,7 @@ trait QuickBlox{
                         'full_name'  => $user->name,
                     )
                 );
-         
+
                 $headers = array(
                     'Content-Type:application/json',
                     'QuickBlox-REST-API-Version: 0.1.0',
@@ -252,36 +253,36 @@ trait QuickBlox{
                 //curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
 
                 $result = curl_exec($ch);
-                
+
                 curl_close($ch);
                 $result = json_decode($result,true);
-                // echo '<pre>'; print_r($result); die;             
+                // echo '<pre>'; print_r($result); die;
 
                 if(isset($result['user'])) {
-                   
+
                     return array(
                         'status' => true,
                         'message' => 'deleted successfully'
-                        // 'quickblox_id' => $result['user']['id']             
+                        // 'quickblox_id' => $result['user']['id']
                     );
                 } else{
                     return array(
                         'status' => false,
                         'message' => $result
                     );
-                } 
+                }
 
             } else{
                 return array(
                     'status' => false,
-                    'message' => 'generate session token err',             
+                    'message' => 'generate session token err',
                 );
             }
-        } else{ 
+        } else{
             return array(
                 'status' => false,
                 'message' => 'user not found'
-            );            
+            );
         }
     }
 
@@ -311,7 +312,7 @@ trait QuickBlox{
 
         $built_query        = urldecode(http_build_query($body));
         $signature          = hash_hmac('sha1', $built_query , $authSecret);
-        $body['signature']  = $signature; 
+        $body['signature']  = $signature;
         $post_body          = http_build_query($body);
 
         $url = 'https://api.quickblox.com/session.json';
@@ -347,8 +348,8 @@ trait QuickBlox{
                 'status' => false,
                 'message'  => $result
             );
-        } 
+        }
     }
 
- 
+
 }

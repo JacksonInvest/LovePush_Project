@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\updatePlanDetails::class
+        Commands\PlanDetails::class,
+        Commands\AdPostDelete::class
     ];
 
     /**
@@ -24,8 +25,12 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('make:planDetails')
-                ->daily();
+        // $schedule->command('make:planDetails')
+        //         ->daily();
+
+        $schedule->command('addPostDelete:cron')
+                ->hourly();
+
     }
 
     /**

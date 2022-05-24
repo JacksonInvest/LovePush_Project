@@ -70,6 +70,7 @@ import javax.inject.Named;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
 
 
@@ -518,7 +519,8 @@ public class LoginRegisterProfilePresenter extends BasePresenter<LoginMvp> imple
             headerMap = appUtils.getApiHeaders(context);
 
 
-            Call<GetProfile> call = apiInterface.apiCreateProfileWithpuImage(headerMap,
+            Call<GetProfile> call = apiInterface.apiCreateProfileWithpuImage(
+                    headerMap,
                     req.name,
                     req.love_push_intention,
                     req.relationship,
@@ -534,7 +536,8 @@ public class LoginRegisterProfilePresenter extends BasePresenter<LoginMvp> imple
                     req.user_id,
                     req.eyecolor,
                     req.age,
-                    req.physique);
+                    req.physique
+            );
             call.enqueue(new RestProcess<>(API_GLOBALS.API_NAME.createProfile, this, context, true));
 
         } else {
@@ -1000,6 +1003,8 @@ public class LoginRegisterProfilePresenter extends BasePresenter<LoginMvp> imple
 
     }
 
+
+
     public void hitChatAccept_RejectRequest(String connect_id, String status) {
         if (appUtils.isInternetConnection(context)) {
             HashMap<String, String> headerMap = new HashMap<>();
@@ -1260,6 +1265,36 @@ public class LoginRegisterProfilePresenter extends BasePresenter<LoginMvp> imple
         }
 
     }
+
+
+
+    public void hit_unmatch_user( String receiver_user_id,ResponseListner listner) {
+
+
+        if (appUtils.isInternetConnection(context)) {
+            HashMap<String, String> headerMap = new HashMap<>();
+            headerMap = appUtils.getApiHeaders(context);
+
+        Call<unmatchUserResponse> call = apiInterface.hitUnMatchUser(headerMap, receiver_user_id);
+
+
+        call.enqueue(new Callback<unmatchUserResponse>() {
+            @Override
+            public void onResponse(Call<unmatchUserResponse> call, Response<unmatchUserResponse> response) {
+                listner.onComplete(response);
+            }
+
+            @Override
+            public void onFailure(Call<unmatchUserResponse> call, Throwable t) {
+                listner.onError(t.getMessage());
+            }
+        });
+        } else {
+            appUtils.showToast(context.getString(R.string.internet_not_available));
+        }
+
+    }
+
 
     public void hitSupport(String name, String subject, String message) {
 

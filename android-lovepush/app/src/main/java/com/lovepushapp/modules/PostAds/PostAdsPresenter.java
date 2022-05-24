@@ -3,7 +3,6 @@ package com.lovepushapp.modules.PostAds;
 import android.app.Activity;
 import android.util.Log;
 
-import com.google.gson.Gson;
 import com.lovepushapp.R;
 import com.lovepushapp.core.MyApplication;
 import com.lovepushapp.core.utils.API_GLOBALS;
@@ -34,8 +33,8 @@ import javax.inject.Named;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
 
 
@@ -128,6 +127,51 @@ public class PostAdsPresenter extends BasePresenter<PostAdsMvp> implements RestC
     public void onTimeOut(Call call, Throwable t, String serviceMode) {
         Log.d("postAdsPresenter", "onTimedOut: ");
         appUtils.showToast(context.getString(R.string.api_time_out));
+    }
+    public void hitAddPostAds(PostAddRequest req, String imagePath , ResponseListner listner) {
+//        Log.e("hitAddPostAds", new Gson().toJson(req));
+        if (appUtils.isInternetConnection(context)) {
+            HashMap<String, String> headerMap = new HashMap<>();
+            headerMap = appUtils.getApiHeaders(context);
+
+           /* File file = new File(imagePath);
+            RequestBody requestFile = appUtils.toRequestBodyForImage(file);
+            MultipartBody.Part body = MultipartBody.Part.createFormData("image", "image.png", requestFile);
+*/
+            MultipartBody.Part body = null;
+
+            if (!imagePath.equals("")) {
+                File file = new File(imagePath);
+                RequestBody requestFile = appUtils.toRequestBodyForImage(file);
+                body = MultipartBody.Part.createFormData("image", "image.png", requestFile);
+            }
+
+
+            Map<String, RequestBody> params = new HashMap<>();
+            params.put("title", appUtils.toRequestBody(req.title));
+            params.put("description", appUtils.toRequestBody(req.description));
+            params.put("post_type", appUtils.toRequestBody(req.post_type));
+            params.put("location", appUtils.toRequestBody(req.location));
+            params.put("latitude", appUtils.toRequestBody(req.latitude));
+            params.put("longitude", appUtils.toRequestBody(req.longitude));
+            params.put("is_post_anonymously", appUtils.toRequestBody(req.is_post_anonymously));
+            params.put("radius", appUtils.toRequestBody(req.radius));
+
+            apiInterface.apiAddPostAds(headerMap, body, params).enqueue(new Callback<PostAdsResponse>() {
+                @Override
+                public void onResponse(Call<PostAdsResponse> call, Response<PostAdsResponse> response) {
+                    listner.onComplete(response);
+                }
+
+                @Override
+                public void onFailure(Call<PostAdsResponse> call, Throwable t) {
+                    listner.onError(t.getMessage());
+                }
+            });
+
+        } else {
+            appUtils.showToast(context.getString(R.string.internet_not_available));
+        }
     }
 
 
@@ -347,13 +391,39 @@ public class PostAdsPresenter extends BasePresenter<PostAdsMvp> implements RestC
         }
     }
 
-    public void reportImage(Integer image_id,String type, ResponseListner listner) {
+
+    public void sendChatReqeuest(String toUserId, ResponseListner listner) {
+
+        if (appUtils.isInternetConnection(context)) {
+            HashMap<String, String> headerMap;
+            headerMap = appUtils.getApiHeaders(context);
+            String userId = (String) sharedStorage.getSharedData(GlobalsVariables.STORAGE.STORAGE_KEYS.UserId, GlobalsVariables.STORAGE.TYPE_STRING);
+
+            apiInterface.apiChatRequest(toUserId, headerMap, userId).enqueue(new BaseCallBack() {
+                @Override
+                public void onFailure(Call call, Throwable t) {
+                    super.onFailure(call, t);
+                    listner.onError(t.getMessage());
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) {
+                    super.onResponse(call, response);
+                    listner.onComplete(response);
+                }
+            });
+        } else {
+            appUtils.showToast(context.getString(R.string.internet_not_available));
+        }
+    }
+
+    public void reportImage(Integer image_id, String type, ResponseListner listner) {
         if (appUtils.isInternetConnection(context)) {
             HashMap<String, String> headerMap;
             headerMap = appUtils.getApiHeaders(context);
             //String userId = (String) sharedStorage.getSharedData(GlobalsVariables.STORAGE.STORAGE_KEYS.UserId, GlobalsVariables.STORAGE.TYPE_STRING);
 
-            Call<CommonResponse> call = apiInterface.reportImage(headerMap, image_id,type);
+            Call<CommonResponse> call = apiInterface.reportImage(headerMap, image_id, type);
             call.enqueue(new BaseCallBack() {
                 @Override
                 public void onFailure(Call call, Throwable t) {

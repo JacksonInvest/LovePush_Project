@@ -4,13 +4,13 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.widget.AppCompatEditText;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+
+import androidx.appcompat.widget.AppCompatEditText;
 
 import com.lovepushapp.R;
 import com.lovepushapp.core.BaseActivitySocial;
@@ -28,11 +28,11 @@ import com.lovepushapp.model.response.Profile_Model.GetProfile;
 import com.lovepushapp.model.response.Social_login_model.SocialLoginModel;
 import com.lovepushapp.modules.Login.LoginMvp;
 import com.lovepushapp.modules.Login.LoginRegisterProfilePresenter;
-import com.lovepushapp.videoTestJava.services.LoginService;
-import com.lovepushapp.videoTestJava.util.QBResRequestExecutor;
 import com.lovepushapp.quickBloxTest.utils.SharedPrefsHelper;
 import com.lovepushapp.quickBloxTest.utils.SubscribeToNotification;
 import com.lovepushapp.quickBloxTest.utils.ToastUtils;
+import com.lovepushapp.videoTestJava.services.LoginService;
+import com.lovepushapp.videoTestJava.util.QBResRequestExecutor;
 import com.quickblox.core.QBEntityCallback;
 import com.quickblox.core.QBEntityCallbackImpl;
 import com.quickblox.core.exception.QBResponseException;
@@ -287,7 +287,6 @@ public class LoginActivity extends BaseActivitySocial implements LoginMvp {
 
 
                 Log.e("SUBSCRIBE_NOTIFICATION","TRUE");
-
 
 
                 progressDialog.dismiss();

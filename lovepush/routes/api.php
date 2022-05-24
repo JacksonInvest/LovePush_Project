@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,7 +71,7 @@ Route::group(['middleware' => ['auth:api']], function () {
 	Route::post('/update-profile', 'api\ProfileController@updateProfile');
 	Route::post('/profile-images/add', 'api\ProfileController@profileImagesAdd');
 	Route::post('/profile-image/delete', 'api\ProfileController@deleteProfileImage');
-	
+	Route::post('/set_profile_image', 'api\ProfileController@set_profile_image');
 	Route::post('/getRecommededProfile', 'api\TestController@getRecommededProfile');
 	Route::post('/deleteUserTestRecord', 'api\TestController@deleteUserTestRecord');
 

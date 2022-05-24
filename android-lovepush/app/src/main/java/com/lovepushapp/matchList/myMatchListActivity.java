@@ -254,6 +254,10 @@ public class myMatchListActivity  extends BaseActivity implements LoginMvp {
 
                 }
 
+                if (type == 3){
+                    unmatch(list.get(position).getId());
+                }
+
             });
             recyclerView.setAdapter(adap);
 
@@ -315,6 +319,45 @@ public class myMatchListActivity  extends BaseActivity implements LoginMvp {
                 .show();
     }
 
+
+
+    private void unmatch(String matchId) {
+        new AlertDialog.Builder(context)
+                .setTitle("Love Push")
+                .setMessage("Are you sure, you want to un-match this person?")
+
+                .setPositiveButton(android.R.string.yes, (dialog, which) -> {
+
+                    AlertDialogs dialogs=new AlertDialogs(myMatchListActivity.this);
+                    dialogs.show();
+                    loginRegisterProfilePresenter.hit_unmatch_user( matchId, new ResponseListner() {
+                        @Override
+                        public <T> void onComplete(Response<T> response) {
+
+                            dialogs.dismiss();
+                            if (response.isSuccessful())
+                            {
+                                noDataFoundTV.setVisibility(View.GONE);
+                                current_page = 1;
+                                dataList.clear();
+                                getMatches();
+                            }
+                        }
+
+                        @Override
+                        public Void onError(String message) {
+                            dialogs.dismiss();
+                            Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                            return null;
+                        }
+                    });
+
+                })
+                .setNegativeButton(android.R.string.no, null)
+                .show();
+    }
+
+
     @SuppressLint("WrongConstant")
     private void setLoveAdapter() {
         if (loveMatchList.size() == 0){
@@ -327,7 +370,9 @@ public class myMatchListActivity  extends BaseActivity implements LoginMvp {
         try {
             recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
             loveMatchAdapter adap = new loveMatchAdapter(loveMatchList,context, (view, position, type, o) -> {
+
                 List<UserChatList.Data> list = (List<UserChatList.Data>) o;
+
                 String my_user_id = String.valueOf(SharedStorage.getSharedData(GlobalsVariables.STORAGE.STORAGE_KEYS.UserId, GlobalsVariables.STORAGE.TYPE_STRING));
                 String receiver_user_id = "";
                 if (my_user_id.equalsIgnoreCase(list.get(position).getUser_info2().getId())) {
@@ -344,7 +389,9 @@ public class myMatchListActivity  extends BaseActivity implements LoginMvp {
 
                 if (type == 2){
                     context.startActivity(new Intent(new Intent(context, ProfileActivity.class)).putExtra("user_id", receiver_user_id).putExtra("from", "explore"));
-
+                }
+                if (type == 3){
+                    unmatch(list.get(position).getId());
                 }
 
             });

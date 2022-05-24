@@ -60,22 +60,22 @@ public class SubscribeToNotification {
         subscription.setRegistrationID(registrationID);
         Log.e("subscribe", "test10");
 
-        QBPushNotifications.createSubscription(subscription).performAsync(new QBEntityCallback<ArrayList<QBSubscription>>() {
+            QBPushNotifications.createSubscription(subscription).performAsync(new QBEntityCallback<ArrayList<QBSubscription>>() {
 
-            @Override
-            public void onSuccess(ArrayList<QBSubscription> subscriptions, Bundle args) {
-                Log.e("subscrib", ">>> Subscription: " + subscriptions.toString());
+                @Override
+                public void onSuccess(ArrayList<QBSubscription> subscriptions, Bundle args) {
+                    Log.e("subscrib", ">>> Subscription: " + subscriptions.toString());
 
 
-                Log.e("SUBSCRIBE","SUCCESS");
-            }
+                    Log.e("SUBSCRIBE","SUCCESS");
+                }
 
-            @Override
-            public void onError(QBResponseException errors) {
-                Log.e("SUBSCRIBE","ERROR"+errors);
-                handleErrors(errors);
-            }
-        });
+                @Override
+                public void onError(QBResponseException errors) {
+                    Log.e("SUBSCRIBE","ERROR"+errors);
+                    handleErrors(errors);
+                }
+            });
     }
 
     public void handleErrors(QBResponseException exc) {

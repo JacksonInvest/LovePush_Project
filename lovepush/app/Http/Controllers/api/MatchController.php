@@ -18,7 +18,7 @@ use App\ReportChat;
 use App\Traits\PushNotification;
 
 class MatchController extends Controller
-{   
+{
     use PushNotification;
 
     public function myMatches(Request $request) {
@@ -32,7 +32,7 @@ class MatchController extends Controller
                 'status' => false,
                 'message'=>$validator->errors()->first()
             ],400);
-        } 
+        }
 
         $my_user_id = Auth::id();
 
@@ -74,7 +74,7 @@ class MatchController extends Controller
                             //->whereNotIn('user_id', $report_users)
                             //->whereNotIn('like_by_me', $report_users)
                             // ->doesntHave('qbChatDialog')
-                            // ->whereDoesntHave('qbChatDialog', function ($q) { 
+                            // ->whereDoesntHave('qbChatDialog', function ($q) {
                             //     })
 
                             // ->whereNotIn('id', $qb_chat_dialogIds)
@@ -83,12 +83,12 @@ class MatchController extends Controller
         $isDeleted = 0;
         $deletedBy = 0;
         $blockedBy = 0;
-        
+
 
         foreach($m_without_dialog as $match){
             //Custom
-            
-          
+
+
             //checking isDeleted status
             if($my_user_id != $match->user_id){
                 $isDeleted = $chat_status = ChatStatus::where(['match_id'=>$match->id])->where(['user_id'=>$match->user_id])->value('isDeleted');
@@ -142,7 +142,7 @@ class MatchController extends Controller
             $match['blockedBy'] = (int)$blockedBy;
         }
 
-        
+
        /* $m_with_dialog  = Match::
                             // orWhere('user_id', $request->user_id)
                             // ->orWhere('like_by_me', $request->user_id)
@@ -165,7 +165,7 @@ class MatchController extends Controller
                             //     // $query->where('from_user_id','!=',$user_id);
                             // })
                             ->get();*/
-                            // ->paginate(15);     
+                            // ->paginate(15);
 
         $connect_count = ConnectRequest::where('to_user_id',$my_user_id)->where('status','S')->count();
         $chat_count = ChatRequest::where('to_user_id',$my_user_id)->where('status','S')->count();
@@ -180,7 +180,7 @@ class MatchController extends Controller
             }
         }
         $request_count = $connect_count + $chat_count + $like_count;
-        
+
         if($m_without_dialog->count()){
             foreach ($m_without_dialog as $k => $v) {
                 if(!count($v->userInfo1) || !count($v->userInfo2)){
@@ -188,8 +188,8 @@ class MatchController extends Controller
                 }
             }
             $m_without_dialog = array_values($m_without_dialog->toArray());
-        }                 
-        
+        }
+
 
         return response()->json([
             'status'  => true,
@@ -201,7 +201,7 @@ class MatchController extends Controller
                 //     'match_with_dialogId'    => $m_with_dialog,
                 // ],
         ],200);
-    } 
+    }
 
     public function chatList(Request $request) {
 
@@ -214,7 +214,7 @@ class MatchController extends Controller
                 'status' => false,
                 'message'=>$validator->errors()->first()
             ],400);
-        } 
+        }
 
         $user_id = $request->user_id;
 
@@ -233,14 +233,14 @@ class MatchController extends Controller
                             ->with('userInfo2')
                             ->has('userInfo2')
                             ->with('qbChatDialog')
-                           
+
                             ->get();
         return response()->json([
             'status'  => true,
             'message' => 'Match List.',
             'data'    => $m_without_dialog,
         ],200);
-    } 
+    }
 
 
     //save qb chat dialog ids
@@ -330,7 +330,7 @@ class MatchController extends Controller
         } else {
             return response()->json([
                 'status' => false,
-                'message'=> trans('api.something_went_wrong'), 
+                'message'=> trans('api.something_went_wrong'),
             ],400);
         }
     }
@@ -347,7 +347,7 @@ class MatchController extends Controller
                 'status'  => false,
                 'message' => $validator->errors()->first()
             ],400);
-        } 
+        }
 
 
         $update = QbChatDialogId::where('id', $request->id)->update(['chat_status' => $request->status]);
@@ -361,7 +361,7 @@ class MatchController extends Controller
         } else {
             return response()->json([
                 'status' => false,
-                'message'=> trans('api.something_went_wrong'), 
+                'message'=> trans('api.something_went_wrong'),
             ],400);
         }
     }
@@ -378,7 +378,7 @@ class MatchController extends Controller
                 'status'  => false,
                 'message' => $validator->errors()->first()
             ],400);
-        } 
+        }
 
         $match = Match::where('id', $request->match_id)->first();
 
@@ -404,7 +404,7 @@ class MatchController extends Controller
             Match::where('id', $request->match_id)->delete();
             // echo "<pre>"; print_r($date_req);
 
-            //Update in User 
+            //Update in User
 
         } else if($match->event_type == 'C') { //Connect request
 
@@ -437,8 +437,8 @@ class MatchController extends Controller
                                     })
                                     // ->get();
                                     ->delete();
-                
-            ////Update in Users chat string                                
+
+            ////Update in Users chat string
             ChatRequest::updateChatRequestString($from_user_id, $to_user_id);
 
             Match::where('id', $request->match_id)->delete();
@@ -467,7 +467,7 @@ class MatchController extends Controller
                 'status'  => false,
                 'message' => $validator->errors()->first()
             ],400);
-        } 
+        }
 
         $match = Match::where('id', $request->match_id)->first();
 
@@ -511,7 +511,7 @@ class MatchController extends Controller
             Match::where('id', $request->match_id)->delete();
             // echo "<pre>"; print_r($date_req);
 
-            //Update in User 
+            //Update in User
 
         } else if($match->event_type == 'C') { //Connect request
 
@@ -544,8 +544,8 @@ class MatchController extends Controller
                                     })
                                     // ->get();
                                     ->delete();
-                
-            ////Update in Users chat string                                
+
+            ////Update in Users chat string
             //ChatRequest::updateChatRequestString($from_user_id, $to_user_id);
 
             Match::where('id', $request->match_id)->delete();

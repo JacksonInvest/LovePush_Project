@@ -1,5 +1,7 @@
 package com.lovepushapp.activities;
 
+import static com.lovepushapp.core.utils.API_GLOBALS.BASE_URL_FOR_PREVIEW_ACTIVITY;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -28,7 +30,7 @@ public class userTipsPdfFullPreview extends BaseActivity {
     protected FrameLayout webViewPlaceholder;
     protected WebView webView;
 
-    String pdfLink = "https://www.love-push.com/UserTips.pdf";
+    String pdfLink = BASE_URL_FOR_PREVIEW_ACTIVITY +"UserTips.pdf";
     private AlertDialogs progressDialog;
 
     @BindView(R.id.screenTitleTV)
@@ -88,7 +90,7 @@ public class userTipsPdfFullPreview extends BaseActivity {
             webView.setWebChromeClient(new WebChromeClient());
 
             // Load a page
-            webView.loadUrl("https://docs.google.com/viewerng/viewer?url="+pdfLink);
+            webView.loadUrl("https://docs.google.com/viewerng/viewer?embedded=true&url="+pdfLink);
         }
 
         // Attach the WebView to its placeholder

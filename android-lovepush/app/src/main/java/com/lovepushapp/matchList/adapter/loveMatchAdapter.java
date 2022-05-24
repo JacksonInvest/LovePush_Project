@@ -86,6 +86,7 @@ public class loveMatchAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
 
         holder.textUnblock.setOnClickListener(v -> listener.onItemClick(holder.textUnblock, pos, 1, datalist));
+        holder.textUnmatch.setOnClickListener(v -> listener.onItemClick(holder.textUnblock, pos, 3, datalist));
 
         holder.root_view.setOnClickListener(v -> listener.onItemClick(holder.textUnblock, pos, 2, datalist));
 
@@ -110,7 +111,7 @@ public class loveMatchAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         CircleImageView imageProfile;
 
-        AppCompatTextView nameTV,userName,textUnblock;
+        AppCompatTextView nameTV,userName,textUnblock,textUnmatch;
 
         RelativeLayout root_view;
 
@@ -120,6 +121,7 @@ public class loveMatchAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             userName =  itemView.findViewById(R.id.userName);
             imageProfile =  itemView.findViewById(R.id.imageProfile);
             textUnblock =  itemView.findViewById(R.id.textUnblock);
+            textUnmatch =  itemView.findViewById(R.id.textUnmatch);
             root_view = itemView.findViewById(R.id.root_view);
         }
 

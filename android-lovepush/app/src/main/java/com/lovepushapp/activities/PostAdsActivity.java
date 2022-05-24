@@ -23,20 +23,20 @@ import androidx.appcompat.widget.AppCompatTextView;
 import com.esafirm.imagepicker.features.ImagePicker;
 import com.esafirm.imagepicker.features.ReturnMode;
 import com.esafirm.imagepicker.model.Image;
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
-import com.google.android.gms.common.GooglePlayServicesRepairableException;
-import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.libraries.places.api.model.Place;
 import com.google.gson.Gson;
 import com.lovepushapp.R;
 import com.lovepushapp.core.BaseActivity;
 import com.lovepushapp.core.utils.API_GLOBALS;
+import com.lovepushapp.core.utils.AlertDialogs;
 import com.lovepushapp.core.utils.GlobalsVariables;
 import com.lovepushapp.model.local.PostAddRequest;
 import com.lovepushapp.model.response.PostAdsResponse;
 import com.lovepushapp.modules.PostAds.PostAdsMvp;
 import com.lovepushapp.modules.PostAds.PostAdsPresenter;
+import com.lovepushapp.network.intracter.ResponseListner;
+import com.lovepushapp.utils.PlacesUtils;
 import com.nabinbhandari.android.permissions.PermissionHandler;
 import com.nabinbhandari.android.permissions.Permissions;
 import com.soundcloud.android.crop.Crop;
@@ -55,6 +55,7 @@ import java.util.Random;
 import butterknife.BindView;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
+import retrofit2.Response;
 
 public class PostAdsActivity extends BaseActivity implements PostAdsMvp {
 
@@ -88,6 +89,7 @@ public class PostAdsActivity extends BaseActivity implements PostAdsMvp {
     private String latitude, longitude, PostType = "", imagePath = "";
     private boolean isAnnony = false;
     private Activity context = PostAdsActivity.this;
+    private AlertDialogs progressDialog;
 
     public static Intent createIntent(Context context) {
         return new Intent(context, PostAdsActivity.class);
@@ -113,6 +115,7 @@ public class PostAdsActivity extends BaseActivity implements PostAdsMvp {
         super.onCreate(savedInstanceState);
         adsPresenter = new PostAdsPresenter(this);
         adsPresenter.attachView(this);
+        progressDialog = new AlertDialogs(context);
 
         seekBar.setProgress(0);
 
@@ -179,6 +182,14 @@ public class PostAdsActivity extends BaseActivity implements PostAdsMvp {
                 manageAnonyType();
                 break;
             case R.id.postTV:
+
+/*//                For Simulating the location
+                locationTV.setText("New York");
+                latitude = "28.6219";
+                longitude = "77.0878";
+//             End of the  For Simulating the location*/
+
+
                 if (validation()) {
                     PostAddRequest request = new PostAddRequest();
                     request.title = titleTV.getText().toString().trim();
@@ -197,7 +208,31 @@ public class PostAdsActivity extends BaseActivity implements PostAdsMvp {
                     request.radius = String.valueOf(seekBar.getProgress());
                     request.image = imagePath;
                     /*hit add post api*/
-                    adsPresenter.hitAddPostAds(request, imagePath);
+                    progressDialog.show();
+
+                    adsPresenter.hitAddPostAds(request, imagePath, new ResponseListner() {
+                        @Override
+                        public <T> void onComplete(Response<T> response) {
+
+                            progressDialog.dismiss();
+
+                            if (response.isSuccessful()) {
+                                PostAdsResponse postAdsResponse = (PostAdsResponse) response.body();
+                                appUtils.showToast(postAdsResponse.getMessage(), Toast.LENGTH_LONG);
+                                goback();
+
+                            } else {
+
+                                appUtils.showToast(appUtils.parseErrorMessage(response));
+                            }
+                        }
+
+                        @Override
+                        public Void onError(String message) {
+                            progressDialog.dismiss();
+                            return null;
+                        }
+                    });
                 }
 
                 break;
@@ -260,13 +295,8 @@ public class PostAdsActivity extends BaseActivity implements PostAdsMvp {
 
     private void getManualLocation() {
         try {
-            PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
-            startActivityForResult(builder.build(this), GlobalsVariables.REQUEST_CODE.PLACE_PICKER_REQUEST);
-
-
-        } catch (GooglePlayServicesRepairableException e) {
-            e.printStackTrace();
-        } catch (GooglePlayServicesNotAvailableException e) {
+            startActivityForResult(PlacesUtils.getPlacesIntent(this), GlobalsVariables.REQUEST_CODE.PLACE_PICKER_REQUEST);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -306,20 +336,13 @@ public class PostAdsActivity extends BaseActivity implements PostAdsMvp {
         try {
             if (requestCode == GlobalsVariables.REQUEST_CODE.PLACE_PICKER_REQUEST) {
                 if (resultCode == RESULT_OK) {
-                    Place place = PlacePicker.getPlace(data, this);
-                    String toastMsg = String.format("Place: %s", place.getAddress());
-/*                    locationTV.setText(place.getAddress());*/
-
-                    Log.d("onActivityResult", "onActivityResult: Places "+place.getAddress());
+                    Place place = PlacesUtils.parsePlacesData(data);
+                    locationTV.setText(place.getAddress());
 
                     LatLng latlng = place.getLatLng();
                     latitude = latlng.latitude + "";
                     longitude = latlng.longitude + "";
-                    setAddress(latlng.latitude,latlng.longitude);
-                    Log.d("onActivityResult", "lat "+latitude+" : long :  "+longitude);
-
-
-
+                    setAddress(latlng.latitude, latlng.longitude);
                 }
 
             }
@@ -382,12 +405,13 @@ public class PostAdsActivity extends BaseActivity implements PostAdsMvp {
 
         if (test instanceof PostAdsResponse) {
             PostAdsResponse response = (PostAdsResponse) test;
-            appUtils.showToast(response.getMessage());
+
+            appUtils.showToast(response.getMessage(), Toast.LENGTH_LONG);
             if (response.getStatus() == API_GLOBALS.RESPONSE_CODE.SUCCESS) {
                 goback();
-            }else{
+            } else {
                 Toast.makeText(context, "Your Ads Quota is Over", Toast.LENGTH_SHORT).show();
-                Log.d("onApiResponse", "onApiResponse: onApiResponse"+response.getMessage()+"getStatus "+response.getStatus());
+                Log.d("onApiResponse", "onApiResponse: onApiResponse" + response.getMessage() + "getStatus " + response.getStatus());
             }
         }else {
           //  Toast.makeText(context, "Your Ads Quota is Over ",Toast.LENGTH_SHORT).show();

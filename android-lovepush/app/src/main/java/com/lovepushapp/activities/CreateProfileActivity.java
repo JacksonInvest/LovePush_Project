@@ -933,6 +933,7 @@ public class CreateProfileActivity extends BaseActivity implements LoginMvp {
         boolean check2=false;
         boolean check3=false;
         boolean check4=false;
+        boolean check5=false;
         boolean[] check=new boolean[5];
         String love_int=lovePushET.getText().toString().trim();
         String int1 = "",int2="",int3="",int4="";
@@ -980,6 +981,14 @@ public class CreateProfileActivity extends BaseActivity implements LoginMvp {
 //                            int1 = parts[0];
                     ar[i] = parts[i];
                     check2=true;
+                    Log.e("Fri","TRUE");
+
+                }
+
+                if (parts[i].equalsIgnoreCase(" Dating")||parts[i].equalsIgnoreCase("Dating")) {
+//                            int1 = parts[0];
+                    ar[i] = parts[i];
+                    check5=true;
                     Log.e("Fri","TRUE");
 
                 }
@@ -1032,12 +1041,12 @@ public class CreateProfileActivity extends BaseActivity implements LoginMvp {
         {
             Log.e("EXCEPTION", String.valueOf(e));
         }
-        openIntention(check1,check2,check3,check4);
+        openIntention(check1,check2,check3,check4,check5);
 
     }
 
-    private void openIntention(boolean check1, boolean check2, boolean check3, boolean check4) {
-        String[] item = {"Relationship", "Friendship", "Daily Activities", "No Expectation"};
+    private void openIntention(boolean check1, boolean check2, boolean check3, boolean check4,boolean check5) {
+        String[] item = {"Relationship", "Friendship", "Daily Activities", "No Expectation", "Dating"};
         final List<String> itemList = Arrays.asList(item);
 
 
@@ -1049,7 +1058,7 @@ public class CreateProfileActivity extends BaseActivity implements LoginMvp {
 
 // add a checkbox list
         String[] animals = {"Relationship", "Friendship", "Daily Activities", "No Expectation"};
-        boolean[] checkedItems = {check1, check2, check3, check4};
+        boolean[] checkedItems = {check1, check2, check3, check4, check5};
         builder.setMultiChoiceItems(item, checkedItems, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
@@ -1094,7 +1103,7 @@ public class CreateProfileActivity extends BaseActivity implements LoginMvp {
                 StringBuilder stringBuilder=new StringBuilder();
                 // user clicked OK
                 int i=0;
-                boolean[] in = new boolean[4];
+                boolean[] in = new boolean[5];
                 for (Map.Entry<Integer, Boolean> entry : hashMap.entrySet()) {
                     Integer key = entry.getKey();
                     Boolean value = entry.getValue();

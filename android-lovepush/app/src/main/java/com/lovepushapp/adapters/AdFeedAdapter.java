@@ -72,7 +72,7 @@ public class AdFeedAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         if (dataList.get(pos).getMatchId()==0)
             {
-                holder.cardChat.setVisibility(View.GONE);
+                //holder.cardChat.setVisibility(View.GONE);
                 holder.cardLoveRechatIVquest.setVisibility(View.VISIBLE);
                 holder.cardConnectRequest.setVisibility(View.VISIBLE);
             }else

@@ -1,5 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,7 +80,7 @@ Route::get('/privacy-policy',function(){
 // 	    Route::get('personality-question-list', 'AdminController@personalityQuestionList')->name('personality-question-list');
 // 	    Route::post('question-status-change', 'AdminController@questionStatusChange');
 // 	    Route::match(['get', 'post'], 'subscription-plan', 'AdminController@subscriptionPlan')->name('subscription-plan');
-	    
+
 // 	});
 // });
 
@@ -140,7 +145,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'verifyAdminAuth'], function(){
 	Route::get('/plan_edit/{id}', 'backEnd\PlanManagement@plan_edit');
 	Route::post('/plan_update', 'backEnd\PlanManagement@plan_update');
 	Route::get('/plan_subscriptions', 'backEnd\PlanManagement@plan_subscriptions');
-	
+
 	// //CMS Pages
 	// Route::get('/pages', 'backEnd\CmsPageController@index');
 	// Route::match(['get','post'],'/page/{page_id}', 'backEnd\CmsPageController@edit');
@@ -151,7 +156,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'verifyAdminAuth'], function(){
 	Route::match(['get','post'],'/faq/edit/{faq_id}', 'backEnd\FaqController@edit');
 	Route::match(['get','post'],'/faq/delete/{faq_id}', 'backEnd\FaqController@delete');
 
-	
+
 });
 
 Route::get('community_guidelines','backEnd\AdminController@community_guidelines');
@@ -160,22 +165,19 @@ Route::get('legacy','backEnd\AdminController@legacy');
 Route::get('legacy_ios','backEnd\AdminController@legacy_ios');
 
 //CONSTANTS
-define('PROJECT_NAME','Love Push');
-define("COMMON_ERROR", "Some error occured, Please try again after sometime.");
-define('AUTH_ERR','Please login to access this page');
-define('SYS_IMG_PATH','/images/system/');
-define('ADMIN_IMG_PATH','/images/admin/');
-define('USER_PROFILE_IMG_PATH','/profile/');
+define('PROJECT_NAME', env('PROJECT_NAME', 'Love Push') );
+define("COMMON_ERROR", env('COMMON_ERROR',  "Some error occurred, Please try again after sometime.") );
+define('AUTH_ERR', env('AUTH_ERR', 'Please login to access this page') );
+define('SYS_IMG_PATH', env('SYS_IMG_PATH', '/images/system/') );
+define('POST_ADS_PATH', env('POST_ADS_PATH', '/images/postads/') );
+define('POST_PATH', env('POST_PATH', '/images/post/') );
+define('ADMIN_IMG_PATH', env('ADMIN_IMG_PATH', '/images/admin/') );
+define('USER_PROFILE_IMG_PATH', env('USER_PROFILE_IMG_PATH', '/profile/') );
 
-// define('USER_PROFILE_IMG_PATH','public/images/user_profile/');
+// QUICKBLOX
+define('QUICKBLOX_APP_ID', env('QUICKBLOX_APP_ID','96034') );
+define('QUICKBLOX_AUTH_KEY', env('QUICKBLOX_AUTH_KEY','9pnRjgpwMkpAxx8') );
+define('QUICKBLOX_AUTH_SECRET', env('QUICKBLOX_AUTH_SECRET','qJzACsuW2gJtabV') );
 
-
-
-define('QUICKBLOX_APP_ID',env('QUICKBLOX_APP_ID','79613'));
-define('QUICKBLOX_AUTH_KEY',env('QUICKBLOX_AUTH_KEY','85QhQ9yuXevuA3S'));
-define('QUICKBLOX_AUTH_SECRET',env('QUICKBLOX_AUTH_SECRET','7yAayFYOVms4usG'));
-
-
-
-//FCM Push notification 
-define('FCM_API_KEY','AIzaSyDcwsW0qKzGxwkwcbjjBITDRH--WCP0BPc');
+//FCM Push notification
+define('FCM_API_KEY', env('FCM_API_KEY', 'AIzaSyDcwsW0qKzGxwkwcbjjBITDRH--WCP0BPc'));

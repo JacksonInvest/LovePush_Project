@@ -45,7 +45,9 @@ public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         CommonViewHolder holder = (CommonViewHolder) aa;
         final int pos = holder.getAdapterPosition();
 
-        holder.messageTV.setText(dataList.get(pos).getNotification_message().getMessage());
+        if(dataList.get(pos).getNotification_message() !=null && dataList.get(pos).getNotification_message().getMessage()!=null){
+            holder.messageTV.setText(dataList.get(pos).getNotification_message().getMessage());
+        }
 
    /*     Glide.with(context).load(dataList.get(pos).getUser_info().getProfile_image()).placeholder(R.drawable.ef_image_placeholder)
                 .diskCacheStrategy(DiskCacheStrategy.NONE).into(holder.imageView);*/

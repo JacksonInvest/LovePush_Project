@@ -10,7 +10,7 @@ class PostAdsController extends Controller
 {
     public function index(Request $request) {
 
-        $postads = PostAds::getPosts();        
+        $postads = PostAds::getPosts();
         // echo "<pre>"; print_r($postads); die;
         return view('backEnd.postads.index', compact('postads'));
     }
@@ -31,19 +31,19 @@ class PostAdsController extends Controller
                 // 'capture_distance'   => 'required|max:4',
                 'image'       => 'nullable|mimes:jpeg,jpg,png'
             ]);
-            
+
             $postad              = new PostAds;
             $postad->user_id     = $request->username;
             $postad->title       = $request->title;
             $postad->description = $request->description;
             $postad->post_type   = $request->post_type;
             if (!file_exists(url('/postads'))) {
-                mkdir(url('/images/postads'), 0777, true);
+                mkdir(url(POST_ADS_PATH), 0777, true);
             }
             if($request->has('image')){
                 $image               = $request->file('image');
                 $input['imagename']  = time().'.'.$image->getClientOriginalExtension();
-                $destinationPath     = public_path('/images/postads');
+                $destinationPath     = public_path(POST_ADS_PATH);
                 $image->move($destinationPath, $input['imagename']);
                 $postad->image       = $input['imagename'];
             }
@@ -62,10 +62,10 @@ class PostAdsController extends Controller
             return view('backEnd.postads.add', ['users'=>$users]);
         }
     }
-    
+
 
     public function delete($post_id) {
-        
+
         $delete = PostAds::where('id', $post_id)->delete();
         if($delete) {
             return redirect('/admin/postads')->with('success','Record deleted successfully.');
@@ -75,7 +75,7 @@ class PostAdsController extends Controller
     }
 
     public function edit(Request $request,$post_id) {
-		
+
 		if($request->isMethod('post')){
 
             $request->validate([
@@ -86,18 +86,18 @@ class PostAdsController extends Controller
                 // 'capture_distance'   => 'required|max:4',
                 'image'     => 'nullable|mimes:jpeg,jpg,png'
             ]);
-            
+
             $postad              = PostAds::find($post_id);
             $postad->title       = $request->title;
             $postad->description = $request->description;
             $postad->post_type   = $request->post_type;
             if (!file_exists(url('/postads'))) {
-                mkdir(url('/images/postads'), 0777, true);
+                mkdir(url(POST_ADS_PATH), 0777, true);
             }
             if($request->has('image')){
                 $image               = $request->file('image');
                 $input['imagename']  = time().'.'.$image->getClientOriginalExtension();
-                $destinationPath     = public_path('/images/postads');
+                $destinationPath     = public_path(POST_ADS_PATH);
                 $image->move($destinationPath, $input['imagename']);
                 $postad->image       = $input['imagename'];
             }
@@ -112,13 +112,13 @@ class PostAdsController extends Controller
                 return redirect()->back()->with('error',COMMON_ERR);
 	        }
 	    } else{
-	        $postad = PostAds::getPostById($post_id);        
+	        $postad = PostAds::getPostById($post_id);
         	return view('backEnd.postads.form', compact('postad'));
 	    }
     }
 
     public function approve($post_id) {
-        
+
         $approve = PostAds::where('id', $post_id)->update(['approval'=>'1']);
         if($approve) {
             return redirect('/admin/postads')->with('success','Record approved successfully.');
@@ -128,7 +128,7 @@ class PostAdsController extends Controller
     }
 
     public function disapprove($post_id) {
-        
+
         $disapprove = PostAds::where('id', $post_id)->update(['approval'=>'0']);
         if($disapprove) {
             return redirect('/admin/postads')->with('success','Record rejected successfully.');

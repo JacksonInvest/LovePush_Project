@@ -167,9 +167,10 @@ li{
   /*  background: url("../../assets/img/bnr-bg.jpg") 0 0 no-repeat;*/
   position:relative;
     background-size:cover;
-    padding: 90px 0; 
+    padding: 185px 0; 
 	overflow :hidden;
 	max-height:700px;
+
 }
 h2.coming {
     font-size: 80px;
@@ -193,10 +194,25 @@ select.selectpicker {
     z-index: -999;
 }
 .registration-form {
-    display: inline-block;
-    background: #fff;
-    padding: 38px 20px;
+      display: inline-block;
+    background: rgba(255,255,255,.8);
+    padding: 35px;
     width: 100%;
+}
+.appstores h2 {
+    font-size: 33px;
+    line-height: 1.3;
+    margin-bottom: 30px;
+}
+.appstores h2 span {
+    display: block;
+    font-size: 22px;
+    padding-top: 15px;
+    font-weight: 500;
+}
+.stores-link a {
+    display: inline-block;
+    margin-right: 5px;
 }
 .registration-form .panel-heading, .registration-form .panel-body{
     padding: 0;
@@ -626,8 +642,22 @@ ul.slick-dots {
   padding-top: 20px;
 }
 
+.site-banner .item {
+    height: 650px;
+}
+
+
+
+
 /* responsive css start here **********/
 
+@media screen and (max-width: 1350px){
+.site-banner .item {
+    height: 550px;
+}
+
+
+}
 @media screen and (max-width: 1199px){
 .navi .navbar li.down-pdf a {
     padding: 9px 19px;
@@ -662,6 +692,13 @@ body{
 #thumbs {
     width: 24.1%;
 }
+.site-banner .item {
+    height: 470px;
+}
+.site-banner {
+    padding: 85px 0;
+}
+
 }
 @media screen and (max-width: 991px){
 h3.panel-title {
@@ -778,6 +815,21 @@ body {
 .navi .navbar li a{
     font-size: 14px;
 }
+
+.stores-link a img {
+    max-width: 134px;
+}
+.appstores h2 {
+    font-size: 26px;
+}
+.site-banner .item {
+    height: 370px;
+}
+.app-screen .screentitle {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 }
 
 @media screen and (max-width: 767px){
@@ -959,10 +1011,22 @@ ul.social-icon {
     font-size: 26px;
 }
 .site-banner {
-    padding: 40px 0;
+    padding: 10px 0;
+    height: auto;
+}
+.registration-form {
+    margin-top: 172px;
 }
 section {
     padding: 40px 0;
+}
+.appstores h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.appstores h2 span {
+    font-size: 15px;
+    padding-top: 0px;
 }
 .screentitle {
     margin-bottom: 0;
@@ -1020,8 +1084,34 @@ h3.panel-title {
 .app-screen  #thumbs .item {
     text-align: center;
 }
+.site-banner .item {
+    height: 180px;
+}
+main.main-content.advisor-page section.feature-advisor {
+    padding: 50px 15px;
+}
+.navi .navbar-collapse {
+    left: -15px;
+    width: calc(100% + 30px);
+}
+.navi .navbar li a:hover, .navi .navbar li.active a {
+    border-bottom: 0px;
 }
 
+
+}
+
+@media screen and (max-width: 375px){
+.stores-link a img {
+    max-width: 104px;
+}
+.site-banner .item {
+    height: 145px;
+}
+.registration-form {
+    margin-top: 142px;
+}
+}
 
 
 
