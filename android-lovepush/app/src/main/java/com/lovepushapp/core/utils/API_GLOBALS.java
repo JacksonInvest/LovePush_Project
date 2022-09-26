@@ -18,10 +18,18 @@ public interface API_GLOBALS {
 
     //quick blox dev id
 
-    String APP_ID = "96034";
-    String AUTH_KEY = "9pnRjgpwMkpAxx8";
-    String AUTH_SECRET = "qJzACsuW2gJtabV";
-    String ACCOUNT_KEY = "8yeD_sCg4G_yscbNZHhc";
+//    String APP_ID = "96034";
+//    String AUTH_KEY = "9pnRjgpwMkpAxx8";
+//    String AUTH_SECRET = "qJzACsuW2gJtabV";
+//    String ACCOUNT_KEY = "8yeD_sCg4G_yscbNZHhc";
+
+    //quickblox updated new account ids (September 2022)
+    String APP_ID = "98105";
+    String AUTH_KEY = "Hhu4KUAgAsn-3UD";
+    String AUTH_SECRET = "TLJbp8Uc5OwHkEL";
+    String ACCOUNT_KEY = "2QWzPchdmeCY7GFd-unj";
+
+
 
 
 
