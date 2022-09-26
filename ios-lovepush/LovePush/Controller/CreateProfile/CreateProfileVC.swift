@@ -43,7 +43,7 @@ class CreateProfileVC: UIViewController, UITextViewDelegate {
     
     //MARK:- Variables
     var pickerView : PickerView!
-    let lovaPushIntentions = ["Relationship","Friendship","Daily Activities", "No Expectation"]
+    let lovaPushIntentions = ["Relationship","Friendship","Daily Activities", "No Expectation", "Dating"]
     let relationshipStatus = ["Single","In Relationship","Married","Recently Separated"]
     let physiques          = ["Plump","Thin","Athletic","Muscular","Normal"]
     let ageList            = ["18","19","20",

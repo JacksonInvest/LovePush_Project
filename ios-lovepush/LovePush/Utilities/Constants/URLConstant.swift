@@ -24,8 +24,8 @@ class URLConstant {
     static let legacy               = "https://www.love-push.com/legacy_ios"
 
     static let communityGuidlines   = "https://www.love-push.com/community_guidelines_ios"
-    static let userTips             = "https://www.love-push.com/UserTips.pdf"
-    static let tipsAndMedia         = "https://www.love-push.com/AffiliateInfo(1).pdf"
+    static let userTips             = "http://lovepush.alcax.com/UserTips.pdf"
+    static let tipsAndMedia         = "http://lovepush.alcax.com/AffiliateInfo_android.pdf"
     
     static let getProfile           = "get-profile"
     static let register             = "register"
